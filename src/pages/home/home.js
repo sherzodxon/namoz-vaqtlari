@@ -30,9 +30,8 @@ const Home = () => {
         const countryValue = countryRef.current.value;
         const cityValue = cityRef.current.value;
         setCity(cityValue)
-        axios.get(`http://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
+        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
     }
-
 
     const {
         data: posts,
