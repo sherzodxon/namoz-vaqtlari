@@ -52,21 +52,21 @@ const Home = () => {
         return(
         <>
             <form id="form" onSubmit={handleSubmitButton} >
-                <input ref={countryRef} type="text" required placeholder="country" />
-                <input ref={cityRef} type="text" required placeholder="city" />
-                <button>Send</button>
+                <input ref={countryRef} type="text" required placeholder="Davlat" />
+                <input ref={cityRef} type="text" required placeholder="Shahar" />
+                <button>Yuborish</button>
             </form>
             <div className="time">
                 <p className="times timezone">Zona: {city}</p>
-                <p className="times-date-georgian" children={time.date.gregorian.date}></p>
+                <p className="times-date-georgian">Vaqt: {time.date.gregorian.date} yil</p>
                 <p className="times-date-hijri">Hijriy: {time.date.hijri.date} yil</p>
-                <ul className="times-list">
+                <ol className="times-list">
                     <li className="times-item">Bomdod: {time.timings.Fajr}, Quyosh: {time.timings.Sunrise}</li>
                     <li className="times-item">Peshin: {time.timings.Dhuhr}</li>
                     <li className="times-item">Asr: {time.timings.Asr}</li>
                     <li className="times-item">Shom: {time.timings.Maghrib}</li>
                     <li className="times-item">Hufton: {time.timings.Isha}</li>
-                </ul>
+                </ol>
             </div>
         </>
 
