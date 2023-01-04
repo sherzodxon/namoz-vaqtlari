@@ -15,23 +15,22 @@ import {
     fakeApi
 } from '../../api/fakeApi'
 import {
-    getFirstApi
+    getFirstApi,
+    getTimeApi
 } from "../../api/api";
 
 const Home = () => {
-    const [city,setCity]=useState("Bekobod")
+    const [city, setCity] = useState("Bekobod")
     const [post, setPost] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+    let timesData = 0;
     let time = 0;
     const countryRef = useRef();
     const cityRef = useRef();
-  
-    function handleSubmitButton(evt) {
-        evt.preventDefault();
-        const countryValue = countryRef.current.value;
-        const cityValue = cityRef.current.value;
-        setCity(cityValue)
-        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
-    }
+    const {
+        data: timeDate,
+        isLoading: timeLoading
+    } = useQuery(['timeDate'], getTimeApi);
 
     const {
         data: posts,
@@ -40,31 +39,54 @@ const Home = () => {
     } = useQuery(['posts'], getFirstApi);
 
     if (!isLoading) {
-        time = post.data || posts.data;
+        timesData = post.data || posts.data;
+        
+    }
+    useEffect(()=>{
+        if (post) {
+            axios.get(`https://api.aladhan.com/v1/currentTime?zone=${post.data.meta.timezone}`).then((res) => setCurrentTime(res.data));
+          
+            }
+    },[post])
+   
+    if (!timeLoading ) {
+        time = currentTime.data || timeDate.data
     }
 
+    function handleSubmitButton(evt) {
+        evt.preventDefault();
+        const countryValue = countryRef.current.value;
+        const cityValue = cityRef.current.value;
+        setCity(cityValue)
+        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
+    }
+    
     if (isLoading) {
         return(
         <p>Yuklanmoqda...</p>
         )
+    }
+    else if (isError) {
+        <p className="error">404 Not Found</p>
     }
         return(
         <>
             <form id="form" onSubmit={handleSubmitButton} >
                 <input ref={countryRef} type="text" required placeholder="Davlat" />
                 <input ref={cityRef} type="text" required placeholder="Shahar" />
-                <button>Yuborish</button>
+                <button >Yuborish</button>
             </form>
-            <div className="time">
-                <p className="times timezone">Zona: {city}</p>
-                <p className="times-date-georgian">Vaqt: {time.date.gregorian.date} yil</p>
-                <p className="times-date-hijri">Hijriy: {time.date.hijri.date} yil</p>
-                <ol className="times-list">
-                    <li className="times-item">Bomdod: {time.timings.Fajr}, Quyosh: {time.timings.Sunrise}</li>
-                    <li className="times-item">Peshin: {time.timings.Dhuhr}</li>
-                    <li className="times-item">Asr: {time.timings.Asr}</li>
-                    <li className="times-item">Shom: {time.timings.Maghrib}</li>
-                    <li className="times-item">Hufton: {time.timings.Isha}</li>
+            <div className="timesData">
+                <p>{time}</p>
+                <p className="timesDatas timesDatazone">Zona: {city}</p>
+                <p className="timesDatas-date-georgian">Vaqt: {timesData.date.gregorian.date} yil</p>
+                <p className="timesDatas-date-hijri">Hijriy: {timesData.date.hijri.date} yil</p>
+                <ol className="timesDatas-list">
+                    <li className="timesDatas-item">Bomdod: {timesData.timings.Fajr}, Quyosh: {timesData.timings.Sunrise}</li>
+                    <li className="timesDatas-item">Peshin: {timesData.timings.Dhuhr}</li>
+                    <li className="timesDatas-item">Asr: {timesData.timings.Asr}</li>
+                    <li className="timesDatas-item">Shom: {timesData.timings.Maghrib}</li>
+                    <li className="timesDatas-item">Hufton: {timesData.timings.Isha}</li>
                 </ol>
             </div>
         </>
