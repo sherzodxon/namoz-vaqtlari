@@ -144,7 +144,7 @@ const Home = () => {
             </form>
             <div className="timesData">
                 <p>{time}</p>
-                <p>{prayerTime}</p>
+                <p>Namoz payti: {prayerTime}</p>
                 <p className="timesDatas timesDatazone">Zona: {city}</p>
                 <p className="timesDatas-date-georgian">Vaqt: {timesData.date.gregorian.date} yil</p>
                 <p className="timesDatas-date-hijri">Hijriy: {timesData.date.hijri.date} yil</p>
