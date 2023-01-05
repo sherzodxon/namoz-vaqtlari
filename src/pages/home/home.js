@@ -13,7 +13,8 @@ import {
 } from "react";
 import {
     fakeApi
-} from '../../api/fakeApi'
+} from '../../api/fakeApi';
+import '../../assets/scss/main.scss';
 import {
     getFirstApi,
     getTimeApi
@@ -96,27 +97,39 @@ const Home = () => {
     }
     if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
         prayerTime = "Bomdod"
-    } else if (currentTimeHours == FajrTimeHours && currentTimeHours == SunriseTimeHours && currentTimeMinutes > FajrTimeMinutes && currentTimeMinutes < SunriseTimeMinutes) {
+    } else if (currentTimeHours == FajrTimeHours && currentTimeMinutes > FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes < SunriseTimeMinutes) {
         prayerTime = "Bomdod"
-    } else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
+    }  
+    else if (currentTimeHours > SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
+        prayerTime = `Peshinga ${DhuhrTimeHours - currentTimeHours} soat qoldi`
+    } 
+    else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes > SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours  && currentTimeMinutes < DhuhrTimeMinutes) {
+        prayerTime = `Peshinga ${DhuhrTimeMinutes - currentTimeHours} daqiqa qoldi`
+    }
+
+    else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
         prayerTime = "Peshin"
-    } else if (currentTimeHours == DhuhrTimeHours && currentTimeHours == AsrTimeHours && currentTimeMinutes > DhuhrTimeMinutes && currentTimeMinutes < AsrTimeMinutes) {
+    } 
+    else if (currentTimeHours == DhuhrTimeHours && currentTimeMinutes > DhuhrTimeMinutes || currentTimeHours == AsrTimeHours  && currentTimeMinutes < AsrTimeMinutes) {
         prayerTime = "Peshin"
-    } else if (currentTimeHours > AsrTimeHours && currentTimeHours < MaghribTimeHours) {
+    } 
+    else if (currentTimeHours > AsrTimeHours && currentTimeHours < MaghribTimeHours) {
         prayerTime = "Asr"
-    } else if (currentTimeHours == AsrTimeHours && currentTimeHours == MaghribTimeHours && currentTimeMinutes > AsrTimeMinutes && currentTimeMinutes < MaghribTimeMinutes) {
+    } 
+    else if (currentTimeHours == AsrTimeHours && currentTimeMinutes > AsrTimeMinutes || currentTimeHours == MaghribTimeHours  && currentTimeMinutes < MaghribTimeMinutes) {
         prayerTime = "Asr"
-    } else if (currentTimeHours > MaghribTimeHours && currentTimeHours < IshaTimeHours) {
+    } 
+    else if (currentTimeHours > MaghribTimeHours && currentTimeHours < IshaTimeHours) {
         prayerTime = "Shom"
-    } else if (currentTimeHours == MaghribTimeHours && currentTimeHours == IshaTimeHours && currentTimeMinutes > MaghribTimeMinutes && currentTimeMinutes < IshaTimeMinutes) {
+    } else if (currentTimeHours == MaghribTimeHours && currentTimeMinutes > MaghribTimeMinutes || currentTimeHours == IshaTimeHours  &&  currentTimeMinutes < IshaTimeMinutes) {
         prayerTime = "Shom"
     } else if (currentTimeHours > IshaTimeHours ) {
         prayerTime = "Hufton"
     } else if (currentTimeHours == IshaTimeHours || currentTimeMinutes > IshaTimeMinutes) {
-        prayerTime = "Peshin"
+        prayerTime = "Hufton"
     }
     else{
-        prayerTime="Tahajjud"
+        prayerTime="-"
     }
 
      function handleSubmitButton(evt) {
