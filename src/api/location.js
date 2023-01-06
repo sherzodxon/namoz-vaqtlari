@@ -2,11 +2,10 @@ import axios from "axios";
 
 function myNav(lat, long) {
     this.latitude = lat;
-    this.longitude = long
+    this.longitude = long;
 }
 let myNavObj = 0;
 navigator.geolocation.getCurrentPosition((position) => {
-
     myNavObj = new myNav(position.coords.latitude, position.coords.longitude)
 });
 

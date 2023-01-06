@@ -161,9 +161,10 @@ const Home = () => {
                 <button >Yuborish</button>
             </form>
             <div className="timesData">
-                <p>{time}</p>
+                <p>Vaqt: {time}</p>
                 <p>Namoz payti: {prayerTime}</p>
-                <p className="timesDatas timesDatazone">Zona: {city}</p>
+                <p>Shahar: {myLocations.city}</p>
+                <p className="timesDatas timesDatazone">Hudud: {myLocations.locality}</p>
                 <p className="timesDatas-date-georgian">Vaqt: {timesData.date.gregorian.date} yil</p>
                 <p className="timesDatas-date-hijri">Hijriy: {timesData.date.hijri.date} yil</p>
                 <ol className="timesDatas-list">
@@ -174,8 +175,8 @@ const Home = () => {
                     <li className="timesDatas-item">Hufton: {timesData.timings.Isha}</li>
                 </ol>
             </div>
-            <p>latitude: {myLocations.city}</p>
-            <p>longitude: {myLocations.locality}</p>
+            
+            
           
         </>
 
