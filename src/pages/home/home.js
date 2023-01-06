@@ -66,12 +66,12 @@ const Home = () => {
     if(myNavObj.latitude){
         axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(myNavObj.latitude)}&longitude=${myNavObj.longitude}`).then(res => {
          setCountry(res.data.countryName) ;
-         setLocality(res.data.locality);
-         setCity(res.data.principalSubdivision);
+         setCity(res.data.locality);
+         setLocality(res.data.principalSubdivision);
         })
         }
    },[myNavObj.latitude])
-    
+    console.log(locality);
 
     if (!isLoading) {
         timesData = post.data || posts.data;
