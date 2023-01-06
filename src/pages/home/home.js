@@ -15,6 +15,7 @@ import {
     fakeApi
 } from '../../api/fakeApi';
 import '../../assets/scss/main.scss';
+
 import {
     getFirstApi,
     getTimeApi
@@ -24,6 +25,9 @@ const Home = () => {
     const [city, setCity] = useState("Bekobod")
     const [post, setPost] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
+    let [latitude,setLatitude] = useState(0);
+    let [longitude,setLongitude] = useState(0);
+
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
@@ -46,6 +50,7 @@ const Home = () => {
     let IshaTimeMinutes = 0;
     let MidnightTimeHours = 0;
     let MidnightTimeMinutes = 0;
+    let dMinutes=DhuhrTimeMinutes - currentTimeMinutes;
 
     const {
         data: timeDate,
@@ -100,11 +105,11 @@ const Home = () => {
     } else if (currentTimeHours == FajrTimeHours && currentTimeMinutes > FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes < SunriseTimeMinutes) {
         prayerTime = "Bomdod"
     }  
-    else if (currentTimeHours > SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
+    else if (currentTimeHours >= SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
         prayerTime = `Peshinga ${DhuhrTimeHours - currentTimeHours} soat qoldi`
     } 
     else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes > SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours  && currentTimeMinutes < DhuhrTimeMinutes) {
-        prayerTime = `Peshinga ${DhuhrTimeMinutes - currentTimeHours} daqiqa qoldi`
+        prayerTime = `Peshin: - ${DhuhrTimeMinutes - currentTimeMinutes} daqiqa`
     }
 
     else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
@@ -140,6 +145,16 @@ const Home = () => {
         axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
     }
 
+  
+    navigator.geolocation.getCurrentPosition((position) => {
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude)
+      });
+
+      
+    //   axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=40.3106176&longitude=69.2518912').then(res=>console.log(res.data))
+
+     
     if (isLoading) {
         return(
         <p>Yuklanmoqda...</p>
@@ -169,6 +184,9 @@ const Home = () => {
                     <li className="timesDatas-item">Hufton: {timesData.timings.Isha}</li>
                 </ol>
             </div>
+            <p>latitude: {latitude}</p>
+            <p>longitude: {longitude}</p>
+          
         </>
 
         )
