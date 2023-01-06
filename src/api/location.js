@@ -10,15 +10,15 @@ navigator.geolocation.getCurrentPosition((position) => {
 });
 
 
-function myLocation(country, city, locality) {
-    this.country = country;
-    this.city = city;
-    this.locality = locality
-}
-export let myLocations = 0;
+// function myLocation(country, city, locality) {
+//     this.country = country;
+//     this.city = city;
+//     this.locality = locality
+// }
+// export let myLocations = 0;
 
-if(myNavObj.latitude){
-axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(myNavObj.latitude)}&longitude=${myNavObj.longitude}`).then(res => {
-    myLocations = new myLocation(res.data.countryName, res.data.principalSubdivision, res.data.locality);
-})
-}
+// if(myNavObj.latitude){
+// axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(myNavObj.latitude)}&longitude=${myNavObj.longitude}`).then(res => {
+//     myLocations = new myLocation(res.data.countryName, res.data.principalSubdivision, res.data.locality);
+// })
+// }

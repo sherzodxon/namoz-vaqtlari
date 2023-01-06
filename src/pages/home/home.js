@@ -11,7 +11,7 @@ import {
     useState,
     useEffect
 } from "react";
-import { myLocations,myNavObj } from "../../api/location";
+// import { myLocations,myNavObj } from "../../api/location";
 
 import '../../assets/scss/main.scss';
 
@@ -62,7 +62,16 @@ const Home = () => {
         isLoading,
         isError
     } = useQuery(['posts'], getFirstApi);
+    let myNavObj = 0;
+    navigator.geolocation.getCurrentPosition((position) => {
+        myNavObj = new myNav(position.coords.latitude, position.coords.longitude)
+    });
+    function myNav(lat, long) {
+        this.latitude = lat;
+        this.longitude = long;
+    }
    useEffect(()=>{
+    
     if(myNavObj.latitude){
         axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(myNavObj.latitude)}&longitude=${myNavObj.longitude}`).then(res => {
          setCountry(res.data.countryName) ;
