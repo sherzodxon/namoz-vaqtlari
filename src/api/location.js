@@ -4,7 +4,7 @@ function myNav(lat, long) {
     this.latitude = lat;
     this.longitude = long;
 }
-let myNavObj = 0;
+export let myNavObj = 0;
 navigator.geolocation.getCurrentPosition((position) => {
     myNavObj = new myNav(position.coords.latitude, position.coords.longitude)
 });

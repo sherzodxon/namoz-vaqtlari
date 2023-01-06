@@ -11,7 +11,7 @@ import {
     useState,
     useEffect
 } from "react";
-import { myLocations } from "../../api/location";
+import { myLocations,myNavObj } from "../../api/location";
 
 import '../../assets/scss/main.scss';
 
@@ -21,10 +21,10 @@ import {
 } from "../../api/api";
 
 const Home = () => {
-    const [city, setCity] = useState("Bekobod")
+    const [city, setCity] = useState("")
     const [post, setPost] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
- 
+ console.log(myNavObj);
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
@@ -59,6 +59,9 @@ const Home = () => {
         isError
     } = useQuery(['posts'], getFirstApi);
 
+    navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position.coords.latitude, position.coords.longitude)
+    });
     if (!isLoading) {
         timesData = post.data || posts.data;
 
@@ -132,7 +135,9 @@ const Home = () => {
     else{
         prayerTime="-"
     }
-
+useEffect(()=>{
+    setCity(myLocations.locality)
+},[myLocations])
      function handleSubmitButton(evt) {
         evt.preventDefault();
         const countryValue = countryRef.current.value;
@@ -163,8 +168,7 @@ const Home = () => {
             <div className="timesData">
                 <p>Vaqt: {time}</p>
                 <p>Namoz payti: {prayerTime}</p>
-                <p>Shahar: {myLocations.city}</p>
-                <p className="timesDatas timesDatazone">Hudud: {myLocations.locality}</p>
+                <p>Hudud: {city}</p>
                 <p className="timesDatas-date-georgian">Vaqt: {timesData.date.gregorian.date} yil</p>
                 <p className="timesDatas-date-hijri">Hijriy: {timesData.date.hijri.date} yil</p>
                 <ol className="timesDatas-list">
@@ -175,6 +179,8 @@ const Home = () => {
                     <li className="timesDatas-item">Hufton: {timesData.timings.Isha}</li>
                 </ol>
             </div>
+            <p>{myNavObj.latitude}</p>
+            <p>{myNavObj.longitude}</p>
             
             
           
