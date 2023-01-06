@@ -25,7 +25,8 @@ const Home = () => {
     const [post, setPost] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [country,setCountry]=useState("");
-    const [myCity,setMyCity]=useState("");
+    const [latitude ,setLatitude]=useState(0);
+    const [longitude,setLongitude]=useState(0);
     const [locality,setLocality]=useState("")
  
     let prayerTime = ""
@@ -62,25 +63,24 @@ const Home = () => {
         isLoading,
         isError
     } = useQuery(['posts'], getFirstApi);
-    let myNavObj = 0;
+
+    
     navigator.geolocation.getCurrentPosition((position) => {
-        myNavObj = new myNav(position.coords.latitude, position.coords.longitude)
+        myNav(position.coords.latitude, position.coords.longitude)
     });
     function myNav(lat, long) {
-        this.latitude = lat;
-        this.longitude = long;
+        setLatitude(lat);
+        setLongitude(long)
     }
    useEffect(()=>{
-    
-    if(myNavObj.latitude){
-        axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(myNavObj.latitude)}&longitude=${myNavObj.longitude}`).then(res => {
+        axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(latitude)}&longitude=${longitude}`).then(res => {
          setCountry(res.data.countryName) ;
          setCity(res.data.locality);
          setLocality(res.data.principalSubdivision);
         })
-        }
-   },[myNavObj.latitude])
-    console.log(locality);
+        
+   },[posts])
+
 
     if (!isLoading) {
         timesData = post.data || posts.data;
@@ -197,8 +197,8 @@ const Home = () => {
                     <li className="timesDatas-item">Hufton: {timesData.timings.Isha}</li>
                 </ol>
             </div>
-            <p>{myNavObj.latitude}</p>
-            <p>{myNavObj.longitude}</p>
+            <p>{latitude}</p>
+            <p>{longitude}</p>
             
             
           
