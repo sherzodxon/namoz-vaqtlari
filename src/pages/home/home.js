@@ -24,7 +24,10 @@ const Home = () => {
     const [city, setCity] = useState("")
     const [post, setPost] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
- console.log(myNavObj);
+    const [country,setCountry]=useState("");
+    const [myCity,setMyCity]=useState("");
+    const [locality,setLocality]=useState("")
+ 
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
@@ -48,6 +51,7 @@ const Home = () => {
     let MidnightTimeHours = 0;
     let MidnightTimeMinutes = 0;
     let dMinutes=DhuhrTimeMinutes - currentTimeMinutes;
+    
     const {
         data: timeDate,
         isLoading: timeLoading
@@ -58,10 +62,17 @@ const Home = () => {
         isLoading,
         isError
     } = useQuery(['posts'], getFirstApi);
+   useEffect(()=>{
+    if(myNavObj.latitude){
+        axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(myNavObj.latitude)}&longitude=${myNavObj.longitude}`).then(res => {
+         setCountry(res.data.countryName) ;
+         setLocality(res.data.locality);
+         setCity(res.data.principalSubdivision);
+        })
+        }
+   },[myNavObj.latitude])
+    
 
-    navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position.coords.latitude, position.coords.longitude)
-    });
     if (!isLoading) {
         timesData = post.data || posts.data;
 
@@ -135,9 +146,7 @@ const Home = () => {
     else{
         prayerTime="-"
     }
-useEffect(()=>{
-    setCity(myLocations.locality)
-},[myLocations])
+
      function handleSubmitButton(evt) {
         evt.preventDefault();
         const countryValue = countryRef.current.value;
