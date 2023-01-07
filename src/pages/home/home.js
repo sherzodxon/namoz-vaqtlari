@@ -170,11 +170,9 @@ const Home = () => {
         axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
     }
 
-    if (isLoading ) {
-        return(
-        <p>Yuklanmoqda...</p>
-        )
-    }
+   if (!isLoading) {
+    
+   
         return(
         <>
             <form id="form" onSubmit={handleSubmitButton} >
@@ -200,5 +198,6 @@ const Home = () => {
         </>
 
         )
+   }
 }
 export default Home
