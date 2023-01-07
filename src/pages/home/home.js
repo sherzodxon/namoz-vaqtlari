@@ -1,9 +1,3 @@
-import {
-    QueryCLient,
-    useQueryClient,
-    useMutation,
-    useQuery
-} from "@tanstack/react-query";
 import axios from "axios";
 import {
     useMemo,
@@ -11,6 +5,7 @@ import {
     useState,
     useEffect
 } from "react";
+import { Link } from "react-router-dom";
 
 import '../../assets/scss/main.scss';
 
@@ -28,7 +23,6 @@ const Home = () => {
     const [timeLoading, setTimeLoading] = useState(true);
     const [locLoading, setLocLoading] = useState(true);
     const [locData, setLocData] = useState(0);
-
 
     let prayerTime = ""
     let timesData = 0;
@@ -54,14 +48,14 @@ const Home = () => {
     let MidnightTimeMinutes = 0;
     let dMinutes = DhuhrTimeMinutes - currentTimeMinutes;
 
-    function myNav(lat, long) {
-        setLatitude(lat);
-        setLongitude(long)
-    }
+    
+if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
-        myNav(position.coords.latitude, position.coords.longitude)
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude)
     });
-
+}
+   
     useEffect(() => {
         if (latitude) {
             axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(latitude)}&longitude=${longitude}`).then(res => {
@@ -71,7 +65,6 @@ const Home = () => {
         }
 
     }, [latitude])
-
 
     useEffect(() => {
         if (!locLoading) {
@@ -169,10 +162,11 @@ const Home = () => {
         setCity(cityValue)
         axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
     }
-
-   if (!isLoading) {
-    
-   
+if (isLoading){
+    return(
+    <p>Yuklanmoqda...</p> 
+    )
+}
         return(
         <>
             <form id="form" onSubmit={handleSubmitButton} >
@@ -194,10 +188,11 @@ const Home = () => {
                     <li className="timesDatas-item">Hufton: {timesData.timings.Isha}</li>
                 </ol>
             </div>
+            <Link to={"/calendar"} children={"Calendar"}/>
 
         </>
 
         )
-   }
+   
 }
 export default Home
