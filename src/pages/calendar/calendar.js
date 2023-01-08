@@ -21,7 +21,7 @@ setLongitude(position.coords.longitude);
 
  useEffect(()=>{
 
-    axios.get(`http://api.aladhan.com/v1/calendarByCity?city=Tashkent&country=Uzbekistan&method=1&month=${month}&year=${year}`).then(res=>setData(res.data.data))
+    axios.get(`https://api.aladhan.com/v1/calendarByCity?city=Tashkent&country=Uzbekistan&method=1&month=${month}&year=${year}`).then(res=>setData(res.data.data))
 
  },[longitude])
     
