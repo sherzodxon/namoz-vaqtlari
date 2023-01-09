@@ -42,7 +42,7 @@ const Timings=()=>{
    
 useEffect(() => {
     if (location.country) {
-        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${location.locality},%20${location.country}`).then((res) => {
+        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${location.city},%20${location.country}`).then((res) => {
             setPosts(res.data);
             setLoading(false)
         });

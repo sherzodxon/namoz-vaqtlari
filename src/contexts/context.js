@@ -26,7 +26,7 @@ const DataProvider = ({children}) => {
                     continent:res.data.continent,
                     country:res.data.countryName,
                     locality:res.data.locality,
-                    city:res.data.city
+                    city:res.data.city || "Tashkent"
                 })
             });
         }
