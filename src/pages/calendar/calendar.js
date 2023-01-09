@@ -1,29 +1,42 @@
 import  axios  from "axios";
 import { useEffect, useState } from "react";
+import Card from "../../assets/components/card/card";
+import { useLocation } from "../../contexts/context"; 
 
 const Calendar=()=>{
-    const [latitude,setLatitude]=useState(0);
-    const [longitude,setLongitude]=useState(0);
-    const [data ,setData]=useState(0)
+   const {location,setLocation}= useLocation()
+    const [data ,setData]=useState(null);
+    const [isLoading,setLoading]=useState(true)
     const getYear =new Date();
     const getMonth = new Date();
     const month = getMonth.getMonth();
     const year = getYear.getFullYear();
     
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(showPosition);
-} 
 
-function showPosition(position) {
-setLatitude(position.coords.latitude) 
-setLongitude(position.coords.longitude);
-}
 
  useEffect(()=>{
 
-    axios.get(`https://api.aladhan.com/v1/calendarByCity?city=Tashkent&country=Uzbekistan&method=1&month=${month}&year=${year}`).then(res=>setData(res.data.data))
+    axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${location.city}&country=${location.country}&method=1&month=${month}&year=${year}`)
+    .then(res=>{
+    setData(res.data.data);
+    setLoading(false)
+   })
 
- },[longitude])
+ },[location])
+if (isLoading) {
+   return(
+      <p>Yuklanmoqda...</p>
+   )
+   
+}
+  return(
+    <>
+    <p>{location.locality}</p>
+    {data.map((data)=><Card readable={data.date.gregorian.date} weekday={data.date.gregorian.weekday.en} fajr={data.timings.Fajr} sunrise={data.timings.Sunrise} dhuhr={data.timings.Dhuhr} asr={data.timings.Asr} maghrib={data.timings.Maghrib} isha={data.timings.Isha} key={data.date.timestamp} />)}
+    </>
+  )
+ 
+
     
 }  
  export default Calendar

@@ -5,21 +5,20 @@ import {
     useState,
     useEffect
 } from "react";
+import { useLocation } from "../../../contexts/context";
 
-const Timings=({latitude,longitude})=>{
+const Timings=()=>{
 
-    const [city, setCity] = useState("")
+    const {location, setLocation}=useLocation();
     const [post, setPost] = useState(0);
     const [posts, setPosts] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
-    const [country, setCountry] = useState("");
-    const [locality, setLocality] = useState("");
     const [timeDate, setTimeDate] = useState(0);
     const [isLoading, setLoading] = useState(true);
     const [timeLoading, setTimeLoading] = useState(true);
-    const [locLoading, setLocLoading] = useState(true);
-    const [locData, setLocData] = useState(0);
 
+   
+    
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
@@ -40,40 +39,21 @@ const Timings=({latitude,longitude})=>{
     let MaghribTimeMinutes = 0;
     let IshaTimeHours = 0;
     let IshaTimeMinutes = 0;
-    let MidnightTimeHours = 0;
-    let MidnightTimeMinutes = 0;
-    let dMinutes = DhuhrTimeMinutes - currentTimeMinutes;
-
-    if (latitude) {
-        axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(latitude)}&longitude=${longitude}`).then(res => {
-            setLocData(res.data);
-            setLocLoading(false)
-        });
-    }
-
+   
 useEffect(() => {
-    if (!locLoading) {
-        setLocality(locData.locality);
-        setCountry(locData.countryName);
-        setCity(locData.locality)
-    }
-
-}, [locLoading])
-
-useEffect(() => {
-    if (country) {
-        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${locality},%20${country}`).then((res) => {
+    if (location.country) {
+        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${location.locality},%20${location.country}`).then((res) => {
             setPosts(res.data);
             setLoading(false)
         });
 
-        axios.get(`https://api.aladhan.com/v1/currentTime?zone=${locData.continent}/${locData.city || "Tashkent"}`).then((res) => {
+        axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
             setTimeDate(res.data);
             setTimeLoading(false)
         })
     }
 
-}, [country])
+}, [location])
 
 useEffect(() => {
     if (post) {
@@ -102,10 +82,7 @@ if (!isLoading) {
     IshaTimeHours = +(timesData.timings.Isha[0] + timesData.timings.Isha[1]);
     IshaTimeMinutes = +(timesData.timings.Isha[3] + timesData.timings.Isha[4]);
 
-    MidnightTimeHours = +(timesData.timings.Midnight[0] + timesData.timings.Midnight[1]);
-    MidnightTimeMinutes = +(timesData.timings.Midnight[3] + timesData.timings.Midnight[4]);
-
-}
+   }
 
 if (!timeLoading) {
     time = currentTime.data || timeDate.data;
@@ -117,7 +94,7 @@ if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
 } else if (currentTimeHours == FajrTimeHours && currentTimeMinutes > FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes < SunriseTimeMinutes) {
     prayerTime = "Bomdod"
 } else if (currentTimeHours >= SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
-    prayerTime = `Peshinga ${DhuhrTimeHours - currentTimeHours} soat qoldi`
+    prayerTime = `Peshin -${DhuhrTimeHours - currentTimeHours} soat`
 } else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes > SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
     prayerTime = `Peshin: - ${DhuhrTimeMinutes - currentTimeMinutes} daqiqa`
 } else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
@@ -141,11 +118,39 @@ if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
 }
 
 function handleSubmitButton(evt) {
+
     evt.preventDefault();
     const countryValue = countryRef.current.value;
     const cityValue = cityRef.current.value;
-    setCity(cityValue)
-    axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => setPost(res.data));
+
+    axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => {
+        setPost(res.data);
+       
+            const timezone=res.data.data.meta.timezone
+            let postContinent=''
+            let postCity=''
+            let sum=0;
+          
+            for(let i=0; i<=timezone.length;i++){
+                postContinent+=timezone[i];
+                sum++
+                if (timezone[i+1]=="/") {
+                    break
+                }
+            }
+            for(let i=sum+1;i<timezone.length;i++){
+                postCity+=timezone[i];
+            }
+        
+           setLocation({
+             continent:postContinent,
+             locality:cityValue.charAt(0).toUpperCase()+ cityValue.slice(1),
+             country:countryValue.charAt(0).toUpperCase()+ countryValue.slice(1),
+             city:postCity,
+            })
+        
+    } );
+
 }
 if (isLoading){
 return(
@@ -160,9 +165,9 @@ return(
             <button >Yuborish</button>
         </form>
         <div className="timesData">
-            <p>Vaqt: {time}</p>
+            <p>{time}</p>
             <p>Namoz payti: {prayerTime}</p>
-            <p>Hudud: {city}</p>
+            <p>Hudud: {location.locality}</p>
             <p className="timesDatas-date-georgian">Vaqt: {timesData.date.gregorian.date} yil</p>
             <p className="timesDatas-date-hijri">Hijriy: {timesData.date.hijri.date} yil</p>
             <ol className="timesDatas-list">
