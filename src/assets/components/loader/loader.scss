@@ -1,0 +1,19 @@
+.loader{
+    position: absolute;
+    top: calc(50% - 115px);
+    right: calc(50% - 113px);
+}
+.loader-image{
+    display: block;
+    width: 105px;
+    margin: 0 auto;
+    margin-bottom: 31px;
+    padding-top: 4px;
+}
+.loader-title{
+    text-align: center;
+    font-weight: 500;
+font-size: 35px;
+line-height: 133.5%;
+color: black;
+}

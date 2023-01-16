@@ -6,19 +6,17 @@ import {
     useEffect
 } from "react";
 import { useLocation } from "../../../contexts/context";
+import "../timings/timings.scss"
+import Button from "../button/button";
 
-const Timings=()=>{
+const Timings=({posts,isLoading})=>{
 
     const {location, setLocation}=useLocation();
-    const [post, setPost] = useState(0);
-    const [posts, setPosts] = useState(0);
+    const [post, setPost] = useState(0);                                 
     const [currentTime, setCurrentTime] = useState(0);
     const [timeDate, setTimeDate] = useState(0);
-    const [isLoading, setLoading] = useState(true);
     const [timeLoading, setTimeLoading] = useState(true);
 
-   
-    
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
@@ -26,6 +24,9 @@ const Timings=()=>{
     const cityRef = useRef();
     let currentTimeHours = 0
     let currentTimeMinutes = 0
+    let arrClass={container:"container", time:"time", timings:"timings"}
+    let [classes,setClasses]=useState(arrClass)
+    let itemClass=''
 
     let FajrTimeHours = 0;
     let FajrTimeMinutes = 0;
@@ -39,15 +40,15 @@ const Timings=()=>{
     let MaghribTimeMinutes = 0;
     let IshaTimeHours = 0;
     let IshaTimeMinutes = 0;
+    let form = null;
+ if (!isLoading) {
+    form=document.querySelector("#form")
+ }
+
    
 useEffect(() => {
     if (location.country) {
-        axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${location.city},%20${location.country}`).then((res) => {
-            setPosts(res.data);
-            setLoading(false)
-        });
-
-        axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
+         axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
             setTimeDate(res.data);
             setTimeLoading(false)
         })
@@ -90,33 +91,80 @@ if (!timeLoading) {
     currentTimeMinutes = +(time[3] + time[4])
 }
 if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
-    prayerTime = "Bomdod"
+    prayerTime = "Bomdod";
+    itemClass = 'fajr--active'
 } else if (currentTimeHours == FajrTimeHours && currentTimeMinutes > FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes < SunriseTimeMinutes) {
     prayerTime = "Bomdod"
+    itemClass='fajr--active'
 } else if (currentTimeHours >= SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
     prayerTime = `Peshin -${DhuhrTimeHours - currentTimeHours} soat`
+    itemClass='sunrise--active'
+
 } else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes > SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
     prayerTime = `Peshin: - ${DhuhrTimeMinutes - currentTimeMinutes} daqiqa`
+    itemClass='sunrise--active'
+
 } else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
     prayerTime = "Peshin"
+    itemClass='dhuhr--active'
+
 } else if (currentTimeHours == DhuhrTimeHours && currentTimeMinutes > DhuhrTimeMinutes || currentTimeHours == AsrTimeHours && currentTimeMinutes < AsrTimeMinutes) {
     prayerTime = "Peshin"
+    itemClass='dhuhr--active'
+
 } else if (currentTimeHours > AsrTimeHours && currentTimeHours < MaghribTimeHours) {
     prayerTime = "Asr"
+    itemClass='asr--active'  
 } else if (currentTimeHours == AsrTimeHours && currentTimeMinutes > AsrTimeMinutes || currentTimeHours == MaghribTimeHours && currentTimeMinutes < MaghribTimeMinutes) {
     prayerTime = "Asr"
+    itemClass='asr--active'
 } else if (currentTimeHours > MaghribTimeHours && currentTimeHours < IshaTimeHours) {
+    itemClass='maghrib--active'
     prayerTime = "Shom"
 } else if (currentTimeHours == MaghribTimeHours && currentTimeMinutes > MaghribTimeMinutes || currentTimeHours == IshaTimeHours && currentTimeMinutes < IshaTimeMinutes) {
+    itemClass='maghrib--active'
     prayerTime = "Shom"
 } else if (currentTimeHours > IshaTimeHours) {
     prayerTime = "Hufton"
+    itemClass='isha--active'
 } else if (currentTimeHours == IshaTimeHours || currentTimeMinutes > IshaTimeMinutes) {
     prayerTime = "Hufton"
+    itemClass='isha--active'
+
 } else {
     prayerTime = "-"
 }
 
+useEffect(()=>{
+if (prayerTime == "Bomdod") {
+    setClasses({
+        container:"fajr-container",
+        time:"fajr-time",
+        timings:"fajr-timings"
+    })
+}
+else if(prayerTime =="Peshin"){
+    setClasses({
+        container:"dhuhr-container",
+        time:"dhuhr-time",
+        timings:"dhuhr-timings"
+    })
+}
+else if(prayerTime =="Asr"){
+    setClasses({
+        container:"asr-container",
+        time:"asr-time",
+        timings:"asr-timings"
+    })
+}
+else if(prayerTime =="Shom"){
+    setClasses({
+        container:"maghrib-container",
+        time:"maghrib-time",
+        timings:"maghrib-timings"
+    })
+}
+},[prayerTime])
 function handleSubmitButton(evt) {
 
     evt.preventDefault();
@@ -152,37 +200,73 @@ function handleSubmitButton(evt) {
     } );
 
 }
-if (isLoading){
-return(
-<p>Yuklanmoqda...</p> 
-)
+function resetForm() {
+    form.reset();
 }
-    return(
-    <>
-        <form id="form" onSubmit={handleSubmitButton} >
-            <input ref={countryRef} type="text" required placeholder="Davlat" />
-            <input ref={cityRef} type="text" required placeholder="Shahar" />
-            <button >Yuborish</button>
-        </form>
-        <div className="timesData">
-            <p>{time}</p>
-            <p>Namoz payti: {prayerTime}</p>
-            <p>Hudud: {location.locality}</p>
-            <p className="timesDatas-date-georgian">Vaqt: {timesData.date.gregorian.date} yil</p>
-            <p className="timesDatas-date-hijri">Hijriy: {timesData.date.hijri.date} yil</p>
-            <ol className="timesDatas-list">
-                <li className="timesDatas-item">Bomdod: {timesData.timings.Fajr}, Quyosh: {timesData.timings.Sunrise}</li>
-                <li className="timesDatas-item">Peshin: {timesData.timings.Dhuhr}</li>
-                <li className="timesDatas-item">Asr: {timesData.timings.Asr}</li>
-                <li className="timesDatas-item">Shom: {timesData.timings.Maghrib}</li>
-                <li className="timesDatas-item">Hufton: {timesData.timings.Isha}</li>
-            </ol>
-        </div>
-        <Link to={"/calendar"} children={"Calendar"}/>
+if (!isLoading){
 
-    </>
+    return(
+    
+<div className={`timings-time-wrapper ${classes.time}`}>
+    <div className={`timings ${classes.timings}`}>
+    <div className="container">
+    <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
+        <div onClick={resetForm} className="form-button timings-x-button"></div>
+            <input className="input country-input" ref={countryRef} type="text" required placeholder="Davlat" />
+            <input className="input city-input" ref={cityRef} type="text" required placeholder="Shahar" />
+            <button className="form-button timings-search-button"></button>
+    </form>
+
+        <p className="timings-location">{location.locality}</p>
+            <p className="timings-time">{time}</p>
+            <p className="timings-pray-time">{prayerTime}</p>
+            <div className="timings-today-wrapper">
+                 <p className="timings-today">Bugun</p>
+            <p className="timings-current-date">Vaqt: {timesData.date.gregorian.date} yil</p>
+            <p className="timings-current-date">Hijriy: {timesData.date.hijri.date} yil</p>
+            </div>
+    </div>
+    <div className={`container list-container  ${classes.container}`}>
+        <div className="line"></div>
+            <ol className="timings-list">
+                <li className={`timings-item ${itemClass}`}>
+                   <p className="timings-item-name">Bomdod</p>
+                   <p className="timings-item-time">{timesData.timings.Fajr}</p> 
+                </li>
+                <li className={`timings-item ${itemClass}`}>
+                   <p className="timings-item-name">Quyosh</p>
+                   <p className="timings-item-time">{timesData.timings.Sunrise}</p>
+                </li>
+                <li className={`timings-item ${itemClass}`}>
+                   <p className="timings-item-name">Peshin</p>
+                   <p className="timings-item-time">{timesData.timings.Dhuhr}</p>
+                </li>
+                <li className={`timings-item ${itemClass}`}>
+                   <p className="timings-item-name">Asr</p>
+                   <p className="timings-item-time">{timesData.timings.Asr}</p>
+                </li>
+                <li className={`timings-item ${itemClass}`}>
+                   <p className="timings-item-name">Shom</p>
+                   <p className="timings-item-time">{timesData.timings.Maghrib}</p>
+                </li>
+                <li className={`timings-item ${itemClass}`}>
+                   <p className="timings-item-name">Hufton</p>
+                   <p className="timings-item-time">{timesData.timings.Isha}</p>
+                </li>
+            </ol>
+            <div className="timings-bottom-wrapper">
+                <button className="timings-compass"></button>
+              <Button className={"qoran-button"} to={""} children={"Qur'on"}/>
+                <button className="timings-hamburger"></button>
+            </div>
+            {/* <Link to={"/calendar"} children={"Calendar"}/> */}
+        </div>
+        </div>
+       
+   </div>    
+
 
     )
-
+}
 }
 export default Timings
