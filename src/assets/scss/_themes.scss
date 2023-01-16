@@ -1,0 +1,164 @@
+.fajr-container {
+    background: linear-gradient(180deg, rgba(2, 2, 16) 0%, rgba(20, 20, 33) 32.14%, rgba(41, 39, 71) 91.61%);
+}
+
+.fajr-time {
+    background: linear-gradient(180deg, rgb(16, 13, 44) 0%, #28214D 44.79%, #2E2755 100%);
+
+    &::after {
+        width: 60%;
+        height: 40%;
+        position: absolute;
+        content: '';
+        background: url(../img/fajr-after.png) no-repeat center center;
+        background-size: contain;
+        z-index: 0;
+        right: 20%;
+        top: 25%;
+    }
+}
+
+.fajr-timings {
+    background: url(../img/bacgr-fajr.png) no-repeat center center;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        width: 60%;
+        height: 40%;
+        position: absolute;
+        content: '';
+        background: url(../img/fajr-stars.png) no-repeat center center;
+        background-size: contain;
+        z-index: 0;
+        right: 20%;
+        top: 8%;
+    }
+}
+
+.asr-time {
+    background: linear-gradient(180deg, rgb(143, 38, 129) 0%, #CB4F71 51.19%, #C53B85 100%);
+    background: linear-gradient(180deg, #8F8CFF 0%, #B8F1FF 45.48%, #B8EEFA 100%);
+
+    &::after {
+        width: 290px;
+        height: 290px;
+        position: absolute;
+        content: '';
+        background: url(../img/sun.png) no-repeat center center;
+        background-size: cover;
+        z-index: 0;
+        right: calc(50% - 195px);
+        top: 25%;
+    }
+}
+
+.asr-timings {
+    background: url(../img/asr-bg.png) no-repeat center center;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        width: 35%;
+        height: 30%;
+        position: absolute;
+        content: '';
+        background: url(../img/maghr-vector.png) no-repeat center center;
+        background-size: contain;
+        z-index: 0;
+        right: 30%;
+        top: 12%;
+    }
+}
+
+.asr-container {
+    z-index: 6;
+    background: linear-gradient(180deg, rgb(143, 38, 129) 0%, #CB4F71 51.19%, #C53B85 100%);
+    background: linear-gradient(180deg, #575595 0%, #3d4e52 45.48%, #2d393b 100%);
+
+}
+
+.maghrib-time {
+    background: linear-gradient(180deg, rgb(143, 38, 129) 0%, #CB4F71 51.19%, #C53B85 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        width: 591px;
+        height: 591px;
+        position: absolute;
+        content: '';
+        background: url(../img/maghr-after.png) no-repeat center center;
+        background-size: contain;
+        z-index: 0;
+        right: 0%;
+        top: 18%;
+    }
+}
+
+.maghrib-timings {
+    background: url(../img/magh-bcg.png) no-repeat center center;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        width: 35%;
+        height: 30%;
+        position: absolute;
+        content: '';
+        background: url(../img/maghr-vector.png) no-repeat center center;
+        background-size: contain;
+        z-index: 0;
+        right: 30%;
+        top: 12%;
+    }
+}
+
+.maghrib-container {
+    z-index: 6;
+    background: linear-gradient(180deg, rgb(108, 32, 97) 0%, #954057 51.19%, #C53B85 100%);
+}
+
+.isha-time {
+    background: linear-gradient(180deg, #6B4CAA 0%, #B09ECB 51.19%, #D6D3E4 100%);
+
+    &::after {
+        width: 251px;
+        height: 251px;
+        position: absolute;
+        content: '';
+        background: url(../img/fajr-after.png) no-repeat center center;
+        background-size: cover;
+        z-index: 0;
+        right: 12%;
+        top: 35%;
+    }
+}
+
+.isha-timings {
+    background: url(../img/isha-bg.png) no-repeat center center;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        width: 35%;
+        height: 30%;
+        position: absolute;
+        content: '';
+        background: url(../img/fajr-stars.png) no-repeat center center;
+        background-size: contain;
+        z-index: 0;
+        right: 30%;
+        top: 12%;
+    }
+}
+
+.isha-container {
+    z-index: 6;
+    background: linear-gradient(180deg, #3f315d 0%, #413454 51.19%, #6d6391 100%);
+overflow: hidden;
+}

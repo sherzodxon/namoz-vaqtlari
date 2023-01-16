@@ -164,6 +164,13 @@ else if(prayerTime =="Shom"){
         timings:"maghrib-timings"
     })
 }
+else if(prayerTime =="Hufton"){
+    setClasses({
+        container:"isha-container",
+        time:"isha-time",
+        timings:"isha-timings"
+    })
+}
 },[prayerTime])
 function handleSubmitButton(evt) {
 

@@ -2,6 +2,7 @@
     margin: 0;
     position: relative;
     height: 100vh;
+    width: 100%;
 }
 
 .timings-form {
@@ -90,8 +91,8 @@
 }
 
 .timings-today-wrapper {
-    position: fixed;
-    bottom: 320px;
+  bottom: 330px;
+   position: absolute;
 }
 
 .timings-today {
@@ -112,7 +113,7 @@
 .timings-list {
     height: 180px;
     overflow-y: scroll;
-  
+  padding-top: 13px;
 
 }
 
@@ -180,6 +181,9 @@
     width: 26px;
     height: 26px;
     background: url(../../img/hamburger.svg) no-repeat center center;
+}
+.timings-time-wrapper{
+    height: 98vh;
 }
 .fajr--active{
     &:nth-child(1){
