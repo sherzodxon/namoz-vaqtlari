@@ -22,7 +22,7 @@ const Timings=({posts,isLoading})=>{
     let timesData = 0;
     let time = 0;
     let sunrise =false;
-    let inLocation="";
+    let [inLocation,setInLocation]=useState("");
     const countryRef = useRef();
     const cityRef = useRef();
     let currentTimeHours = 0
@@ -189,7 +189,7 @@ function handleSubmitButton(evt) {
     evt.preventDefault();
     const countryValue = countryRef.current.value;
     const cityValue = cityRef.current.value;
-    inLocation = cityValue.charAt(0).toUpperCase()+ cityValue.slice(1)
+    setInLocation(cityValue.charAt(0).toUpperCase()+ cityValue.slice(1))
     axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => {
         setPost(res.data);
        
@@ -222,7 +222,7 @@ function handleSubmitButton(evt) {
 function resetForm() {
     form.reset();
 }
-console.log(location);
+
 if (!isLoading){
 
     return(
