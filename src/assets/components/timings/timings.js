@@ -20,6 +20,7 @@ const Timings=({posts,isLoading})=>{
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
+    let sunrise =false
     const countryRef = useRef();
     const cityRef = useRef();
     let currentTimeHours = 0
@@ -98,11 +99,13 @@ if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
     itemClass='fajr--active'
 } else if (currentTimeHours >= SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
     prayerTime = `Peshin -${DhuhrTimeHours - currentTimeHours} soat`
-    itemClass='sunrise--active'
+    itemClass='sunrise--active';
+    sunrise=true
 
 } else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes > SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
     prayerTime = `Peshin: - ${DhuhrTimeMinutes - currentTimeMinutes} daqiqa`
-    itemClass='sunrise--active'
+    itemClass='sunrise--active';
+    sunrise=true
 
 } else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
     prayerTime = "Peshin"
@@ -143,7 +146,7 @@ if (prayerTime == "Bomdod") {
         timings:"fajr-timings"
     })
 }
-else if(prayerTime =="Peshin"){
+else if(prayerTime =="Peshin" || sunrise){
     setClasses({
         container:"dhuhr-container",
         time:"dhuhr-time",

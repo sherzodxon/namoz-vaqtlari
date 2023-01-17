@@ -111,9 +111,9 @@
 }
 
 .timings-list {
-    height: 180px;
+    height: 155px;
     overflow-y: scroll;
-  padding-top: 13px;
+  padding-top: 10px;
 
 }
 
@@ -165,7 +165,7 @@
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    margin-bottom: 10px;
+
 
 }
 
@@ -183,7 +183,7 @@
     background: url(../../img/hamburger.svg) no-repeat center center;
 }
 .timings-time-wrapper{
-    height: 98vh;
+    height: 100vh;
 }
 .fajr--active{
     &:nth-child(1){
@@ -213,5 +213,10 @@
 .isha--active{
     &:nth-child(6){
         background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
+    }
+}
+@media only screen and (max-height:590px){
+    .timings-today-wrapper{
+        display:  none;
     }
 }
