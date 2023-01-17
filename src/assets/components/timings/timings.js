@@ -16,11 +16,13 @@ const Timings=({posts,isLoading})=>{
     const [currentTime, setCurrentTime] = useState(0);
     const [timeDate, setTimeDate] = useState(0);
     const [timeLoading, setTimeLoading] = useState(true);
+    
 
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
-    let sunrise =false
+    let sunrise =false;
+    let inLocation="";
     const countryRef = useRef();
     const cityRef = useRef();
     let currentTimeHours = 0
@@ -206,7 +208,7 @@ function handleSubmitButton(evt) {
             for(let i=sum+1;i<timezone.length;i++){
                 postCity+=timezone[i];
             }
-        
+        inLocation = cityValue.charAt(0).toUpperCase()+ cityValue.slice(1)
            setLocation({
              continent:postContinent,
              locality:cityValue.charAt(0).toUpperCase()+ cityValue.slice(1),
@@ -220,6 +222,7 @@ function handleSubmitButton(evt) {
 function resetForm() {
     form.reset();
 }
+console.log(location);
 if (!isLoading){
 
     return(
@@ -234,7 +237,7 @@ if (!isLoading){
             <button className="form-button timings-search-button"></button>
     </form>
 
-        <p className="timings-location">{location.locality}</p>
+        <p className="timings-location">{inLocation || location.locality}</p>
             <p className="timings-time">{time}</p>
             <p className="timings-pray-time">{prayerTime}</p>
             <div className="timings-today-wrapper">

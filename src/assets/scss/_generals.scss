@@ -50,14 +50,14 @@ ol {
 .list-container {
   max-width: 94%;
 position: absolute;
-  top: calc(100% - 300px);
+  top: calc(100% - 290px);
   padding: 25px;
   padding-right: 5px;
-padding-bottom: 35px;
+padding-bottom: 45px;
   border-radius: 44px 44px 0px 0px;
   padding-top: 10px;
 }
-@media only screen and (max-height:480px){
+@media only screen and (max-height:500px){
   .list-container{
     display: none;
   }
