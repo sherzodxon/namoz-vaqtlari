@@ -91,46 +91,46 @@ if (!timeLoading) {
     currentTimeHours = +(time[0] + time[1]);
     currentTimeMinutes = +(time[3] + time[4])
 }
-if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
+if (currentTimeHours >= FajrTimeHours && currentTimeHours <= SunriseTimeHours) {
     prayerTime = "Bomdod";
     itemClass = 'fajr--active'
-} else if (currentTimeHours == FajrTimeHours && currentTimeMinutes > FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes < SunriseTimeMinutes) {
+} else if (currentTimeHours == FajrTimeHours && currentTimeMinutes >= FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes < SunriseTimeMinutes) {
     prayerTime = "Bomdod"
     itemClass='fajr--active'
-} else if (currentTimeHours >= SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
+} else if (currentTimeHours >= SunriseTimeHours && currentTimeHours <= DhuhrTimeHours) {
     prayerTime = `Peshin -${DhuhrTimeHours - currentTimeHours} soat`
     itemClass='sunrise--active';
     sunrise=true
 
-} else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes > SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
+} else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes >= SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
     prayerTime = `Peshin: - ${DhuhrTimeMinutes - currentTimeMinutes} daqiqa`
     itemClass='sunrise--active';
     sunrise=true
 
-} else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
+} else if (currentTimeHours >= DhuhrTimeHours && currentTimeHours <= AsrTimeHours) {
     prayerTime = "Peshin"
     itemClass='dhuhr--active'
 
-} else if (currentTimeHours == DhuhrTimeHours && currentTimeMinutes > DhuhrTimeMinutes || currentTimeHours == AsrTimeHours && currentTimeMinutes < AsrTimeMinutes) {
+} else if (currentTimeHours == DhuhrTimeHours && currentTimeMinutes >= DhuhrTimeMinutes || currentTimeHours == AsrTimeHours && currentTimeMinutes < AsrTimeMinutes) {
     prayerTime = "Peshin"
     itemClass='dhuhr--active'
 
-} else if (currentTimeHours > AsrTimeHours && currentTimeHours < MaghribTimeHours) {
+} else if (currentTimeHours >= AsrTimeHours && currentTimeHours <= MaghribTimeHours) {
     prayerTime = "Asr"
     itemClass='asr--active'  
-} else if (currentTimeHours == AsrTimeHours && currentTimeMinutes > AsrTimeMinutes || currentTimeHours == MaghribTimeHours && currentTimeMinutes < MaghribTimeMinutes) {
+} else if (currentTimeHours == AsrTimeHours && currentTimeMinutes >= AsrTimeMinutes || currentTimeHours == MaghribTimeHours && currentTimeMinutes < MaghribTimeMinutes) {
     prayerTime = "Asr"
     itemClass='asr--active'
-} else if (currentTimeHours > MaghribTimeHours && currentTimeHours < IshaTimeHours) {
+} else if (currentTimeHours >= MaghribTimeHours && currentTimeHours <= IshaTimeHours) {
     itemClass='maghrib--active'
     prayerTime = "Shom"
-} else if (currentTimeHours == MaghribTimeHours && currentTimeMinutes > MaghribTimeMinutes || currentTimeHours == IshaTimeHours && currentTimeMinutes < IshaTimeMinutes) {
+} else if (currentTimeHours == MaghribTimeHours && currentTimeMinutes >= MaghribTimeMinutes || currentTimeHours == IshaTimeHours && currentTimeMinutes < IshaTimeMinutes) {
     itemClass='maghrib--active'
     prayerTime = "Shom"
-} else if (currentTimeHours > IshaTimeHours) {
+} else if (currentTimeHours >= IshaTimeHours) {
     prayerTime = "Hufton"
     itemClass='isha--active'
-} else if (currentTimeHours == IshaTimeHours || currentTimeMinutes > IshaTimeMinutes) {
+} else if (currentTimeHours == IshaTimeHours || currentTimeMinutes >= IshaTimeMinutes) {
     prayerTime = "Hufton"
     itemClass='isha--active'
 
@@ -168,6 +168,13 @@ else if(prayerTime =="Shom"){
     })
 }
 else if(prayerTime =="Hufton"){
+    setClasses({
+        container:"isha-container",
+        time:"isha-time",
+        timings:"isha-timings"
+    })
+}
+else{
     setClasses({
         container:"isha-container",
         time:"isha-time",

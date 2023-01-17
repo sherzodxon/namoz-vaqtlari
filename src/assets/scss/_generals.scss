@@ -57,7 +57,11 @@ padding-bottom: 35px;
   border-radius: 44px 44px 0px 0px;
   padding-top: 10px;
 }
-
+@media only screen and (max-height:480px){
+  .list-container{
+    display: none;
+  }
+}
 .line {
   position: relative;
   margin-bottom: 15px;
