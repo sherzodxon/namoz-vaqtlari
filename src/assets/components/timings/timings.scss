@@ -4,6 +4,11 @@
     height: 100vh;
     width: 100%;
 }
+.timings-time-wrapper{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
 
 .timings-form {
     display: flex;
@@ -159,11 +164,13 @@
     text-align: center;
     padding: 15px 27px 15px 13px;
     border-radius: 8px;
+    opacity: 0.7;
 }
 
 .timings-bottom-wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 15px;
     padding-right: 15px;
 
@@ -183,36 +190,40 @@
     height: 26px;
     background: url(../../img/hamburger.svg) no-repeat center center;
 }
-.timings-time-wrapper{
-    height: 100vh;
-}
+
 .fajr--active{
     &:nth-child(1){
+        opacity: 1;
         background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
     }
 }
 .sunrise--active{
     &:nth-child(2){
+        opacity: 1;
         background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
     }
 }
 .dhuhr--active{
     &:nth-child(3){
+        opacity: 1;
         background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
     }
 }
 .asr--active{
     &:nth-child(4){
+        opacity: 1;
         background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
     }
 }
 .maghrib--active{
     &:nth-child(5){
+        opacity: 1;
         background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
     }
 }
 .isha--active{
     &:nth-child(6){
+        opacity: 1;
         background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
     }
 }

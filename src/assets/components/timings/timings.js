@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import axios from "axios";
 import {
     useRef,
@@ -8,15 +7,20 @@ import {
 import { useLocation } from "../../../contexts/context";
 import "../timings/timings.scss"
 import Button from "../button/button";
+import { timeApi } from "../../../api/timeApi";
+import ModalCloser from "../modal/modal-closer";
+import Modal from "../modal/modal";
+
 
 const Timings=({posts,isLoading})=>{
 
     const {location, setLocation}=useLocation();
     const [post, setPost] = useState(0);                                 
-    const [currentTime, setCurrentTime] = useState(0);
-    const [timeDate, setTimeDate] = useState(0);
-    const [timeLoading, setTimeLoading] = useState(true);
-    
+    const [currentTime, setCurrentTime] = useState(timeApi);
+    const [timeDate, setTimeDate] = useState(timeApi);
+    const [timeLoading, setTimeLoading] = useState(false);
+    let [modalKey,setModalKey]=useState(false)
+    let modalClass =''
 
     let prayerTime = ""
     let timesData = 0;
@@ -49,15 +53,15 @@ const Timings=({posts,isLoading})=>{
  }
 
    
-useEffect(() => {
-    if (location.country) {
-         axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
-            setTimeDate(res.data);
-            setTimeLoading(false)
-        })
-    }
+// useEffect(() => {
+//     if (location.country) {
+//          axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
+//             setTimeDate(res.data);
+//             setTimeLoading(false)
+//         })
+//     }
 
-}, [location])
+// }, [location])
 
 useEffect(() => {
     if (post) {
@@ -92,24 +96,26 @@ if (!timeLoading) {
     time = currentTime.data || timeDate.data;
     currentTimeHours = +(time[0] + time[1]);
     currentTimeMinutes = +(time[3] + time[4])
+   
 }
-if (currentTimeHours >= FajrTimeHours && currentTimeHours <= SunriseTimeHours) {
+
+if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
     prayerTime = "Bomdod";
     itemClass = 'fajr--active'
-} else if (currentTimeHours == FajrTimeHours && currentTimeMinutes >= FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes < SunriseTimeMinutes) {
+} else if (currentTimeHours == FajrTimeHours && currentTimeMinutes >= FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes <= SunriseTimeMinutes) {
     prayerTime = "Bomdod"
     itemClass='fajr--active'
-} else if (currentTimeHours >= SunriseTimeHours && currentTimeHours <= DhuhrTimeHours) {
+} else if (currentTimeHours >= SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
     prayerTime = `Peshin -${DhuhrTimeHours - currentTimeHours} soat`
     itemClass='sunrise--active';
     sunrise=true
 
-} else if (currentTimeHours == SunriseTimeHours && currentTimeMinutes >= SunriseTimeMinutes || currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
+} else if (currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
     prayerTime = `Peshin: - ${DhuhrTimeMinutes - currentTimeMinutes} daqiqa`
     itemClass='sunrise--active';
     sunrise=true
 
-} else if (currentTimeHours >= DhuhrTimeHours && currentTimeHours <= AsrTimeHours) {
+} else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
     prayerTime = "Peshin"
     itemClass='dhuhr--active'
 
@@ -117,28 +123,29 @@ if (currentTimeHours >= FajrTimeHours && currentTimeHours <= SunriseTimeHours) {
     prayerTime = "Peshin"
     itemClass='dhuhr--active'
 
-} else if (currentTimeHours >= AsrTimeHours && currentTimeHours <= MaghribTimeHours) {
+} else if (currentTimeHours > AsrTimeHours && currentTimeHours < MaghribTimeHours) {
     prayerTime = "Asr"
     itemClass='asr--active'  
 } else if (currentTimeHours == AsrTimeHours && currentTimeMinutes >= AsrTimeMinutes || currentTimeHours == MaghribTimeHours && currentTimeMinutes < MaghribTimeMinutes) {
     prayerTime = "Asr"
     itemClass='asr--active'
-} else if (currentTimeHours >= MaghribTimeHours && currentTimeHours <= IshaTimeHours) {
+} else if (currentTimeHours > MaghribTimeHours && currentTimeHours < IshaTimeHours) {
     itemClass='maghrib--active'
     prayerTime = "Shom"
 } else if (currentTimeHours == MaghribTimeHours && currentTimeMinutes >= MaghribTimeMinutes || currentTimeHours == IshaTimeHours && currentTimeMinutes < IshaTimeMinutes) {
     itemClass='maghrib--active'
     prayerTime = "Shom"
-} else if (currentTimeHours >= IshaTimeHours) {
+} else if (currentTimeHours > IshaTimeHours ) {
     prayerTime = "Hufton"
     itemClass='isha--active'
-} else if (currentTimeHours == IshaTimeHours || currentTimeMinutes >= IshaTimeMinutes) {
+} else if (currentTimeHours == IshaTimeHours && currentTimeMinutes >= IshaTimeMinutes) {
     prayerTime = "Hufton"
     itemClass='isha--active'
 
-} else {
-    prayerTime = "-"
 }
+else {
+    prayerTime = "-"
+} 
 
 useEffect(()=>{
 if (prayerTime == "Bomdod") {
@@ -222,12 +229,25 @@ function handleSubmitButton(evt) {
 function resetForm() {
     form.reset();
 }
+if (modalKey) {
+    modalClass = "modal--active"
+}
+else{
+    modalClass="modal--none"
+}
+function handleModal(){
+
+setModalKey(!modalKey)
+
+}
 
 if (!isLoading){
 
     return(
     
-<div className={`timings-time-wrapper ${classes.time}`}>
+<div className= {`timings-time-wrapper ${classes.time}`}>
+<ModalCloser onClick={handleModal} className={modalClass} />
+<Modal className={modalClass}/>
     <div className={`timings ${classes.timings}`}>
     <div className="container">
     <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
@@ -277,10 +297,11 @@ if (!isLoading){
             <div className="timings-bottom-wrapper">
                 <button className="timings-compass"></button>
               <Button className={"qoran-button"} to={""} children={"Qur'on"}/>
-                <button className="timings-hamburger"></button>
+                <button onClick={handleModal} className="timings-hamburger"></button>
             </div>
-            {/* <Link to={"/calendar"} children={"Calendar"}/> */}
+            
         </div>
+       
         </div>
        
    </div>    

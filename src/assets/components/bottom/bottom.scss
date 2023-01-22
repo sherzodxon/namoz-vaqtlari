@@ -1,0 +1,41 @@
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left:calc(50% - 250px);
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.bottom-button-wrapper {
+    max-width: 88%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-button {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    color: #fff;
+    background: #020202;
+    border-radius: 23px;
+    padding: 8px 18px;
+}
+
+.back-button {
+    display: block;
+    width: 29px;
+    height: 29px;
+    padding: 6px 21px;
+    background: url(../../img/back.svg) no-repeat center center;
+    background-color: #020202;
+
+}

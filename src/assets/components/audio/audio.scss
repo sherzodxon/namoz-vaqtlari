@@ -1,0 +1,50 @@
+audio {
+    width: 100%;
+}
+
+audio::-webkit-media-controls-panel {
+    // background-color: red;
+
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+    width: 100px;
+    padding: 20px;
+    background-color: #fff;
+
+
+}
+
+audio::-webkit-media-controls-current-time-display {
+    font-family: 'Jost';
+    font-weight: 900;
+    padding: 0;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+    background-color: #fff;
+    position: absolute;
+    right: 10px;
+    font-family: 'Jost';
+    font-weight: 900;
+    z-index: 99;
+    color: #fff;
+
+}
+
+audio::-webkit-media-controls-timeline {
+    // background-color: rgb(131, 184, 131);
+    padding: 2px;
+    width: 100px;
+    display: block;
+}
+
+audio::-webkit-media-controls-volume-slider-container {
+    display: none;
+    position: absolute;
+    background-color: yellow;
+}
+
+audio::-webkit-media-controls-toggle-closed-captions-button {
+    display: none;
+}

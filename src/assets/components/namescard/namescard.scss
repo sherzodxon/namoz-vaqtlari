@@ -1,0 +1,65 @@
+.names-card {
+    color: black;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 80%;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.305);
+    border-radius: 8px;
+    &:active{
+        
+        background: #F3F3F3;
+    }
+}
+
+.names-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.names-comment {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: -0.04em;
+    color: #020202;
+    opacity: 0.5;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+    width:150px; 
+}
+
+.names-name {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    text-decoration: none;
+}
+
+.names-text-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.names-number {
+    margin-right: 29px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: -0.04em;
+}
+
+.names-like {
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    background: url(../../img/heart.svg) no-repeat center center;
+}
+
+.names-liked {
+    background: url(../../img/liked.svg) no-repeat center center;
+}
