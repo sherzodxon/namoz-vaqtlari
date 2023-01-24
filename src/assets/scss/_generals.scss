@@ -43,16 +43,17 @@ ol {
 }
 
 .container {
-  width: 94%;
+  width: 90%;
   margin: 0 auto;
+  position: relative;
 }
 
 .list-container {
-  max-width: 94%;
-position: absolute;
+  max-width: 500px;
+  width: calc(100% - 40px);
+  position: absolute;
   top: calc(100% - 300px);
-  padding: 25px;
-  padding-right: 5px;
+  padding: 20px;
 padding-bottom: 55px;
   border-radius: 44px 44px 0px 0px;
   padding-top: 10px;
@@ -81,43 +82,4 @@ padding-bottom: 55px;
 button {
   border: none;
   cursor: pointer;
-}
-@media only screen and (max-width:500px){
-  body{
-    width: 100%;
-  }
-  .list-container{
-    max-width:calc(94% - 3px);
-    
-  }
-}
-@media only screen and (max-width:450px){
-  .list-container{
-    max-width:calc(94% - 4px);
-  }
-}
-@media only screen and (max-width:435px){
-  .list-container{
-    max-width:calc(94% - 5px);
-  }
-}
-@media only screen and (max-width:415px){
-  .list-container{
-    max-width:calc(94% - 6px);
-  }
-}
-@media only screen and (max-width:400px){
-  .list-container{
-    max-width:calc(94% - 7px);
-  }
-}
-@media only screen and (max-width:390px){
-  .list-container{
-    max-width:calc(94% - 8px);
-  }
-}
-@media only screen and (max-width:365px){
-  .list-container{
-    max-width:calc(94% - 9px);
-  }
 }

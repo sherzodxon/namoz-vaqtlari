@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useLocation } from "../../contexts/context";
-import Bottom from "../../assets/components/bottom/bottom"
-import "../name/name.scss"
+import { useLocation } from "../../../contexts/context";
+import Bottom from "../../../assets/components/bottom/bottom"
+import "./name.scss"
 const Name =()=>{
     const {location,setLocation}=useLocation();
     const {id} =useParams();

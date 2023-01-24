@@ -48,3 +48,18 @@ audio::-webkit-media-controls-volume-slider-container {
 audio::-webkit-media-controls-toggle-closed-captions-button {
     display: none;
 }
+.audio-button-play{
+    width: 16px;
+    height: 19px;
+    background-color: transparent;
+    background: url(../../img/play.svg) no-repeat center center;
+    margin-right: 10px;
+}
+.audio-button-pause{
+    width: 16px;
+    height: 19px;
+    background-color: transparent;
+    background: url(../../img/pause.svg) no-repeat center center;
+    margin-right: 10px;
+    
+}

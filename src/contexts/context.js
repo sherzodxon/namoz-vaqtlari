@@ -7,6 +7,7 @@ import {
     useState
 } from "react";
 import { GeoCode } from "../api/geocode";
+import { mentionApi } from "../api/mention";
 import { namesApi } from "../api/namesApi";
 export const DataLocation = createContext();
 
@@ -35,13 +36,16 @@ const DataProvider = ({children}) => {
     //         });
     //     }
     // }, [latitude])
+    
      useEffect(() => {
             setLocation({
                 continent:GeoCode.continent,
                 country:GeoCode.countryName,
                 locality:GeoCode.locality,
                 city:GeoCode.city || "Tashkent",
-                namesApi:namesApi
+                namesApi:namesApi,
+                mentionApi:mentionApi,
+                
             })
           
      }, [latitude])
