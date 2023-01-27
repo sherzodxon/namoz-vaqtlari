@@ -296,7 +296,7 @@ if (!isLoading){
             </ol>
             <div className="timings-bottom-wrapper">
                 <button className="timings-compass"></button>
-              <Button className={"qoran-button"} to={""} children={"Qur'on"}/>
+              <Button className={"qoran-button"} to={"/quron-bosh-sahifa"} children={"Qur'on"}/>
                 <button onClick={handleModal} className="timings-hamburger"></button>
             </div>
             

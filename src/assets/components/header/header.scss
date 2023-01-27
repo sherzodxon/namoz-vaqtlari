@@ -1,7 +1,7 @@
 .header {
     position: fixed;
     text-align: center;
-    width: 100%;
+    width: calc(100% - 64px);
     max-width: 436px;
     top: 0;
     padding: 32px;
@@ -19,6 +19,7 @@
 }
 
 .header-title{
+    text-align: center;
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;

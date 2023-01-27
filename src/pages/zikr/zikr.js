@@ -13,7 +13,7 @@ const Zikr=()=>{
                     <Link to="/tonggi-zikrlar" className="zikr-link morning-link" children="Tonggi Zikrlar" />
                 </li>
                 <li className="zikr-item">
-                    <Link to="/duolar" className="zikr-link duolar-link" children="Namozdagi-Duolar" />
+                    <Link to="/duolar" className="zikr-link duolar-link" children="Namozdagi  Duolar" />
                 </li>
                 <li className="zikr-item">
                     <Link to="/kechki-zikrlar" className="zikr-link evening-link" children="Kechki Zikrlar" />

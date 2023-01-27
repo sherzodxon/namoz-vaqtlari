@@ -79,11 +79,12 @@
 }
 
 .timings-time {
+    font-family: "Roboto Slab";
     text-align: center;
     font-weight: 700;
     font-size: 46px;
     line-height: 49px;
-    letter-spacing: -0.04em;
+    letter-spacing: 0.04em;
 }
 
 .timings-pray-time {
@@ -172,7 +173,6 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 15px;
-    padding-right: 15px;
 
 
 }

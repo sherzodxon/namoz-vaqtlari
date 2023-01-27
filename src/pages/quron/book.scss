@@ -1,0 +1,78 @@
+.book-home {
+    color: black;
+    position: relative;
+    &::after{
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+        width: 130px;
+        height: 373px;
+        content: '';
+        background: url(../../assets/img/home-pageafter.png) no-repeat center center;
+        background-size: cover;
+        z-index: -1;
+    }
+}
+.book-container{
+    height: 100vh;
+}
+.book-home-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    padding-top: 320px;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        width: 224px;
+        height: 215px;
+        top: 70px;
+        left: calc(50% - 112px);
+        content: '';
+        background: url(../../assets/img/home-page-bg.png) no-repeat center center;
+        background-size: cover;
+    }
+
+}
+
+.book-home-text {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 38px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.book-access-link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #000000;
+    border: 1px solid rgba(138, 138, 138, 1);
+    border-radius: 8px;
+    padding: 15px 70px;
+    margin:  0 auto;
+    margin-top: 110px;
+    display: block;
+    max-width: 100px;
+    background-color: #fff;
+    z-index: 3;
+}
+.book-home-back-button{
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+}
+
+.suralar{
+    color: #000000;
+}

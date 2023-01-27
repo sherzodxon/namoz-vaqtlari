@@ -8,7 +8,7 @@ import {
 import '../audio/audio.scss'
 const Audios = (url, control, to) => {
     const [audio] = useState(new Audio(url));
-    let [playing, setPlaying] = useState(control);
+    let [playing, setPlaying] = useState(false);
     const {
         location,
         setLocation

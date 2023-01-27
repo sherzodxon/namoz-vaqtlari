@@ -36,10 +36,12 @@
         top: 8%;
     }
 }
+
 .dhuhr-time {
     background: linear-gradient(180deg, #88BFFF 0%, #BFD1FF 44.79%, #4D6BB8 100%);
-position: relative;
-overflow: hidden;
+    position: relative;
+    overflow: hidden;
+
     &::after {
         width: 247px;
         height: 247px;
@@ -50,9 +52,10 @@ overflow: hidden;
         z-index: 0;
         left: -100px;
         top: 12%;
-        
+
     }
 }
+
 .dhuhr-timings {
     background: url(../img/dhuhr-bg.png) no-repeat center calc(45%);
     background-size: contain;
@@ -71,8 +74,9 @@ overflow: hidden;
         top: 8%;
     }
 }
+
 .dhuhr-container {
-    background: linear-gradient(180deg, #4b95ea 0%, #90a2d2 44.79%, #4D6BB8 100%);
+    background: linear-gradient(180deg, #4b95ea 0%, #7691dc 44.79%, #4D6BB8 100%);
 }
 
 .asr-time {

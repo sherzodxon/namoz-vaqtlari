@@ -12,10 +12,10 @@ const MorningCard = ({ to, name, audio, playing}) => {
 
      return(
         <div  className="morning-card">
-            <Link to={`/morning/${to}`} children={name} 
+            <Link to={`/tonggi-zikrlar/${to}`} children={name} 
             className="morning-card-link" />
             <div  className="morning-play-controller">
-            <Audios  to={to} control={playing} url={require("../audio/hadise.mp3")} />
+            <Audios  to={to} control={playing} url={require("../audio/simge.mp3")} />
             </div>
 
         </div>
