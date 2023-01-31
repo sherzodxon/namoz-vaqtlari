@@ -34,7 +34,7 @@ const Sura = () => {
         axios.get("https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/uzb-muhammadsodikmu.json").then((res) => {
             setTrdata(res.data.quran.filter((el) => el.chapter == number))
         })
-        axios.get(`http://api.alquran.cloud/v1/surah/${number}`).then((res) => {
+        axios.get(`https://api.alquran.cloud/v1/surah/${number}`).then((res) => {
             setData(res.data.data.ayahs)
             setPost(res.data.data.ayahs)
             setLoading(false)
