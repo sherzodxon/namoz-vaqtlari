@@ -7,6 +7,7 @@ export let quronApi = [
         "nameUz": "Fotiha",
         "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3",
         "playing": false,
+        
     },
     {
         "number": 2,
@@ -1130,4 +1131,4 @@ export let quronApi = [
         "numberOfAyahs": 6,
 
     }
-]
+ ]

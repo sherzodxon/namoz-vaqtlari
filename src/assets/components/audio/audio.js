@@ -1,10 +1,5 @@
-import {
-    useState,
-    useEffect
-} from 'react';
-import {
-    useLocation
-} from '../../../contexts/context';
+import {useState,useEffect} from 'react';
+import { useLocation} from '../../../contexts/context';
 import '../audio/audio.scss'
 const Audios = (url, control, to) => {
     const [audio] = useState(new Audio(url));
@@ -23,6 +18,7 @@ const Audios = (url, control, to) => {
         });
 
         finded.playing = !finded.playing
+       
         const findIndex = location.mentionApi.morningMention.findIndex((el) => el.id == to)
         setLocation({
             ...location,
@@ -42,11 +38,7 @@ const Audios = (url, control, to) => {
     return [playing, toggle];
 };
 
-const Player = ({
-    url,
-    control,
-    to
-}) => {
+const Player = ({url,control,to}) => {
     const [playing, toggle] = Audios(url, control, to);
 
     return (

@@ -12,6 +12,7 @@ import Name from "./pages/name/name";
 import TonggiZikrlar from "./pages/zikr/tonggi-zikrlar/tonggi-zikrlar";
 import QuronPage from "./pages/quron/quron-page";
 import Suralar from "./pages/quron/suralar";
+import Sura from "./pages/quron/sura"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
      <Route path={`/tonggi-zikrlar/:id`} element={<TonggiZikrlar />} />
      <Route path="/quron-bosh-sahifa" element={<QuronPage/>}/>
      <Route path="/suralar" element={<Suralar />} />
+     <Route path={`/sura/:number`} element={<Sura />} />
     </Routes>
     </DataProvider>
   );

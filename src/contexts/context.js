@@ -9,6 +9,7 @@ import {
 import { GeoCode } from "../api/geocode";
 import { mentionApi } from "../api/mention";
 import { namesApi } from "../api/namesApi";
+import { quronApi } from "../api/quronApi";
 export const DataLocation = createContext();
 
 const DataProvider = ({children}) => {
@@ -17,38 +18,42 @@ const DataProvider = ({children}) => {
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
 
-    // if (navigator.geolocation) {
-    //     navigator.geolocation.getCurrentPosition((position) => {
-    //         setLatitude(position.coords.latitude);
-    //         setLongitude(position.coords.longitude)
-    //     });
-    // }
-    // useEffect(() => {
-    //     if (latitude) {
-    //         axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(latitude)}&longitude=${longitude}`).then(res => {
-    //             setLocation({
-    //                 continent:res.data.continent,
-    //                 country:res.data.countryName,
-    //                 locality:res.data.locality,
-    //                 city:res.data.city || "Tashkent",
-    //                 namesApi:namesApi
-    //             })
-    //         });
-    //     }
-    // }, [latitude])
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude)
+        });
+    }
+    useEffect(() => {
+        if (latitude) {
+            axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(latitude)}&longitude=${longitude}`).then(res => {
+                setLocation({
+                    continent:res.data.continent,
+                    country:res.data.countryName,
+                    locality:res.data.locality,
+                    city:res.data.city || "Tashkent",
+                    namesApi:namesApi,
+                    mentionApi:mentionApi,
+                    quronApi:quronApi
+                    
+                })
+            });
+        }
+    }, [latitude])
     
-     useEffect(() => {
-            setLocation({
-                continent:GeoCode.continent,
-                country:GeoCode.countryName,
-                locality:GeoCode.locality,
-                city:GeoCode.city || "Tashkent",
-                namesApi:namesApi,
-                mentionApi:mentionApi,
+    //  useEffect(() => {
+    //         setLocation({
+    //             continent:GeoCode.continent,
+    //             country:GeoCode.countryName,
+    //             locality:GeoCode.locality,
+    //             city:GeoCode.city || "Tashkent",
+    //             namesApi:namesApi,
+    //             mentionApi:mentionApi,
+    //             quronApi:quronApi
                 
-            })
+    //         })
           
-     }, [latitude])
+    //  }, [latitude])
     
     if (!location) {
         return null

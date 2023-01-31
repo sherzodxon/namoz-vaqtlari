@@ -2,7 +2,8 @@ import axios from "axios";
 import {
     useRef,
     useState,
-    useEffect
+    useEffect,
+    useMemo
 } from "react";
 import { useLocation } from "../../../contexts/context";
 import "../timings/timings.scss"
@@ -16,9 +17,9 @@ const Timings=({posts,isLoading})=>{
 
     const {location, setLocation}=useLocation();
     const [post, setPost] = useState(0);                                 
-    const [currentTime, setCurrentTime] = useState(timeApi);
-    const [timeDate, setTimeDate] = useState(timeApi);
-    const [timeLoading, setTimeLoading] = useState(false);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [timeDate, setTimeDate] = useState(0);
+    const [timeLoading, setTimeLoading] = useState(true);
     let [modalKey,setModalKey]=useState(false)
     let modalClass =''
 
@@ -53,15 +54,16 @@ const Timings=({posts,isLoading})=>{
  }
 
    
-// useEffect(() => {
-//     if (location.country) {
-//          axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
-//             setTimeDate(res.data);
-//             setTimeLoading(false)
-//         })
-//     }
+useEffect(() => {
+    if (location.country) {
+         axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
+            setTimeDate(res.data);
+            setTimeLoading(false);
+            
+        })
+    }
 
-// }, [location])
+}, [location])
 
 useEffect(() => {
     if (post) {
@@ -91,8 +93,8 @@ if (!isLoading) {
     IshaTimeMinutes = +(timesData.timings.Isha[3] + timesData.timings.Isha[4]);
 
    }
-
-if (!timeLoading) {
+  
+if (!timeLoading && timeDate) {
     time = currentTime.data || timeDate.data;
     currentTimeHours = +(time[0] + time[1]);
     currentTimeMinutes = +(time[3] + time[4])
@@ -249,7 +251,7 @@ if (!isLoading){
 <ModalCloser onClick={handleModal} className={modalClass} />
 <Modal className={modalClass}/>
     <div className={`timings ${classes.timings}`}>
-    <div className="container">
+    <div className="container timings-container">
     <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
         <div onClick={resetForm} className="form-button timings-x-button"></div>
             <input className="input country-input" ref={countryRef} type="text" required placeholder="Davlat" />

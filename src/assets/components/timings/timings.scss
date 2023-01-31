@@ -97,8 +97,8 @@
 }
 
 .timings-today-wrapper {
-  bottom: 330px;
-   position: absolute;
+ position: fixed;
+ bottom: 320px;
 }
 
 .timings-today {
@@ -119,8 +119,8 @@
 .timings-list {
     height: 155px;
     overflow-y: scroll;
-  padding-top: 10px;
-
+  padding: 0px 6px;
+padding-right: 0;
 }
 
 .timings-item-time {

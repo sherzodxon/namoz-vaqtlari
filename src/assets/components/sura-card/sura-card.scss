@@ -1,0 +1,62 @@
+.sura-card {
+    font-family: "Roboto Slab";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 15px;
+    color: #000000;
+
+    &:hover {
+        background: #EEEEEE;
+
+    }
+}
+
+.sura-card-text-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    
+}
+
+.sura-card-number {
+    //font-family: "Jost";
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 20px;
+    letter-spacing: -0.08em;
+    color: #020202;
+    padding: 8px 6px 5px 5px;
+    background: url(../../img/number-bg.png) no-repeat center center;
+    background-size: contain;
+   text-align: center;
+}
+
+.sura-card-name {
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 10px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    color: #020202;
+
+}
+
+.sura-card-enname {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 13px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    opacity: 0.6;
+}
+.sura-card-name-arab{
+    font-family: 'Noto Naskh Arabic';
+    text-align: right;
+    text-decoration: none;
+    color: #000000;
+    margin-right: 20px;
+}

@@ -1,7 +1,8 @@
 .book-home {
     color: black;
     position: relative;
-    &::after{
+
+    &::after {
         position: absolute;
         left: 0;
         bottom: 50px;
@@ -13,9 +14,11 @@
         z-index: -1;
     }
 }
-.book-container{
+
+.book-container {
     height: 100vh;
 }
+
 .book-home-title {
     text-align: center;
     font-size: 40px;
@@ -59,20 +62,170 @@
     border: 1px solid rgba(138, 138, 138, 1);
     border-radius: 8px;
     padding: 15px 70px;
-    margin:  0 auto;
+    margin: 0 auto;
     margin-top: 110px;
     display: block;
     max-width: 100px;
     background-color: #fff;
     z-index: 3;
 }
-.book-home-back-button{
+
+.book-home-back-button {
     display: block;
     position: absolute;
     right: 0;
     bottom: 40px;
 }
 
-.suralar{
+.suralar {
     color: #000000;
+}
+
+.quron-loader {
+    position: absolute;
+    width: 116px;
+    height: 120px;
+    top: calc(50% - 60px);
+    left: calc(50% - 58px);
+    background: url(../../assets/img/quron-loader.png) no-repeat center center;
+    background-size: cover;
+}
+
+.suralar-header {
+    position: fixed;
+    width: 100%;
+    max-width: 500px;
+   padding: 10px 0px;
+    z-index: 2;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+}
+
+.search-form {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    display: block;
+    width: calc(50% - 70px);
+    background: #EEEEEE;
+    border-radius: 8px;
+    padding: 10px 60px 10px 10px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: -0.04em;
+    margin-left: auto;
+    &::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+    }
+    &::placeholder {
+        font-family: 'Jost';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 23px;
+        color: #000000;
+        opacity: 0.5;
+    }
+   &:focus{
+    outline:2px solid rgb(5, 231, 136);
+    background-color: transparent;
+   }
+    
+}
+
+.search-button {
+    background-color: transparent;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url(../../assets/img/search.svg) no-repeat center center;
+    top: calc(50% - 10px);
+    right: 10px;
+}
+
+.suralar-container {
+    padding: 70px 0;
+}
+.form-title{
+    font-size: 25px;
+}
+.suralar-bottom{
+    position: fixed;
+    width: 90%;
+    max-width: 450px;
+    bottom: 0;
+    background-color: #fff;
+    padding-bottom: 40px;
+    padding-top: 10px;
+}
+.suralar-button{
+    margin-left: auto;
+}
+.sura{
+    color: #000000;
+}
+.sura-number{
+    margin-right: 15px;
+    background: url(../../assets/img/number.png) no-repeat center center;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 20px;
+    letter-spacing: -0.08em;
+    padding: 8px 6px 5px 5px;
+    background-size: contain;
+   text-align: center;
+   color: #fff;
+}
+.sura-bottom-wrapper{
+    position: fixed;
+    width: 90%;
+    max-width: 450px;
+    bottom: 0;
+    padding-bottom: 30px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hamburger-button{
+    background: url(../../assets/img/menu.svg) no-repeat center center;
+}
+.sura-button{
+    display: block;
+    padding: 21px 36px;
+    background-color: #020202;
+    border-radius: 23px;
+}
+.play-button{
+    background: url(../../assets/img/play-white.svg) no-repeat center center;
+    background-color: #020202;
+}
+.pause-button{
+    background: url(../../assets/img/paus-white.svg) no-repeat center center;
+    background-color: #020202;
+}
+.text-button{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 41px;
+    letter-spacing: -0.04em;
+    padding: 0px 20px;
+    color: #FFFFFF;
+}
+.menu-button{
+    background: url(../../assets/img/nuqta.svg) no-repeat center center;
+    background-color: #020202;
+    border-radius: 50%;
+    padding: 20px 20px;
 }
