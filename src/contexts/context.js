@@ -21,7 +21,7 @@ const DataProvider = ({children}) => {
     const [longitude, setLongitude] = useState(0);
     const [status,setStatus]=useState(false)
 
-    if (navigator.geolocation) {
+    if(!status){
         navigator.geolocation.getCurrentPosition((position) => {
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude)
@@ -63,14 +63,18 @@ const DataProvider = ({children}) => {
        
      }
  
-    if (!status) {
+    if (!status && !location) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude)
+        });
      return(
         <>
         <div className="location-continer container">
         <h2 className="location-title">Joylashuvingizni tanlang</h2>
     <form className="location-form " onSubmit={handleSubmit}>
-        <input className="location-input location-city-input" ref={cityRef} type="search" pattern="[a-z]*" title="Shahar" placeholder="Shahar" required/>
-        <input className="location-input" ref={countryRef} type="search" pattern="[a-z]*" title="Davlat" placeholder="Davlat" required/>
+        <input className="location-input location-city-input" ref={cityRef} type="search" pattern="[A-z]*" title="Shahar" placeholder="Shahar" required/>
+        <input className="location-input" ref={countryRef} type="search" pattern="[A-z]*" title="Davlat" placeholder="Davlat" required/>
         <button className="location-button"></button>   
     </form>
     </div>
