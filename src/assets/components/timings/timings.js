@@ -254,8 +254,8 @@ if (!isLoading){
     <div className="container timings-container">
     <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
         <div onClick={resetForm} className="form-button timings-x-button"></div>
-            <input className="input country-input"  ref={countryRef} type="search" pattern="[a-z]*" title="Davlat"required placeholder="Davlat" />
-            <input className="input city-input" type="search" pattern="[a-z]*" title="Shahar" ref={cityRef} required placeholder="Shahar" />
+            <input className="input country-input"  ref={countryRef} type="search" pattern="[A-z]*" title="Davlat"required placeholder="Davlat" />
+            <input className="input city-input" type="search" pattern="[A-z]*" title="Shahar" ref={cityRef} required placeholder="Shahar" />
             <button className="form-button timings-search-button"></button>
     </form>
 
