@@ -52,8 +52,8 @@ const DataProvider = ({children}) => {
 
         setLocation({
         continent:"Asia",
-        country:countryValue.charAt(0).toUpperCase()+ countryValue.slice(1),
-        locality:cityValue.charAt(0).toUpperCase()+ cityValue.slice(1),
+        country:countryValue,
+        locality:cityValue,
         city:"Tashkent",
         namesApi:namesApi,
         mentionApi:mentionApi,
