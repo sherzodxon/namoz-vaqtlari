@@ -1,0 +1,87 @@
+.location-img {
+    width: 100%;
+    max-width: 500px;
+
+}
+
+.location-img-wrapper {
+    position: relative;
+
+    &::after {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        content: '';
+        background: url(../assets/img/karta-after.png) no-repeat center center;
+        background-size: cover;
+        top: 0;
+        left: 80px;
+        top: 50px;
+    }
+}
+
+.location-title {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 133.5%;
+    color: #020202;
+    margin-top: 130px;
+    margin-bottom: 90px;
+}
+
+.location-form {
+    margin-bottom: 100px;
+    width: 100%;
+    border-bottom: 1px solid rgba(217, 217, 217, 1);
+    position: relative;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-bottom: 4px;
+    &::after {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        content: '';
+        background: url(../assets/img/location-search.svg) no-repeat center center;
+
+        left: 8px;
+        top: calc(50% - 8px);
+    }
+}
+
+.location-input {
+    width: 30%;
+    padding: 0;
+    font-family: 'Jost';
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #000000;
+
+    &::placeholder {
+        opacity: 0.7;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.location-city-input {
+    margin-left: 30px;
+  
+}
+
+.location-button {
+    display: inline-block;
+    background-color: transparent;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    background: url(../assets/img/u_location-arrow.svg) no-repeat center center;
+margin-right: 8px;
+}

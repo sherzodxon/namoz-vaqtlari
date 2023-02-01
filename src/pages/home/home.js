@@ -20,7 +20,7 @@ const Home = () => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (location.country) {
+        if (location) {
             axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${location.city},%20${location.country}`).then((res) => {
                 setPosts(res.data);
                 setLoading(false)
