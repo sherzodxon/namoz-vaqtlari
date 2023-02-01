@@ -15,7 +15,7 @@ return(
         <Link  to={`/sura/${number}`} className="sura-card-name-arab" children={nameArab}/>
         </div>      
          
-        <PrayerQuron  to={number} control={playing}  url={require("../audio/simge.mp3")}/>
+        <PrayerQuron  to={number} control={playing}  url={audio}/>
     </div>
 )
 }

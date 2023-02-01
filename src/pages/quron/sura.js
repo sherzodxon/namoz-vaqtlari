@@ -90,7 +90,7 @@ const Sura = () => {
                 </form>
             </div>
                 <div className="suralar-container container">
-                    <audio preload="auto" id="audio" src={require('../../assets/components/audio/simge.mp3')}></audio>
+                    <audio preload="auto" id="audio" src={findElement.audio}></audio>
                     <div className="sura-text-wrapper">
                     {data.map((el)=><OyatCard number={el.numberInSurah} key={el.numberInSurah} arabtext={el.text} text={trData[el.numberInSurah -1].text} />)}
                     </div>
