@@ -56,9 +56,11 @@ const Sura = () => {
         function handleSearch(evt) {
             evt.preventDefault();
             const searchValue = searchRef.current.value;
-
+             if (searchValue <= maxNumber) {
                 const finded = data.find((el) => el.numberInSurah == searchValue)
                 setData([finded])
+             }
+              
 
             if (searchValue == "") {
                 setData(post)
@@ -76,14 +78,14 @@ const Sura = () => {
             }
            
         }
-      const pattern =`${maxNumber}`
+     
         return(
             <div className="sura">
                  <div className="suralar-header">
                 <form onSubmit={handleSearch} className="search-form">
                     <p className="sura-number">{findElement.number}</p>
                     <h2 className="form-title">{findElement.nameUz}</h2>
-                <input ref={searchRef} placeholder="00"  type="search" pattern={`[1-${pattern}]*`} className="search-input oyat-input" />
+                <input ref={searchRef} placeholder="00"  type="number" className="search-input oyat-input" />
                 <button className="search-button"></button>
                 </form>
             </div>

@@ -30,7 +30,7 @@ return(
         <div className="suralar-header">
             <form onSubmit={handleSearch} className="search-form">
                 <h2 className="form-title">Suralar</h2>
-            <input ref={searchRef} placeholder="Izlash" type="text" className="search-input" />
+            <input ref={searchRef} placeholder="Izlash" type='search' pattern="[A-z]*" title="Suralar" className="search-input" />
             <button className="search-button"></button>
             </form>
         </div>

@@ -97,8 +97,9 @@
 }
 
 .timings-today-wrapper {
- position: absolute;
- bottom: -350px;
+ position:fixed;
+ bottom: 310px;
+ padding-left: 25px;
 }
 
 .timings-today {

@@ -5,7 +5,7 @@ const Zikr=()=>{
     return(
         <div className="zikr">
             <h3 className="zikr-title">Zikr va Duolar</h3>
-            <hr className="names-hr" />
+            <hr className="zikr-hr names-hr" />
             <div className="zikr-container container">
                 <div className="zikr-main-wrapper">
                 <ul className="zikr-list">

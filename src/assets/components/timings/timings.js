@@ -248,24 +248,25 @@ if (!isLoading){
 <div className= {`timings-time-wrapper ${classes.time}`}>
 <ModalCloser onClick={handleModal} className={modalClass} />
 <Modal className={modalClass}/>
-    <div className={`timings ${classes.timings}`}>
+<div className={`timings ${classes.timings}`}>
     <div className="container timings-container">
-    <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
+      <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
         <div onClick={resetForm} className="form-button timings-x-button"></div>
             <input className="timigs-input input country-input"  ref={countryRef} type="search" pattern="[A-z]*" title="Davlat"required placeholder="Davlat" />
             <input className="timigs-input input city-input" type="search" pattern="[A-z]*" title="Shahar" ref={cityRef} required placeholder="Shahar" />
             <button className=" timings-search-button form-button"></button>
-    </form>
+       </form>
 
         <p className="timings-location">{inLocation || location.locality}</p>
             <p className="timings-time">{time}</p>
             <p className="timings-pray-time">{prayerTime}</p>
-            <div className="timings-today-wrapper">
+           
+    </div>
+    <div className="timings-today-wrapper">
                  <p className="timings-today">Bugun</p>
             <p className="timings-current-date">Vaqt: {currentDate.date.gregorian.date} yil</p>
             <p className="timings-current-date">Hijriy: {currentDate.date.hijri.date} yil</p>
             </div>
-    </div>
     <div className={`timings-container container list-container  ${classes.container}`}>
         <div className="timigs-line"></div>
             <ol className="timings-list">
@@ -304,7 +305,7 @@ if (!isLoading){
        
         </div>
        
-   </div>    
+</div>    
 
 
     )

@@ -193,3 +193,23 @@
     font-weight: 400;
     margin-bottom: 20px;
 }
+@media only screen and (max-width:420px){
+    .zikr-link{
+        font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    }
+}
+@media only screen and (max-width:370px){
+    .zikr-link{
+        padding: 117px 15px 11px 15px;
+    }
+}
+@media only screen and (max-width:340px){
+    .zikr-link{
+        padding: 117px 11px 11px 11px;
+        font-size: 13px;
+        line-height: 26px;
+    }
+}
