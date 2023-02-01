@@ -1,9 +1,9 @@
-import {useState,useEffect} from "react"
-import Audios from "../../assets/components/audio/audio"
+import {useState} from "react"
 import Bottom from "../../assets/components/bottom/bottom"
 import NameCard from "../../assets/components/namescard/namescard"
 import { useLocation } from "../../contexts/context"
 import '../../pages/names/names.scss'
+
 const Names =()=>{
    const {location,setLocation}=useLocation();
    const [select, setSelect]=useState(false);
@@ -27,7 +27,7 @@ return(
             </div>
             <hr className="names-hr" />
         </div>
-        <div className="container">
+        <div className="names-container container">
         <div className={select? "unselected-none":"names-container"}>
         {location.namesApi.map((post)=><NameCard comment={post.comment} key={post.id} isLiked={post.isLiked} name={post.name} id={post.id}  />)}
       </div>

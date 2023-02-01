@@ -7,8 +7,6 @@ body {
   line-height: 1.5;
   max-width: 500px;
   box-sizing: border-box;
-  
-  max-height: 98vh;
 }
 
 input {
@@ -51,32 +49,20 @@ ol {
   max-width: 500px;
   width: calc(100% - 40px);
   position: absolute;
-  top: calc(100% - 300px);
+  bottom: 0;
   padding: 20px;
-padding-bottom: 55px;
+  padding-bottom: 45px;
   border-radius: 44px 44px 0px 0px;
-  padding-top: 10px;
+  padding-top: 15px;
 }
-@media only screen and (max-height:500px){
-  .list-container{
+
+@media only screen and (max-height:500px) {
+  .list-container {
     display: none;
   }
 }
-.line {
-  position: relative;
-  margin-bottom: 15px;
 
-  &::after {
-    width: 46px;
-    height: 3px;
-    background: #D9D9D9;
-    opacity: 0.89;
-    border-radius: 5px;
-    content: '';
-    position: absolute;
-    left: calc(50% - 23px);
-  }
-}
+
 
 button {
   border: none;

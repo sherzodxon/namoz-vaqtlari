@@ -57,10 +57,8 @@ const Sura = () => {
             evt.preventDefault();
             const searchValue = searchRef.current.value;
 
-            if (searchValue <= maxNumber) {
                 const finded = data.find((el) => el.numberInSurah == searchValue)
                 setData([finded])
-            }
 
             if (searchValue == "") {
                 setData(post)
@@ -78,14 +76,14 @@ const Sura = () => {
             }
            
         }
-      
+      const pattern =`${maxNumber}`
         return(
             <div className="sura">
                  <div className="suralar-header">
                 <form onSubmit={handleSearch} className="search-form">
                     <p className="sura-number">{findElement.number}</p>
                     <h2 className="form-title">{findElement.nameUz}</h2>
-                <input ref={searchRef} placeholder="00"  type="number" className="search-input oyat-input" />
+                <input ref={searchRef} placeholder="00"  type="search" pattern={`[1-${pattern}]*`} className="search-input oyat-input" />
                 <button className="search-button"></button>
                 </form>
             </div>
@@ -97,7 +95,7 @@ const Sura = () => {
               <div className="sura-bottom-wrapper">
                 <Link to={"/suralar"} className="back-button bottom-button" />
                 <button className="hamburger-button sura-button"></button>
-                <button onClick={toggle} className={playing? "play-button": "pause-button"}></button>
+                <button onClick={toggle} className={playing? "play-button sura-button": "pause-button sura-button"}></button>
                 <button className="text-button sura-button">Aa</button>
                 <button className="menu-button sura-button"></button>
               </div>

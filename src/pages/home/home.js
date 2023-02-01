@@ -4,9 +4,6 @@ import {
     useState,
     useEffect
 } from "react";
-import { Link } from "react-router-dom";
-import { timeApi } from "../../api/timeApi";
-import { timingApi } from "../../api/timingsApi";
 import Loader from "../../assets/components/loader/loader";
 import Timings from "../../assets/components/timings/timings";
 
@@ -29,19 +26,18 @@ const Home = () => {
     
     }, [])
   
-if (isLoading) {
+if (!posts) {
     return(
         <Loader/>
     )
-}else if(posts){
+}
     return(
         <>
-        
         <p className="visually-hidden">Prayer Time</p>
         <Timings posts={posts} isLoading={isLoading} />
     
         </>
     )
-}
+
 }
 export default Home

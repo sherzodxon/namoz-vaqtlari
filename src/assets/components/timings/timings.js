@@ -3,12 +3,10 @@ import {
     useRef,
     useState,
     useEffect,
-    useMemo
 } from "react";
 import { useLocation } from "../../../contexts/context";
 import "../timings/timings.scss"
 import Button from "../button/button";
-import { timeApi } from "../../../api/timeApi";
 import ModalCloser from "../modal/modal-closer";
 import Modal from "../modal/modal";
 
@@ -22,7 +20,7 @@ const Timings=({posts,isLoading})=>{
     const [timeLoading, setTimeLoading] = useState(true);
     let [modalKey,setModalKey]=useState(false)
     let modalClass =''
-
+    let currentDate =0 
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
@@ -49,16 +47,16 @@ const Timings=({posts,isLoading})=>{
     let IshaTimeHours = 0;
     let IshaTimeMinutes = 0;
     let form = null;
+    
  if (!isLoading) {
     form=document.querySelector("#form")
  }
 
 useEffect(() => {
-    if (location.country) {
+    if (location) {
          axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city || "Tashkent"}`).then((res) => {
             setTimeDate(res.data);
             setTimeLoading(false);
-            
         })
     }
 
@@ -70,26 +68,27 @@ useEffect(() => {
     }
 }, [post])
 
-if (!isLoading) {
-    timesData = post.data || posts.data;
+if (posts) {
+     currentDate = post.data || posts.data;
+    timesData= currentDate.timings
 
-    FajrTimeHours = +(timesData.timings.Fajr[0] + timesData.timings.Fajr[1]);
-    FajrTimeMinutes = +(timesData.timings.Fajr[3] + timesData.timings.Fajr[4]);
+    FajrTimeHours = +(timesData.Fajr[0] + timesData.Fajr[1]);
+    FajrTimeMinutes = +(timesData.Fajr[3] + timesData.Fajr[4]);
 
-    SunriseTimeHours = +(timesData.timings.Sunrise[0] + timesData.timings.Sunrise[1]);
-    SunriseTimeMinutes = +(timesData.timings.Sunrise[3] + timesData.timings.Sunrise[4]);
+    SunriseTimeHours = +(timesData.Sunrise[0] + timesData.Sunrise[1]);
+    SunriseTimeMinutes = +(timesData.Sunrise[3] + timesData.Sunrise[4]);
 
-    DhuhrTimeHours = +(timesData.timings.Dhuhr[0] + timesData.timings.Dhuhr[1]);
-    DhuhrTimeMinutes = +(timesData.timings.Dhuhr[3] + timesData.timings.Dhuhr[4]);
+    DhuhrTimeHours = +(timesData.Dhuhr[0] + timesData.Dhuhr[1]);
+    DhuhrTimeMinutes = +(timesData.Dhuhr[3] + timesData.Dhuhr[4]);
 
-    AsrTimeHours = +(timesData.timings.Asr[0] + timesData.timings.Asr[1]);
-    AsrTimeMinutes = +(timesData.timings.Asr[3] + timesData.timings.Asr[4]);
+    AsrTimeHours = +(timesData.Asr[0] + timesData.Asr[1]);
+    AsrTimeMinutes = +(timesData.Asr[3] + timesData.Asr[4]);
 
-    MaghribTimeHours = +(timesData.timings.Maghrib[0] + timesData.timings.Maghrib[1]);
-    MaghribTimeMinutes = +(timesData.timings.Maghrib[3] + timesData.timings.Maghrib[4]);
+    MaghribTimeHours = +(timesData.Maghrib[0] + timesData.Maghrib[1]);
+    MaghribTimeMinutes = +(timesData.Maghrib[3] + timesData.Maghrib[4]);
 
-    IshaTimeHours = +(timesData.timings.Isha[0] + timesData.timings.Isha[1]);
-    IshaTimeMinutes = +(timesData.timings.Isha[3] + timesData.timings.Isha[4]);
+    IshaTimeHours = +(timesData.Isha[0] + timesData.Isha[1]);
+    IshaTimeMinutes = +(timesData.Isha[3] + timesData.Isha[4]);
 
    }
   
@@ -197,7 +196,7 @@ function handleSubmitButton(evt) {
     evt.preventDefault();
     const countryValue = countryRef.current.value;
     const cityValue = cityRef.current.value;
-    setInLocation(cityValue.charAt(0).toUpperCase()+ cityValue.slice(1))
+    setInLocation(cityValue)
     axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => {
         setPost(res.data);
        
@@ -219,8 +218,8 @@ function handleSubmitButton(evt) {
         
            setLocation({
              continent:postContinent,
-             locality:cityValue.charAt(0).toUpperCase()+ cityValue.slice(1),
-             country:countryValue.charAt(0).toUpperCase()+ countryValue.slice(1),
+             locality:cityValue,
+             country:countryValue,
              city:postCity,
             })
         
@@ -253,9 +252,9 @@ if (!isLoading){
     <div className="container timings-container">
     <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
         <div onClick={resetForm} className="form-button timings-x-button"></div>
-            <input className="input country-input"  ref={countryRef} type="search" pattern="[A-z]*" title="Davlat"required placeholder="Davlat" />
-            <input className="input city-input" type="search" pattern="[A-z]*" title="Shahar" ref={cityRef} required placeholder="Shahar" />
-            <button className="form-button timings-search-button"></button>
+            <input className="timigs-input input country-input"  ref={countryRef} type="search" pattern="[A-z]*" title="Davlat"required placeholder="Davlat" />
+            <input className="timigs-input input city-input" type="search" pattern="[A-z]*" title="Shahar" ref={cityRef} required placeholder="Shahar" />
+            <button className=" timings-search-button form-button"></button>
     </form>
 
         <p className="timings-location">{inLocation || location.locality}</p>
@@ -263,41 +262,41 @@ if (!isLoading){
             <p className="timings-pray-time">{prayerTime}</p>
             <div className="timings-today-wrapper">
                  <p className="timings-today">Bugun</p>
-            <p className="timings-current-date">Vaqt: {timesData.date.gregorian.date} yil</p>
-            <p className="timings-current-date">Hijriy: {timesData.date.hijri.date} yil</p>
+            <p className="timings-current-date">Vaqt: {currentDate.date.gregorian.date} yil</p>
+            <p className="timings-current-date">Hijriy: {currentDate.date.hijri.date} yil</p>
             </div>
     </div>
-    <div className={`container list-container  ${classes.container}`}>
-        <div className="line"></div>
+    <div className={`timings-container container list-container  ${classes.container}`}>
+        <div className="timigs-line"></div>
             <ol className="timings-list">
                 <li className={`timings-item ${itemClass}`}>
                    <p className="timings-item-name">Bomdod</p>
-                   <p className="timings-item-time">{timesData.timings.Fajr}</p> 
+                   <p className="timings-item-time">{timesData.Fajr}</p> 
                 </li>
                 <li className={`timings-item ${itemClass}`}>
                    <p className="timings-item-name">Quyosh</p>
-                   <p className="timings-item-time">{timesData.timings.Sunrise}</p>
+                   <p className="timings-item-time">{timesData.Sunrise}</p>
                 </li>
                 <li className={`timings-item ${itemClass}`}>
                    <p className="timings-item-name">Peshin</p>
-                   <p className="timings-item-time">{timesData.timings.Dhuhr}</p>
+                   <p className="timings-item-time">{timesData.Dhuhr}</p>
                 </li>
                 <li className={`timings-item ${itemClass}`}>
                    <p className="timings-item-name">Asr</p>
-                   <p className="timings-item-time">{timesData.timings.Asr}</p>
+                   <p className="timings-item-time">{timesData.Asr}</p>
                 </li>
                 <li className={`timings-item ${itemClass}`}>
                    <p className="timings-item-name">Shom</p>
-                   <p className="timings-item-time">{timesData.timings.Maghrib}</p>
+                   <p className="timings-item-time">{timesData.Maghrib}</p>
                 </li>
                 <li className={`timings-item ${itemClass}`}>
                    <p className="timings-item-name">Hufton</p>
-                   <p className="timings-item-time">{timesData.timings.Isha}</p>
+                   <p className="timings-item-time">{timesData.Isha}</p>
                 </li>
             </ol>
             <div className="timings-bottom-wrapper">
                 <button className="timings-compass"></button>
-              <Button className={"qoran-button"} to={"/quron-bosh-sahifa"} children={"Qur'on"}/>
+              <Button className={"timigs-quron-button qoran-button"} to={"/quron-bosh-sahifa"} children={"Qur'on"}/>
                 <button onClick={handleModal} className="timings-hamburger"></button>
             </div>
             

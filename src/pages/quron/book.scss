@@ -101,7 +101,9 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
 }
-
+.suralar-bottom-button{
+    margin-left: auto;
+}
 .search-form {
     width: 90%;
     margin: 0 auto;
@@ -164,8 +166,8 @@
     max-width: 450px;
     bottom: 0;
     background-color: #fff;
-    padding-bottom: 40px;
-    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-top: 5px;
 }
 .suralar-button{
     margin-left: auto;
@@ -190,7 +192,8 @@
     width: 90%;
     max-width: 450px;
     bottom: 0;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
+    padding-top: 5px;
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -201,7 +204,7 @@
 }
 .sura-button{
     display: block;
-    padding: 21px 36px;
+    padding: 18px 33px;
     background-color: #020202;
     border-radius: 23px;
 }
@@ -217,8 +220,8 @@
     font-family: 'Jost';
     font-style: normal;
     font-weight: 300;
-    font-size: 30px;
-    line-height: 41px;
+    font-size: 26px;
+    line-height: 36px;
     letter-spacing: -0.04em;
     padding: 0px 20px;
     color: #FFFFFF;
@@ -226,6 +229,8 @@
 .menu-button{
     background: url(../../assets/img/nuqta.svg) no-repeat center center;
     background-color: #020202;
-    border-radius: 50%;
-    padding: 20px 20px;
+    
+}
+.oyat-input{
+    padding-right: 35px;
 }

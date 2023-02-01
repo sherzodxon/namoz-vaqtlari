@@ -7,7 +7,10 @@ const QuronPage = ()=>{
             <h2 className="book-home-title">Qur’onga </h2>
             <p className="book-home-text">Xush kelibsiz</p>
             <Link to={"/suralar"} className="book-access-link" children="Bismillah" />
-            <Link to={"/"} className="bottom-button back-button book-home-back-button" />
+            <div className="book bottom suralar-bottom">
+            <Link to={"/"} className="bottom-button back-button suralar-bottom-button" />
+            </div>
+           
         </div>
         </div>
       
