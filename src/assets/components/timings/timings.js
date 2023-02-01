@@ -53,10 +53,9 @@ const Timings=({posts,isLoading})=>{
     form=document.querySelector("#form")
  }
 
-   
 useEffect(() => {
     if (location.country) {
-         axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city}`).then((res) => {
+         axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city || "Tashkent"}`).then((res) => {
             setTimeDate(res.data);
             setTimeLoading(false);
             
