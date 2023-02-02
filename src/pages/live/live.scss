@@ -1,0 +1,40 @@
+.live-iframe {
+    width: 100%;
+    border: none;
+
+}
+
+.live-video-list {
+    padding: 50px 0px;
+}
+.live-video{
+    margin-bottom: 10px;
+}
+.live-header {
+    position: fixed;
+    width: 100%;
+    max-width: 500px;
+    z-index: 3;
+    background-color: #fff;
+
+}
+
+.live-title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    padding: 10px;
+    position: relative;
+   
+    &::after{
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        content: '';
+        background: url(../../assets/img/live.png) no-repeat center center;
+        top: calc(50% - 7px);
+        right: calc(50% - 34px);
+    }
+}

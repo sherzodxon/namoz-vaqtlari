@@ -13,6 +13,7 @@ import TonggiZikrlar from "./pages/zikr/tonggi-zikrlar/tonggi-zikrlar";
 import QuronPage from "./pages/quron/quron-page";
 import Suralar from "./pages/quron/suralar";
 import Sura from "./pages/quron/sura"
+import Live from "./pages/live/live";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
      <Route path="/quron-bosh-sahifa" element={<QuronPage/>}/>
      <Route path="/suralar" element={<Suralar />} />
      <Route path={`/sura/:number`} element={<Sura />} />
+     <Route path="/live" element={<Live/>} />
     </Routes>
     </DataProvider>
   );

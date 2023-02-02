@@ -11,12 +11,11 @@ const Calendar=()=>{
     const getMonth = new Date();
     const month = getMonth.getMonth();
     const year = getYear.getFullYear();
-    
+  
 
 
  useEffect(()=>{
-
-    axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${location.city}&country=${location.country}&method=1&month=${month}&year=${year}`)
+    axios.get(`https://api.aladhan.com/v1/calendarByCity?city=${location.city}&country=${location.country}&method=1&month=${month+1}&year=${year}`)
     .then(res=>{
     setData(res.data.data);
     setLoading(false)
