@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
 import Bottom from "../../assets/components/bottom/bottom"
 import '../zikr/zikr.scss'
+//import {GetLatLngByAddress} from '@geocoder-free/google'
 const Zikr=()=>{
+  
+
+//GetLatLngByAddress('tokyo tower').then(console.log);
     return(
         <div className="zikr">
             <h3 className="zikr-title">Zikr va Duolar</h3>
@@ -22,7 +26,7 @@ const Zikr=()=>{
                     <Link to="/barcha-zikrlar" className="zikr-link zikrlar-link" children="Barcha Ziklar"/>
                 </li>
             </ul>
-            <p className="zikr-text">
+           <p className="zikr-text">
            <strong>Бисмиллаҳир роҳманир роҳийм.</strong> <br />
             Бандаларига зикр ва дуолар эшигини очиб қўйган Ҳақ таолога Унинг жалолига яраша ҳамду санолар бўлсин!
             Умматларига зикр ва дуоларда намуна бўлган Расулимиз ва ҳабибимиз Муҳаммад мустафога саловоту дурудлар бўлсин!
@@ -33,8 +37,7 @@ const Zikr=()=>{
            <strong>«Эй иймон келтирганлар! Аллоҳни кўп зикр қилинглар! Ва эртаю кеч Уни поклаб ёд этинглар»</strong>, деган («Аҳзоб» сураси, 41-42-оятлар).
             </p>
                 </div>
-           
-            <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/'} />
+                <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/'} />
             </div>
            
             

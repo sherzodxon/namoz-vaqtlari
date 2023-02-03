@@ -14,6 +14,7 @@ import QuronPage from "./pages/quron/quron-page";
 import Suralar from "./pages/quron/suralar";
 import Sura from "./pages/quron/sura"
 import Live from "./pages/live/live";
+import Map from "./pages/map/map";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
      <Route path="/suralar" element={<Suralar />} />
      <Route path={`/sura/:number`} element={<Sura />} />
      <Route path="/live" element={<Live/>} />
+     <Route path="/map" element={<Map/>} />
     </Routes>
     </DataProvider>
   );

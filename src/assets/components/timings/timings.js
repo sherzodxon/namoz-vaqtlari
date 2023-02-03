@@ -9,6 +9,7 @@ import "../timings/timings.scss"
 import Button from "../button/button";
 import ModalCloser from "../modal/modal-closer";
 import Modal from "../modal/modal";
+import { Link } from "react-router-dom";
 
 
 const Timings=({posts,isLoading})=>{
@@ -16,51 +17,49 @@ const Timings=({posts,isLoading})=>{
     const {location, setLocation}=useLocation();
     const [post, setPost] = useState(0);                                 
     const [currentTime, setCurrentTime] = useState(0);
-    const [timeDate, setTimeDate] = useState(0);
-    const [timeLoading, setTimeLoading] = useState(true);
-    let [modalKey,setModalKey]=useState(false)
+    let [inLocation,setInLocation]=useState("");
+    let [modalKey,setModalKey]=useState(false);
+    let arrClass={container:"container", time:"time", timings:"timings"}
+    let [classes,setClasses]=useState(arrClass);
+    const countryRef = useRef();
+    const cityRef = useRef();
+
     let modalClass =''
     let currentDate =0 
     let prayerTime = ""
     let timesData = 0;
     let time = 0;
     let sunrise =false;
-    let [inLocation,setInLocation]=useState("");
-    const countryRef = useRef();
-    const cityRef = useRef();
-    let currentTimeHours = 0
-    let currentTimeMinutes = 0
-    let arrClass={container:"container", time:"time", timings:"timings"}
-    let [classes,setClasses]=useState(arrClass)
+    let currentHours = 0
+    let currentMinutes = 0
     let itemClass=''
-
-    let FajrTimeHours = 0;
-    let FajrTimeMinutes = 0;
-    let SunriseTimeHours = 0;
-    let SunriseTimeMinutes = 0;
-    let DhuhrTimeHours = 0;
-    let DhuhrTimeMinutes = 0;
-    let AsrTimeHours = 0;
+    let fajrHours = 0;
+    let fajrMinutes = 0;
+    let sunriseHours = 0;
+    let sunriseMinutes = 0;
+    let dhuhrHours = 0;
+    let dhuhrMinutes = 0;
+    let asrHours = 0;
     let AsrTimeMinutes = 0;
-    let MaghribTimeHours = 0;
-    let MaghribTimeMinutes = 0;
-    let IshaTimeHours = 0;
-    let IshaTimeMinutes = 0;
+    let maghribHours = 0;
+    let maghribMinutes = 0;
+    let ishaHours = 0;
+    let ishaMinutes = 0;
     let form = null;
-    
+    const d =new Date();
+    let minutes= d.getMinutes()
+    if (minutes/10 < 1) {
+        minutes=`0${minutes}`
+    }
+    let hours= d.getHours();
+    if (hours/10 < 1) {
+        hours=`0${hours}`
+    }
+    const timeDate =`${hours}:${minutes}`
+   
  if (!isLoading) {
     form=document.querySelector("#form")
  }
-
-useEffect(() => {
-    if (location) {
-         axios.get(`https://api.aladhan.com/v1/currentTime?zone=${location.continent}/${location.city || "Tashkent"}`).then((res) => {
-            setTimeDate(res.data);
-            setTimeLoading(false);
-        })
-    }
-
-}, [location])
 
 useEffect(() => {
     if (post) {
@@ -72,76 +71,72 @@ if (posts) {
      currentDate = post.data || posts.data;
     timesData= currentDate.timings
 
-    FajrTimeHours = +(timesData.Fajr[0] + timesData.Fajr[1]);
-    FajrTimeMinutes = +(timesData.Fajr[3] + timesData.Fajr[4]);
+    fajrHours = +(timesData.Fajr[0] + timesData.Fajr[1]);
+    fajrMinutes = +(timesData.Fajr[3] + timesData.Fajr[4]);
 
-    SunriseTimeHours = +(timesData.Sunrise[0] + timesData.Sunrise[1]);
-    SunriseTimeMinutes = +(timesData.Sunrise[3] + timesData.Sunrise[4]);
+    sunriseHours = +(timesData.Sunrise[0] + timesData.Sunrise[1]);
+    sunriseMinutes = +(timesData.Sunrise[3] + timesData.Sunrise[4]);
 
-    DhuhrTimeHours = +(timesData.Dhuhr[0] + timesData.Dhuhr[1]);
-    DhuhrTimeMinutes = +(timesData.Dhuhr[3] + timesData.Dhuhr[4]);
+    dhuhrHours = +(timesData.Dhuhr[0] + timesData.Dhuhr[1]);
+    dhuhrMinutes = +(timesData.Dhuhr[3] + timesData.Dhuhr[4]);
 
-    AsrTimeHours = +(timesData.Asr[0] + timesData.Asr[1]);
+    asrHours = +(timesData.Asr[0] + timesData.Asr[1]);
     AsrTimeMinutes = +(timesData.Asr[3] + timesData.Asr[4]);
 
-    MaghribTimeHours = +(timesData.Maghrib[0] + timesData.Maghrib[1]);
-    MaghribTimeMinutes = +(timesData.Maghrib[3] + timesData.Maghrib[4]);
+    maghribHours = +(timesData.Maghrib[0] + timesData.Maghrib[1]);
+    maghribMinutes = +(timesData.Maghrib[3] + timesData.Maghrib[4]);
 
-    IshaTimeHours = +(timesData.Isha[0] + timesData.Isha[1]);
-    IshaTimeMinutes = +(timesData.Isha[3] + timesData.Isha[4]);
+    ishaHours = +(timesData.Isha[0] + timesData.Isha[1]);
+    ishaMinutes = +(timesData.Isha[3] + timesData.Isha[4]);
 
    }
   
-if (!timeLoading && timeDate) {
-    time = currentTime.data || timeDate.data;
-    currentTimeHours = +(time[0] + time[1]);
-    currentTimeMinutes = +(time[3] + time[4])
+    time = currentTime.data || timeDate;
+    currentHours = +(time[0] + time[1]);
+    currentMinutes = +(time[3] + time[4])
    
-}
-
-if (currentTimeHours > FajrTimeHours && currentTimeHours < SunriseTimeHours) {
+if (currentHours > fajrHours && currentHours < sunriseHours) {
     prayerTime = "Bomdod";
     itemClass = 'fajr--active'
-} else if (currentTimeHours == FajrTimeHours && currentTimeMinutes >= FajrTimeMinutes || currentTimeHours == SunriseTimeHours && currentTimeMinutes <= SunriseTimeMinutes) {
+} else if (currentHours == fajrHours && currentMinutes >= fajrMinutes || currentHours == sunriseHours && currentMinutes <= sunriseMinutes) {
     prayerTime = "Bomdod"
     itemClass='fajr--active'
-} else if (currentTimeHours >= SunriseTimeHours && currentTimeHours < DhuhrTimeHours) {
-    prayerTime = `Peshin -${DhuhrTimeHours - currentTimeHours} soat`
+} else if (currentHours >= sunriseHours && currentHours < dhuhrHours) {
+    prayerTime = `Peshin -${dhuhrHours - currentHours} soat`
     itemClass='sunrise--active';
     sunrise=true
 
-} else if (currentTimeHours == DhuhrTimeHours && currentTimeMinutes < DhuhrTimeMinutes) {
-    prayerTime = `Peshin: - ${DhuhrTimeMinutes - currentTimeMinutes} daqiqa`
+} else if (currentHours == dhuhrHours && currentMinutes < dhuhrMinutes) {
+    prayerTime = `Peshin: - ${dhuhrMinutes - currentMinutes} daqiqa`
     itemClass='sunrise--active';
     sunrise=true
 
-} else if (currentTimeHours > DhuhrTimeHours && currentTimeHours < AsrTimeHours) {
+} else if (currentHours > dhuhrHours && currentHours < asrHours) {
     prayerTime = "Peshin"
     itemClass='dhuhr--active'
 
-} else if (currentTimeHours == DhuhrTimeHours && currentTimeMinutes >= DhuhrTimeMinutes || currentTimeHours == AsrTimeHours && currentTimeMinutes < AsrTimeMinutes) {
+} else if (currentHours == dhuhrHours && currentMinutes >= dhuhrMinutes || currentHours == asrHours && currentMinutes < AsrTimeMinutes) {
     prayerTime = "Peshin"
     itemClass='dhuhr--active'
 
-} else if (currentTimeHours > AsrTimeHours && currentTimeHours < MaghribTimeHours) {
+} else if (currentHours > asrHours && currentHours < maghribHours) {
     prayerTime = "Asr"
     itemClass='asr--active'  
-} else if (currentTimeHours == AsrTimeHours && currentTimeMinutes >= AsrTimeMinutes || currentTimeHours == MaghribTimeHours && currentTimeMinutes < MaghribTimeMinutes) {
+} else if (currentHours == asrHours && currentMinutes >= AsrTimeMinutes || currentHours == maghribHours && currentMinutes < maghribMinutes) {
     prayerTime = "Asr"
     itemClass='asr--active'
-} else if (currentTimeHours > MaghribTimeHours && currentTimeHours < IshaTimeHours) {
+} else if (currentHours > maghribHours && currentHours < ishaHours) {
     itemClass='maghrib--active'
     prayerTime = "Shom"
-} else if (currentTimeHours == MaghribTimeHours && currentTimeMinutes >= MaghribTimeMinutes || currentTimeHours == IshaTimeHours && currentTimeMinutes < IshaTimeMinutes) {
+} else if (currentHours == maghribHours && currentMinutes >= maghribMinutes || currentHours == ishaHours && currentMinutes < ishaMinutes) {
     itemClass='maghrib--active'
     prayerTime = "Shom"
-} else if (currentTimeHours > IshaTimeHours ) {
+} else if (currentHours > ishaHours ) {
     prayerTime = "Hufton"
     itemClass='isha--active'
-} else if (currentTimeHours == IshaTimeHours && currentTimeMinutes >= IshaTimeMinutes) {
+} else if (currentHours == ishaHours && currentMinutes >= ishaMinutes) {
     prayerTime = "Hufton"
     itemClass='isha--active'
-
 }
 else {
     prayerTime = "-"
@@ -236,9 +231,7 @@ else{
     modalClass="modal--none"
 }
 function handleModal(){
-
 setModalKey(!modalKey)
-
 }
 
 if (!isLoading){
@@ -249,7 +242,7 @@ if (!isLoading){
 <ModalCloser onClick={handleModal} className={modalClass} />
 <Modal className={modalClass}/>
 <div className={`timings ${classes.timings}`}>
-    <div className="container timings-container">
+    <div className=" timings-container container">
       <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
         <div onClick={resetForm} className="form-button timings-x-button"></div>
             <input className="timigs-input input country-input"  ref={countryRef} type="search" pattern="[A-z]*" title="Davlat"required placeholder="Davlat" />
@@ -296,7 +289,7 @@ if (!isLoading){
                 </li>
             </ol>
             <div className="timings-bottom-wrapper">
-                <button className="timings-compass"></button>
+                <Link className="timings-compass" to="/map" />
               <Button className={"timigs-quron-button qoran-button"} to={"/quron-bosh-sahifa"} children={"Qur'on"}/>
                 <button onClick={handleModal} className="timings-hamburger"></button>
             </div>
