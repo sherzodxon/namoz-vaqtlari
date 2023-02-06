@@ -27,7 +27,7 @@ return(
             </div>
             <hr className="names-hr" />
         </div>
-        <div className="container">
+ <div className="container">
         <div className={select? "unselected-none":"names-container container"}>
         {location.namesApi.map((post)=><NameCard comment={post.comment} key={post.id} isLiked={post.isLiked} name={post.name} id={post.id}  />)}
       </div>
