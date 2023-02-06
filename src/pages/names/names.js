@@ -27,11 +27,11 @@ return(
             </div>
             <hr className="names-hr" />
         </div>
-        <div className="names-container container">
-        <div className={select? "unselected-none":"names-container"}>
+        <div className="container">
+        <div className={select? "unselected-none":"names-container container"}>
         {location.namesApi.map((post)=><NameCard comment={post.comment} key={post.id} isLiked={post.isLiked} name={post.name} id={post.id}  />)}
       </div>
-      <div className={select? "names-container":"unselected-none"}>
+      <div className={select? "names-container container":"unselected-none"}>
       { 
        checkerPost?selectPost.map((post)=><NameCard key={post.id} isLiked={post.isLiked} name={post.name} id={post.id} comment={post.comment} />):
         <div className={select?"names-unselected":"unselected-none"}>

@@ -1,7 +1,13 @@
 .zikr {
     color: black;
+    position: relative;
+    overflow: visible;
 }
-
+.zikr-container{
+    position: relative;
+    max-height: 1010px;
+    overflow: visible;
+}
 .zikr-text {
     font-family: 'Roboto Slab';
     font-style: normal;

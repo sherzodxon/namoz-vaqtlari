@@ -35,7 +35,7 @@ if (!posts) {
         <>
         <p className="visually-hidden">Prayer Time</p>
         <Timings posts={posts} isLoading={isLoading} />
-    
+      
         </>
     )
 

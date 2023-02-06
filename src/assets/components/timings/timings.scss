@@ -2,6 +2,7 @@
     margin: 0;
     position: relative;
     height: 100vh;
+    max-height: 1010px;
     width: 100%;
     color: #FFFFFF;
 }
@@ -13,7 +14,7 @@
 .timings-form {
     display: flex;
     justify-content: space-between;
-    padding-top: 3%;
+    padding-top: 10px;
 }
 
 .form-button {
@@ -97,11 +98,15 @@
 }
 
 .timings-today-wrapper {
- position:fixed;
- bottom: 310px;
+ position:absolute;
+ top: calc(50% + 40px);
  padding-left: 25px;
 }
-
+@media only screen and (max-height:890px){
+    .timings-today-wrapper{
+        top: calc(50% - 50px);
+    }
+}
 .timings-today {
     font-weight: 500;
     font-size: 18px;

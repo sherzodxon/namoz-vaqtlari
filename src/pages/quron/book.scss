@@ -16,7 +16,9 @@
 }
 
 .book-container {
+    position: relative;
     height: 100vh;
+    max-height: 1010px;
 }
 
 .book-home-title {
@@ -69,7 +71,10 @@
     background-color: #fff;
     z-index: 3;
 }
-
+.book-bottom{
+    position: fixed;
+    bottom: 40px;
+}
 .book-home-back-button {
     display: block;
     position: absolute;
@@ -111,6 +116,7 @@
     display: flex;
     align-items: center;
 }
+
 
 .search-input {
     display: block;
@@ -155,19 +161,34 @@
 }
 
 .suralar-container {
-    padding: 70px 0;
+    padding: 70px 0; 
+    position: relative;
+ 
 }
+
 .form-title{
     font-size: 25px;
 }
-.suralar-bottom{
+.book-bottom{
     position: fixed;
-    width: 90%;
+    width: 100%;
     max-width: 450px;
     bottom: 0;
     background-color: #fff;
     padding-bottom: 20px;
     padding-top: 5px;
+ 
+}
+.suralar-bottom{
+    position:fixed;
+    width: 100%;
+    max-width: 450px;
+    bottom: 0;
+ 
+    background-color: #fff;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    overflow: hidden;
 }
 .suralar-button{
     margin-left: auto;
@@ -184,8 +205,8 @@
     letter-spacing: -0.08em;
     padding: 8px 6px 5px 5px;
     background-size: contain;
-   text-align: center;
-   color: #fff;
+    text-align: center;
+    color: #fff;
 }
 .sura-bottom-wrapper{
     position: fixed;
@@ -233,4 +254,9 @@
 }
 .oyat-input{
     padding-right: 35px;
+}
+@media only screen and (max-width:410px){
+    .search-input{
+        padding-right: 25px;
+    }
 }

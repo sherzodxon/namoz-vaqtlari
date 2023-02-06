@@ -38,9 +38,10 @@ return(
         {post.map((el)=>
             <SuraCard key={el.number} number={el.number} name={el.nameUz} enName={el.englishName} nameArab={el.name} audio={el.audio} playing={el.playing} />
         )}
+     
+        </div>
         <div className="suralar-bottom">
             <Link to={"/"} className="bottom-button back-button suralar-button"/>
-        </div>
         </div>
     </div>
 )

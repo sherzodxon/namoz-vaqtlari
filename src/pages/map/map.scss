@@ -1,0 +1,39 @@
+.map-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.map-header {
+    text-align: center;
+    padding: 4px 0px;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        content: '';
+        top: calc(50% - 15px);
+        right: 10px;
+        background: url(../../assets/img/map-after.svg) no-repeat center center;
+    }
+}
+
+.map-country {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+}
+
+.map-city {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: -0.04em;
+}
+
+.map-iframe {
+    width: 100%;
+    height: 85vh;
+}
