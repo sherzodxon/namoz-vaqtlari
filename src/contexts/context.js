@@ -92,7 +92,7 @@ const DataProvider = ({
                 <h2 className="location-title">Joylashuvingizni tanlang</h2>
             <form className="location-form " onSubmit={handleSubmit}>
                 <input className="location-input location-city-input" ref={countryRef} type="search" pattern="[A-z]*" title="Davlat" placeholder="Davlat" required/>
-                <input className="location-input" ref={cityRef} type="search" pattern="[A-z]*" title="Shahar" placeholder="Shahar/Tuman" required/>
+                <input className="location-input" ref={cityRef} type="search" pattern="[A-z]*" title="Shahar" placeholder="Shahar" required/>
                 <input className="location-input" ref={areaRef} type="search" pattern="[A-z]*" title="Hudud" placeholder="Hudud" required/>
                 <button className="location-button"></button>   
             </form>

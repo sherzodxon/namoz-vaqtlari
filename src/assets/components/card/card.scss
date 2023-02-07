@@ -1,7 +1,67 @@
-.card{
-    background-color: aquamarine;
+.card {
     border-radius: 30px;
     margin-bottom: 20px;
     text-align: center;
-    padding: 20px;
+    border: 1px solid rgba(244, 244, 244, 1);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: -0.04em;
+    color: #020202;
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+    padding: 11px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-weekday {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.card-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-item {
+    padding: 15px;
+    border-right: 1px solid rgba(232, 232, 232, 1);
+
+    &:last-child {
+        border-right: none;
+    }
+}
+
+.card-praytime {
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+.card-weekname{
+    font-family: "Roboto Slab";
+    margin-bottom: 8px;
+    color: rgb(6, 232, 138);
+    
+}
+@media only screen and (max-width:410px){
+.card-item{
+    padding: 10px;
+}
+.card-weekname{
+    font-size: 14px;
+}
+}
+@media only screen and (max-width:330px){
+.card-item{
+    padding: 10px 5px;
+}
+.card-weekname{
+    font-size: 12px;
+}
 }
