@@ -12,11 +12,11 @@ const Map=()=>{
                     <p className="map-city">{location.locality}</p>
                 </div>
             <iframe className='map-iframe' src={`https://maps.google.com/maps?q=${location.latitude}, ${location.longitude}&output=embed`} ></iframe>
-            <div className="map-bottom suralar-bottom">
+            <div className="map-bottom">
             <Link to={"/"} className="map-back-button bottom-button back-button suralar-button"/>
             </div>
             </div>
-          
+
         </div>
     )
 }

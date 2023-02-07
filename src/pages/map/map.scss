@@ -35,5 +35,15 @@
 
 .map-iframe {
     width: 100%;
-    height: 85vh;
+    height: 80vh;
+}
+.map-bottom{
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 20px;
+    width: 100%;
+    max-width: 450px;
+}
+.map-back-button{
+    margin-right: 10px;
 }
