@@ -1,37 +1,72 @@
-import {useState} from "react"
+import axios from "axios"
+import {
+  useEffect,
+  useState
+} from "react"
+import {
+  Pagination
+} from "antd"
 import Bottom from "../../assets/components/bottom/bottom"
 import NameCard from "../../assets/components/namescard/namescard"
-import { useLocation } from "../../contexts/context"
+import {
+  useLocation
+} from "../../contexts/context"
 import '../../pages/names/names.scss'
 
-const Names =()=>{
-   const {location,setLocation}=useLocation();
-   const [select, setSelect]=useState(false);
+const Names = () => {
+  const {
+    location,
+    setLocation
+  } = useLocation();
+  const [select, setSelect] = useState(false);
+  let [data, setData] = useState([]);
+  let [dataSource,setDataSource]=useState([])
+  const [loading, setLoading] = useState(true);
+ 
+  useEffect(() => {
+    fetchRecords(1);
    
-   let selectPost=location.namesApi.filter((el)=>el.isLiked==true);
-   const checkerPost=location.namesApi.some((el)=>el.isLiked==true);
+  }, [])
 
-   function handleSelect() {
+ let selectPost = location.namesApi.filter((el) => el.isLiked == true);
+ let checkerPost = location.namesApi.some((el) => el.isLiked == true);
+
+  const fetchRecords = (page) => {
+    axios.get(`https://retoolapi.dev/PBj0hg/allohismlari?_limit=15&_page=${page}`).then((res) => {
+      setData(res.data)
+      setLoading(false)
+    })
+  }
+
+  function handleSelect() {
     setSelect(false)
-   }
-   function handleSelected() {
+  }
+
+  function handleSelected() {
     setSelect(true)
-   }
-   
-return(
+  }
+if(!loading){
+  return(
     <div className="names">
-     
+
  <div className="container">
  <div className="names-button-wrapper">
+
             <div className="names-header">
+
             <button onClick={handleSelect} className={select?"names-button":"names-button names-button--active"}>99 ISM</button>
             <button onClick={handleSelected} className={select?"names-button names-button--active":"names-button"}>Tanlanganlar</button>
             </div>
             <hr className="names-hr" />
         </div>
         <div className={select? "unselected-none":"names-container"}>
-        {location.namesApi.map((post)=><NameCard comment={post.comment} key={post.id} isLiked={post.isLiked} name={post.name} id={post.id}  />)}
+        {data.map((post)=><NameCard comment={post.comment} key={post.id} isLiked={post.isLiked} name={post.name} id={post.id}  />)}
+        <Pagination 
+      total={70} 
+      responsive 
+      onChange={(page)=>fetchRecords(page)} />
       </div>
+
       <div className={select? "names-container":"unselected-none"}>
       { 
        checkerPost?selectPost.map((post)=><NameCard key={post.id} isLiked={post.isLiked} name={post.name} id={post.id} comment={post.comment} />):
@@ -43,8 +78,10 @@ return(
       </div>
       <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/'}/>
         </div>
-     
+
     </div>
 )
+}
+  
 }
 export default Names

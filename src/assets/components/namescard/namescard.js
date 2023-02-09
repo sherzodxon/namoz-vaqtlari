@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
     useLocation
@@ -9,17 +10,17 @@ const NameCard = ({id,name,isLiked,comment}) => {
         location,
         setLocation
     } = useLocation()
-
+    let post = location.namesApi.find((el) => el.id == id);
+    let postIndex = location.namesApi.findIndex((el) => el.id == id)
     function handleLike() {
-        let post = location.namesApi.find((el) => el.id == id);
-        let postIndex = location.namesApi.findIndex((el) => el.id == id)
         post.isLiked = !post.isLiked
         setLocation({
             ...location,
             ...location.namesApi.splice(postIndex, 1, post)
         })
-
+      
     }
+  
     return(
         <div className="names-card">
             <div className="names-card-header">
@@ -32,7 +33,7 @@ const NameCard = ({id,name,isLiked,comment}) => {
            
          </div>
 
-         <button className={isLiked?"names-like names-liked":"names-like"} onClick={handleLike}></button>
+         <button className={post.isLiked?"names-like names-liked":"names-like"} onClick={handleLike}></button>
             </div>
           
         </div>

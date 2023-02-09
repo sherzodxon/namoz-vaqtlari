@@ -120,10 +120,10 @@
 
 .search-input {
     display: block;
-    width: calc(50% - 70px);
+    width: calc(50% - 20px);
     background: #EEEEEE;
     border-radius: 8px;
-    padding: 10px 40px 10px 10px;
+    padding: 10px 45px 15px 10px;
     font-family: 'Jost';
     font-style: normal;
     font-weight: 500;
@@ -148,6 +148,11 @@
     background-color: transparent;
    }
     
+}
+.oyat-input{
+    padding-right: 35px;
+    width: calc(50% - 70px);
+    padding-bottom: 10px;
 }
 
 .search-button {
@@ -252,11 +257,9 @@
     background-color: #020202;
     
 }
-.oyat-input{
-    padding-right: 35px;
-}
+
 @media only screen and (max-width:410px){
     .search-input{
-        padding-right: 25px;
+        padding-right: 35px;
     }
 }
