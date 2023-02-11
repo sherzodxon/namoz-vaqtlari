@@ -1,14 +1,25 @@
-import { useRef, useState } from "react"
+import { Pagination } from "antd"
+import axios from "axios"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
-import { quronApi } from "../../api/quronApi"
 import SuraCard from "../../assets/components/sura-card/sura-card"
 import { useLocation } from "../../contexts/context"
 
 const Suralar =()=>{
 let {location ,setLocation} =useLocation()
-const [post ,setPost]=useState(location.quronApi);
+const [post ,setPost]=useState([]);
+const [loading ,setLoading]=useState(true)
 const searchRef =useRef();
-
+let leftOverArr=[]
+useEffect(()=>{
+    fetcherData(1)
+},[])
+function fetcherData(page) {
+    axios.get(`https://retoolapi.dev/OS6065/quronsuralar?_limit=16&_page=${page}`).then((res)=>{
+        setPost(res.data);
+        setLoading(false)
+    })
+}
 function handleSearch(evt) {
     evt.preventDefault();
     const searchValue= searchRef.current.value;
@@ -21,9 +32,25 @@ function handleSearch(evt) {
    })
    setPost(finded)
    if (searchValue == "") {
-  setPost(location.quronApi)
+   setPost(post)
 }
-   
+}
+
+ 
+location.quronApi.forEach((el,ind)=>{
+    if(ind>=100){
+       leftOverArr.push(el)
+    }
+})
+if(post.length == 4){
+    const newPost = post.concat(leftOverArr)
+  setPost(newPost)
+  }
+
+if(loading){
+    return(
+        <p>yuklanmoqda...</p>
+    )
 }
 return(
     <div className="suralar">
@@ -35,9 +62,10 @@ return(
             </form>
         </div>
         <div className="suralar-container container">
-        {post.map((el)=>
-            <SuraCard key={el.number} number={el.number} name={el.nameUz} enName={el.englishName} nameArab={el.name} audio={el.audio} playing={el.playing} />
+        {post.map((el,key)=>
+            <SuraCard key={key} number={el.number || el.id} name={el.nameUz} enName={el.englishName} nameArab={el.name} audio={el.audio} playing={el.playing} />
         )}
+        <Pagination total={70} onChange={(page)=>fetcherData(page)} responsive />
       <div className="suralar-bottom">
             <Link to={"/"} className="bottom-button back-button suralar-button"/>
         </div>

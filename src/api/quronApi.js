@@ -1,184 +1,174 @@
-export let quronApi = [
+export let quronApi = [ 
     {
         "number": 1,
         "name": "سُورَةُ ٱلْفَاتِحَةِ",
         "englishName": "Al-Faatiha",
-        "numberOfAyahs": 7,
         "nameUz": "Fotiha",
         "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3",
         "playing": false,
-        
+        "numberOfAyahs": 7,
     },
     {
         "number": 2,
         "name": "سُورَةُ البَقَرَةِ",
         "englishName": "Al-Baqara",
-        "numberOfAyahs": 286,
         "nameUz": "Baqara",
         "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/2.mp3",
         "playing": false,
+        "numberOfAyahs": 286,
     },
     {
         "number": 3,
         "name": "سُورَةُ آلِ عِمۡرَانَ",
         "englishName": "Aal-i-Imraan",
-        "numberOfAyahs": 200,
         "nameUz": "Oli Imron",
         "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/3.mp3",
         "playing": false,
+        "numberOfAyahs": 200,
     },
     {
         "number": 4,
         "name": "سُورَةُ النِّسَاءِ",
         "englishName": "An-Nisaa",
-        "numberOfAyahs": 176,
         "nameUz": "Niso",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/4.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/4.mp3",
         "playing": false,
-       
-
+        "numberOfAyahs": 176,
     },
     {
         "number": 5,
         "name": "سُورَةُ المَائـِدَةِ",
         "englishName": "Al-Maaida",
-        "numberOfAyahs": 120,
         "nameUz": "Moida",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/5.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/5.mp3",
         "playing": false,
-        
+        "numberOfAyahs": 120,
     },
     {
         "number": 6,
         "name": "سُورَةُ الأَنۡعَامِ",
         "englishName": "Al-An'aam",
-        "numberOfAyahs": 165,
         "nameUz": "An'om",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/6.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/6.mp3",
         "playing": false,
+        "numberOfAyahs": 165,
     },
     {
         "number": 7,
         "name": "سُورَةُ الأَعۡرَافِ",
         "englishName": "Al-A'raaf",
-        "numberOfAyahs": 206,
         "nameUz": "A'rof",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/7.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/7.mp3",
         "playing": false,
+        "numberOfAyahs": 206,
     },
     {
         "number": 8,
         "name": "سُورَةُ الأَنفَالِ",
         "englishName": "Al-Anfaal",
-        "numberOfAyahs": 75,
         "nameUz": "Anfol",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/8.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/8.mp3",
         "playing": false,
+        "numberOfAyahs": 75,
 
     },
     {
         "number": 9,
         "name": "سُورَةُ التَّوۡبَةِ",
         "englishName": "At-Tawba",
-        "numberOfAyahs": 129,
         "nameUz": "Tavba",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/9.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/9.mp3",
         "playing": false,
+        "numberOfAyahs": 129,
     },
     {
         "number": 10,
         "name": "سُورَةُ يُونُسَ",
         "englishName": "Yunus",
-        "numberOfAyahs": 109,
         "nameUz": "Yunus",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/10.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/10.mp3",
         "playing": false,
+        "numberOfAyahs": 109,
     },
     {
         "number": 11,
         "name": "سُورَةُ هُودٍ",
         "englishName": "Hud",
-        "numberOfAyahs": 123,
         "nameUz": "Hud",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/11.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/11.mp3",
         "playing": false,
-
+        "numberOfAyahs": 123,
     },
     {
         "number": 12,
         "name": "سُورَةُ يُوسُفَ",
         "englishName": "Yusuf",
-        "numberOfAyahs": 111,
         "nameUz": "Yusuf",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/13.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/13.mp3",
         "playing": false,
+        "numberOfAyahs": 111,
 
     },
     {
         "number": 13,
         "name": "سُورَةُ الرَّعۡدِ",
         "englishName": "Ar-Ra'd",
-        "numberOfAyahs": 43,
         "nameUz": "Ra'd",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/13.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/13.mp3",
         "playing": false,
+        "numberOfAyahs": 43,
     },
     {
         "number": 14,
         "name": "سُورَةُ إِبۡرَاهِيمَ",
         "englishName": "Ibrahim",
-        "numberOfAyahs": 52,
         "nameUz": "Ibrohim",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/14.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/14.mp3",
         "playing": false,
-
+        "numberOfAyahs": 52,
     },
     {
         "number": 15,
         "name": "سُورَةُ الحِجۡرِ",
         "englishName": "Al-Hijr",
-        "numberOfAyahs": 99,
         "nameUz": "Hijr",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/15.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/15.mp3",
         "playing": false,
-
+        "numberOfAyahs": 99,
     },
     {
         "number": 16,
         "name": "سُورَةُ النَّحۡلِ",
         "englishName": "An-Nahl",
-        "numberOfAyahs": 128,
         "nameUz": "Nahl",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/16.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/16.mp3",
         "playing": false,
-
+        "numberOfAyahs": 128,
     },
     {
         "number": 17,
         "name": "سُورَةُ الإِسۡرَاءِ",
         "englishName": "Al-Israa",
-        "numberOfAyahs": 111,
         "nameUz": "Isro",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/17.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/17.mp3",
         "playing": false,
-
+        "numberOfAyahs": 111,
     },
     {
         "number": 18,
         "name": "سُورَةُ الكَهۡفِ",
         "englishName": "Al-Kahf",
         "nameUz": "Qahf",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/18.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/18.mp3",
         "playing": false,
         "numberOfAyahs": 110,
-
     },
     {
         "number": 19,
         "name": "سُورَةُ مَرۡيَمَ",
         "englishName": "Maryam",
         "nameUz": "Maryam",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/19.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/19.mp3",
         "playing": false,
         "numberOfAyahs": 98,
 
@@ -188,7 +178,7 @@ export let quronApi = [
         "name": "سُورَةُ طه",
         "englishName": "Taa-Haa",
         "nameUz": "Toha",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/20.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/20.mp3",
         "playing": false,
         "numberOfAyahs": 135,
 
@@ -198,7 +188,7 @@ export let quronApi = [
         "name": "سُورَةُ الأَنبِيَاءِ",
         "englishName": "Al-Anbiyaa",
         "nameUz": "Anbiyo",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/21.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/21.mp3",
         "playing": false,
         "numberOfAyahs": 112,
 
@@ -208,7 +198,7 @@ export let quronApi = [
         "name": "سُورَةُ الحَجِّ",
         "englishName": "Al-Hajj",
         "nameUz": "Haj",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/22.mp3`,
+        "audio": 'https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/22.mp3',
         "playing": false,
         "numberOfAyahs": 78,
 
@@ -218,7 +208,7 @@ export let quronApi = [
         "name": "سُورَةُ المُؤۡمِنُونَ",
         "englishName": "Al-Muminoon",
         "nameUz": "Mu'minun",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/23.mp3`,
+        "audio": 'https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/23.mp3',
         "playing": false,
         "numberOfAyahs": 118,
 
@@ -228,7 +218,7 @@ export let quronApi = [
         "name": "سُورَةُ النُّورِ",
         "englishName": "An-Noor",
         "nameUz": "Nur",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/24.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/24.mp3",
         "playing": false,
         "numberOfAyahs": 64,
 
@@ -238,7 +228,7 @@ export let quronApi = [
         "name": "سُورَةُ الفُرۡقَانِ",
         "englishName": "Al-Furqaan",
         "nameUz": "Furqon",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/25.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/25.mp3",
         "playing": false,
         "numberOfAyahs": 77,
 
@@ -248,7 +238,7 @@ export let quronApi = [
         "name": "سُورَةُ الشُّعَرَاءِ",
         "englishName": "Ash-Shu'araa",
         "nameUz": "Shu'aro",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/26.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/26.mp3",
         "playing": false,
         "numberOfAyahs": 227,
 
@@ -258,7 +248,7 @@ export let quronApi = [
         "name": "سُورَةُ النَّمۡلِ",
         "englishName": "An-Naml",
         "nameUz": "Naml",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/27.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/27.mp3",
         "playing": false,
         "numberOfAyahs": 93,
 
@@ -268,7 +258,7 @@ export let quronApi = [
         "name": "سُورَةُ القَصَصِ",
         "englishName": "Al-Qasas",
         "nameUz": "Qasas",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/28.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/28.mp3",
         "playing": false,
         "numberOfAyahs": 88,
 
@@ -278,7 +268,7 @@ export let quronApi = [
         "name": "سُورَةُ العَنكَبُوتِ",
         "englishName": "Al-Ankaboot",
         "nameUz": "Ankabut",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/29.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/29.mp3",
         "playing": false,
         "numberOfAyahs": 69,
 
@@ -288,7 +278,7 @@ export let quronApi = [
         "name": "سُورَةُ الرُّومِ",
         "englishName": "Ar-Room",
         "nameUz": "Rum",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/30.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/30.mp3",
         "playing": false,
         "numberOfAyahs": 60,
 
@@ -298,7 +288,7 @@ export let quronApi = [
         "name": "سُورَةُ لُقۡمَانَ",
         "englishName": "Luqman",
         "nameUz": "Luqmon",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/31.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/31.mp3",
         "playing": false,
         "numberOfAyahs": 34,
 
@@ -308,7 +298,7 @@ export let quronApi = [
         "name": "سُورَةُ السَّجۡدَةِ",
         "englishName": "As-Sajda",
         "nameUz": "Sajda",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/32.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/32.mp3",
         "playing": false,
         "numberOfAyahs": 30,
 
@@ -318,7 +308,7 @@ export let quronApi = [
         "name": "سُورَةُ الأَحۡزَابِ",
         "englishName": "Al-Ahzaab",
         "nameUz": "Ahzob",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/33.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/33.mp3",
         "playing": false,
         "numberOfAyahs": 73,
 
@@ -328,7 +318,7 @@ export let quronApi = [
         "name": "سُورَةُ سَبَإٍ",
         "englishName": "Saba",
         "nameUz": "Saba'",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/34.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/34.mp3",
         "playing": false,
         "numberOfAyahs": 54,
 
@@ -338,7 +328,7 @@ export let quronApi = [
         "name": "سُورَةُ فَاطِرٍ",
         "englishName": "Faatir",
         "nameUz": "Fotir",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/35.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/35.mp3",
         "playing": false,
         "numberOfAyahs": 45,
 
@@ -348,7 +338,7 @@ export let quronApi = [
         "name": "سُورَةُ يسٓ",
         "englishName": "Yaseen",
         "nameUz": "Yosin",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/36.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/36.mp3",
         "playing": false,
         "numberOfAyahs": 83,
 
@@ -358,7 +348,7 @@ export let quronApi = [
         "name": "سُورَةُ الصَّافَّاتِ",
         "englishName": "As-Saaffaat",
         "nameUz": "Soffat",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/37.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/37.mp3",
         "playing": false,
         "numberOfAyahs": 182,
 
@@ -368,7 +358,7 @@ export let quronApi = [
         "name": "سُورَةُ صٓ",
         "englishName": "Saad",
         "nameUz": "Sod",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/38.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/38.mp3",
         "playing": false,
         "numberOfAyahs": 88,
 
@@ -378,7 +368,7 @@ export let quronApi = [
         "name": "سُورَةُ الزُّمَرِ",
         "englishName": "Az-Zumar",
         "nameUz": "Zumar",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/39.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/39.mp3",
         "playing": false,
         "numberOfAyahs": 75,
 
@@ -388,7 +378,7 @@ export let quronApi = [
         "name": "سُورَةُ غَافِرٍ",
         "englishName": "Ghafir",
         "nameUz": "G'ofir",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/40.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/40.mp3",
         "playing": false,
         "numberOfAyahs": 85,
 
@@ -398,7 +388,7 @@ export let quronApi = [
         "name": "سُورَةُ فُصِّلَتۡ",
         "englishName": "Fussilat",
         "nameUz": "Fussilat",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/41.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/41.mp3",
         "playing": false,
         "numberOfAyahs": 54,
 
@@ -408,7 +398,7 @@ export let quronApi = [
         "name": "سُورَةُ الشُّورَىٰ",
         "englishName": "Ash-Shura",
         "nameUz": "Sho'ro",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/42.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/42.mp3",
         "playing": false,
         "numberOfAyahs": 53,
 
@@ -418,7 +408,7 @@ export let quronApi = [
         "name": "سُورَةُ الزُّخۡرُفِ",
         "englishName": "Az-Zukhruf",
         "nameUz": "Zuxruf",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/43.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/43.mp3",
         "playing": false,
         "numberOfAyahs": 89,
 
@@ -428,7 +418,7 @@ export let quronApi = [
         "name": "سُورَةُ الدُّخَانِ",
         "englishName": "Ad-Dukhaan",
         "nameUz": "Duxon",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/44.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/44.mp3",
         "playing": false,
         "numberOfAyahs": 59,
 
@@ -438,7 +428,7 @@ export let quronApi = [
         "name": "سُورَةُ الجَاثِيَةِ",
         "englishName": "Al-Jaathiya",
         "nameUz": "Josiya",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/45.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/45.mp3",
         "playing": false,
         "numberOfAyahs": 37,
 
@@ -448,7 +438,7 @@ export let quronApi = [
         "name": "سُورَةُ الأَحۡقَافِ",
         "englishName": "Al-Ahqaf",
         "nameUz": "Ahqof",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/46.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/46.mp3",
         "playing": false,
         "numberOfAyahs": 35,
 
@@ -458,7 +448,7 @@ export let quronApi = [
         "name": "سُورَةُ مُحَمَّدٍ",
         "englishName": "Muhammad",
         "nameUz": "Muhammad",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/47.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/47.mp3",
         "playing": false,
         "numberOfAyahs": 38,
     },
@@ -467,7 +457,7 @@ export let quronApi = [
         "name": "سُورَةُ الفَتۡحِ",
         "englishName": "Al-Fath",
         "nameUz": "Fath",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/48.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/48.mp3",
         "playing": false,
         "numberOfAyahs": 29,
     },
@@ -476,7 +466,7 @@ export let quronApi = [
         "name": "سُورَةُ الحُجُرَاتِ",
         "englishName": "Al-Hujuraat",
         "nameUz": "Hujurot",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/49.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/49.mp3",
         "playing": false,
         "numberOfAyahs": 18,
 
@@ -486,7 +476,7 @@ export let quronApi = [
         "name": "سُورَةُ قٓ",
         "englishName": "Qaaf",
         "nameUz": "Qof",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/50.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/50.mp3",
         "playing": false,
         "numberOfAyahs": 45,
 
@@ -496,7 +486,7 @@ export let quronApi = [
         "name": "سُورَةُ الذَّارِيَاتِ",
         "englishName": "Adh-Dhaariyat",
         "nameUz": "Zoriyot",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/51.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/51.mp3",
         "playing": false,
         "numberOfAyahs": 60,
 
@@ -506,7 +496,7 @@ export let quronApi = [
         "name": "سُورَةُ الطُّورِ",
         "englishName": "At-Tur",
         "nameUz": "Tur",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/52.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/52.mp3",
         "playing": false,
         "numberOfAyahs": 49,
 
@@ -516,7 +506,7 @@ export let quronApi = [
         "name": "سُورَةُ النَّجۡمِ",
         "englishName": "An-Najm",
         "nameUz": "Najm",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/53.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/53.mp3",
         "playing": false,
         "numberOfAyahs": 62,
 
@@ -526,7 +516,7 @@ export let quronApi = [
         "name": "سُورَةُ القَمَرِ",
         "englishName": "Al-Qamar",
         "nameUz": "Qamar",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/54.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/54.mp3",
         "playing": false,
         "numberOfAyahs": 55,
 
@@ -536,7 +526,7 @@ export let quronApi = [
         "name": "سُورَةُ الرَّحۡمَٰن",
         "englishName": "Ar-Rahmaan",
         "nameUz": "Rahmon",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/55.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/55.mp3",
         "playing": false,
         "numberOfAyahs": 78,
 
@@ -546,7 +536,7 @@ export let quronApi = [
         "name": "سُورَةُ الوَاقِعَةِ",
         "englishName": "Al-Waaqia",
         "nameUz": "Voqea",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/56.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/56.mp3",
         "playing": false,
         "numberOfAyahs": 96,
 
@@ -556,7 +546,7 @@ export let quronApi = [
         "name": "سُورَةُ الحَدِيدِ",
         "englishName": "Al-Hadid",
         "nameUz": "Hadid",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/57.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/57.mp3",
         "playing": false,
         "numberOfAyahs": 29,
 
@@ -566,7 +556,7 @@ export let quronApi = [
         "name": "سُورَةُ المُجَادلَةِ",
         "englishName": "Al-Mujaadila",
         "nameUz": "Mujodala",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/58.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/58.mp3",
         "playing": false,
         "numberOfAyahs": 22,
 
@@ -576,7 +566,7 @@ export let quronApi = [
         "name": "سُورَةُ الحَشۡرِ",
         "englishName": "Al-Hashr",
         "nameUz": "Hashr",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/59.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/59.mp3",
         "playing": false,
         "numberOfAyahs": 24,
 
@@ -586,7 +576,7 @@ export let quronApi = [
         "name": "سُورَةُ المُمۡتَحنَةِ",
         "englishName": "Al-Mumtahana",
         "nameUz": "Mumtahana",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/60.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/60.mp3",
         "playing": false,
         "numberOfAyahs": 13,
 
@@ -596,7 +586,7 @@ export let quronApi = [
         "name": "سُورَةُ الصَّفِّ",
         "englishName": "As-Saff",
         "nameUz": "Sof",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/61.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/61.mp3",
         "playing": false,
         "numberOfAyahs": 14,
 
@@ -606,7 +596,7 @@ export let quronApi = [
         "name": "سُورَةُ الجُمُعَةِ",
         "englishName": "Al-Jumu'a",
         "nameUz": "Jum'a",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/62.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/62.mp3",
         "playing": false,
         "numberOfAyahs": 11,
 
@@ -616,7 +606,7 @@ export let quronApi = [
         "name": "سُورَةُ المُنَافِقُونَ",
         "englishName": "Al-Munaafiqoon",
         "nameUz": "Munofiqun",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/63.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/63.mp3",
         "playing": false,
         "numberOfAyahs": 11,
 
@@ -626,7 +616,7 @@ export let quronApi = [
         "name": "سُورَةُ التَّغَابُنِ",
         "englishName": "At-Taghaabun",
         "nameUz": "Tag'obun",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/64.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/64.mp3",
         "playing": false,
         "numberOfAyahs": 18,
 
@@ -636,17 +626,17 @@ export let quronApi = [
         "name": "سُورَةُ الطَّلَاقِ",
         "englishName": "At-Talaaq",
         "nameUz": "Taloq",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/65.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/65.mp3",
         "playing": false,
         "numberOfAyahs": 12,
-
+ 
     },
     {
         "number": 66,
         "name": "سُورَةُ التَّحۡرِيمِ",
         "englishName": "At-Tahrim",
         "nameUz": "Tahrim",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/66.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/66.mp3",
         "playing": false,
         "numberOfAyahs": 12,
 
@@ -656,7 +646,7 @@ export let quronApi = [
         "name": "سُورَةُ المُلۡكِ",
         "englishName": "Al-Mulk",
         "nameUz": "Mulk",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/67.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/67.mp3",
         "playing": false,
         "numberOfAyahs": 30,
 
@@ -666,7 +656,7 @@ export let quronApi = [
         "name": "سُورَةُ القَلَمِ",
         "englishName": "Al-Qalam",
         "nameUz": "Qalam",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/68.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/68.mp3",
         "playing": false,
         "numberOfAyahs": 52,
 
@@ -676,7 +666,7 @@ export let quronApi = [
         "name": "سُورَةُ الحَاقَّةِ",
         "englishName": "Al-Haaqqa",
         "nameUz": "Haaqqa",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/69.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/69.mp3",
         "playing": false,
         "numberOfAyahs": 52,
 
@@ -686,7 +676,7 @@ export let quronApi = [
         "name": "سُورَةُ المَعَارِجِ",
         "englishName": "Al-Ma'aarij",
         "nameUz": "Maorij",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/70.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/70.mp3",
         "playing": false,
         "numberOfAyahs": 44,
 
@@ -696,7 +686,7 @@ export let quronApi = [
         "name": "سُورَةُ نُوحٍ",
         "englishName": "Nooh",
         "nameUz": "Nuh",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/71.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/71.mp3",
         "playing": false,
         "numberOfAyahs": 28,
 
@@ -706,7 +696,7 @@ export let quronApi = [
         "name": "سُورَةُ الجِنِّ",
         "englishName": "Al-Jinn",
         "nameUz": "Jin",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/72.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/72.mp3",
         "playing": false,
         "numberOfAyahs": 28,
 
@@ -716,7 +706,7 @@ export let quronApi = [
         "name": "سُورَةُ المُزَّمِّلِ",
         "englishName": "Al-Muzzammil",
         "nameUz": "Muzzammil",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/73.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/73.mp3",
         "playing": false,
         "numberOfAyahs": 20,
 
@@ -726,7 +716,7 @@ export let quronApi = [
         "name": "سُورَةُ المُدَّثِّرِ",
         "englishName": "Al-Muddaththir",
         "nameUz": "Muddassir",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/74.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/74.mp3",
         "playing": false,
         "numberOfAyahs": 56,
 
@@ -736,7 +726,7 @@ export let quronApi = [
         "name": "سُورَةُ القِيَامَةِ",
         "englishName": "Al-Qiyaama",
         "nameUz": "Qiyomat",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/75.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/75.mp3",
         "playing": false,
         "numberOfAyahs": 40,
 
@@ -746,7 +736,7 @@ export let quronApi = [
         "name": "سُورَةُ الإِنسَانِ",
         "englishName": "Al-Insaan",
         "nameUz": "Inson",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/76.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/76.mp3",
         "playing": false,
         "numberOfAyahs": 31,
 
@@ -756,7 +746,7 @@ export let quronApi = [
         "name": "سُورَةُ المُرۡسَلَاتِ",
         "englishName": "Al-Mursalaat",
         "nameUz": "Mursalot",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/77.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/77.mp3",
         "playing": false,
         "numberOfAyahs": 50,
 
@@ -766,7 +756,7 @@ export let quronApi = [
         "name": "سُورَةُ النَّبَإِ",
         "englishName": "An-Naba",
         "nameUz": "Naba'",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/78.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/78.mp3",
         "playing": false,
         "numberOfAyahs": 40,
 
@@ -776,7 +766,7 @@ export let quronApi = [
         "name": "سُورَةُ النَّازِعَاتِ",
         "englishName": "An-Naazi'aat",
         "nameUz": "Nazi'at",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/79.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/79.mp3",
         "playing": false,
         "numberOfAyahs": 46,
 
@@ -786,7 +776,7 @@ export let quronApi = [
         "name": "سُورَةُ عَبَسَ",
         "englishName": "Abasa",
         "nameUz": "Abasa",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/80.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/80.mp3",
         "playing": false,
         "numberOfAyahs": 42,
 
@@ -796,7 +786,7 @@ export let quronApi = [
         "name": "سُورَةُ التَّكۡوِيرِ",
         "englishName": "At-Takwir",
         "nameUz": "Takvir",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/81.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/81.mp3",
         "playing": false,
         "numberOfAyahs": 29,
 
@@ -806,7 +796,7 @@ export let quronApi = [
         "name": "سُورَةُ الانفِطَارِ",
         "englishName": "Al-Infitaar",
         "nameUz": "Infitor",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/82.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/82.mp3",
         "playing": false,
         "numberOfAyahs": 19,
 
@@ -816,7 +806,7 @@ export let quronApi = [
         "name": "سُورَةُ المُطَفِّفِينَ",
         "englishName": "Al-Mutaffifin",
         "nameUz": "Mutoffifin",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/83.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/83.mp3",
         "playing": false,
         "numberOfAyahs": 36,
 
@@ -826,7 +816,7 @@ export let quronApi = [
         "name": "سُورَةُ الانشِقَاقِ",
         "englishName": "Al-Inshiqaaq",
         "nameUz": "Inshiqoq",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/84.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/84.mp3",
         "playing": false,
         "numberOfAyahs": 25,
 
@@ -836,7 +826,7 @@ export let quronApi = [
         "name": "سُورَةُ البُرُوجِ",
         "englishName": "Al-Burooj",
         "nameUz": "Buruj",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/85.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/85.mp3",
         "playing": false,
         "numberOfAyahs": 22,
 
@@ -846,7 +836,7 @@ export let quronApi = [
         "name": "سُورَةُ الطَّارِقِ",
         "englishName": "At-Taariq",
         "nameUz": "Tariq",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/86.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/86.mp3",
         "playing": false,
         "numberOfAyahs": 17,
 
@@ -856,7 +846,7 @@ export let quronApi = [
         "name": "سُورَةُ الأَعۡلَىٰ",
         "englishName": "Al-A'laa",
         "nameUz": "A'lo",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/87.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/87.mp3",
         "playing": false,
         "numberOfAyahs": 19,
 
@@ -866,7 +856,7 @@ export let quronApi = [
         "name": "سُورَةُ الغَاشِيَةِ",
         "englishName": "Al-Ghaashiya",
         "nameUz": "G'oshiya",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/88.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/88.mp3",
         "playing": false,
         "numberOfAyahs": 26,
 
@@ -876,7 +866,7 @@ export let quronApi = [
         "name": "سُورَةُ الفَجۡرِ",
         "englishName": "Al-Fajr",
         "nameUz": "Fajr",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/89.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/89.mp3",
         "playing": false,
         "numberOfAyahs": 30,
 
@@ -886,7 +876,7 @@ export let quronApi = [
         "name": "سُورَةُ البَلَدِ",
         "englishName": "Al-Balad",
         "nameUz": "Balad",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/90.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/90.mp3",
         "playing": false,
         "numberOfAyahs": 20,
 
@@ -896,7 +886,7 @@ export let quronApi = [
         "name": "سُورَةُ الشَّمۡسِ",
         "englishName": "Ash-Shams",
         "nameUz": "Shams",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/91.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/91.mp3",
         "playing": false,
         "numberOfAyahs": 15,
 
@@ -906,7 +896,7 @@ export let quronApi = [
         "name": "سُورَةُ اللَّيۡلِ",
         "englishName": "Al-Lail",
         "nameUz": "Layl",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/92.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/92.mp3",
         "playing": false,
         "numberOfAyahs": 21,
 
@@ -916,7 +906,7 @@ export let quronApi = [
         "name": "سُورَةُ الضُّحَىٰ",
         "englishName": "Ad-Dhuhaa",
         "nameUz": "Zuho",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/93.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/93.mp3",
         "playing": false,
         "numberOfAyahs": 11,
 
@@ -926,7 +916,7 @@ export let quronApi = [
         "name": "سُورَةُ الشَّرۡحِ",
         "englishName": "Ash-Sharh",
         "nameUz": "Sharh",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/94.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/94.mp3",
         "playing": false,
         "numberOfAyahs": 8,
 
@@ -936,7 +926,7 @@ export let quronApi = [
         "name": "سُورَةُ التِّينِ",
         "englishName": "At-Tin",
         "nameUz": "Tiyn",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/95.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/95.mp3",
         "playing": false,
         "numberOfAyahs": 8,
 
@@ -946,7 +936,7 @@ export let quronApi = [
         "name": "سُورَةُ العَلَقِ",
         "englishName": "Al-Alaq",
         "nameUz": "Alaq",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/96.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/96.mp3",
         "playing": false,
         "numberOfAyahs": 19,
 
@@ -956,7 +946,7 @@ export let quronApi = [
         "name": "سُورَةُ القَدۡرِ",
         "englishName": "Al-Qadr",
         "nameUz": "Qadr",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/97.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/97.mp3",
         "playing": false,
         "numberOfAyahs": 5,
 
@@ -966,7 +956,7 @@ export let quronApi = [
         "name": "سُورَةُ البَيِّنَةِ",
         "englishName": "Al-Bayyina",
         "nameUz": "Bayyina",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/98.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/98.mp3",
         "playing": false,
         "numberOfAyahs": 8,
 
@@ -976,7 +966,7 @@ export let quronApi = [
         "name": "سُورَةُ الزَّلۡزَلَةِ",
         "englishName": "Az-Zalzala",
         "nameUz": "Zalzala",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/99.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/99.mp3",
         "playing": false,
         "numberOfAyahs": 8,
 
@@ -986,7 +976,7 @@ export let quronApi = [
         "name": "سُورَةُ العَادِيَاتِ",
         "englishName": "Al-Aadiyaat",
         "nameUz": "Odiyat",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/100.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/100.mp3",
         "playing": false,
         "numberOfAyahs": 11,
 
@@ -996,7 +986,7 @@ export let quronApi = [
         "name": "سُورَةُ القَارِعَةِ",
         "englishName": "Al-Qaari'a",
         "nameUz": "Qori'a",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/101.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/101.mp3",
         "playing": false,
         "numberOfAyahs": 11,
 
@@ -1006,7 +996,7 @@ export let quronApi = [
         "name": "سُورَةُ التَّكَاثُرِ",
         "englishName": "At-Takaathur",
         "nameUz": "Takosur",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/102.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/102.mp3",
         "playing": false,
         "numberOfAyahs": 8,
 
@@ -1016,7 +1006,7 @@ export let quronApi = [
         "name": "سُورَةُ العَصۡرِ",
         "englishName": "Al-Asr",
         "nameUz": "Asr",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/103.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/103.mp3",
         "playing": false,
         "numberOfAyahs": 3,
 
@@ -1026,7 +1016,7 @@ export let quronApi = [
         "name": "سُورَةُ الهُمَزَةِ",
         "englishName": "Al-Humaza",
         "nameUz": "Humaza",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/104.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/104.mp3",
         "playing": false,
         "numberOfAyahs": 9,
 
@@ -1036,7 +1026,7 @@ export let quronApi = [
         "name": "سُورَةُ الفِيلِ",
         "englishName": "Al-Fil",
         "nameUz": "Fil",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/18.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/18.mp3",
         "playing": false,
         "numberOfAyahs": 5,
 
@@ -1046,7 +1036,7 @@ export let quronApi = [
         "name": "سُورَةُ قُرَيۡشٍ",
         "englishName": "Quraish",
         "nameUz": "Quraysh",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/106.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/106.mp3",
         "playing": false,
         "numberOfAyahs": 4,
 
@@ -1056,79 +1046,71 @@ export let quronApi = [
         "name": "سُورَةُ المَاعُونِ",
         "englishName": "Al-Maa'un",
         "nameUz": "Mo'un",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/107.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/107.mp3",
         "playing": false,
         "numberOfAyahs": 7,
-
     },
     {
         "number": 108,
         "name": "سُورَةُ الكَوۡثَرِ",
         "englishName": "Al-Kawthar",
         "nameUz": "Kavsar",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/108.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/108.mp3",
         "playing": false,
         "numberOfAyahs": 3,
-
     },
     {
         "number": 109,
         "name": "سُورَةُ الكَافِرُونَ",
         "englishName": "Al-Kaafiroon",
         "nameUz": "Kofirun",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/109.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/109.mp3",
         "playing": false,
         "numberOfAyahs": 6,
-
     },
     {
         "number": 110,
         "name": "سُورَةُ النَّصۡرِ",
         "englishName": "An-Nasr",
         "nameUz": "Nasr",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/110.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/110.mp3",
         "playing": false,
         "numberOfAyahs": 3,
-
     },
     {
         "number": 111,
         "name": "سُورَةُ المَسَدِ",
         "englishName": "Al-Masad",
         "nameUz": "Masad",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/111.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/111.mp3",
         "playing": false,
         "numberOfAyahs": 5,
-
     },
     {
         "number": 112,
         "name": "سُورَةُ الإِخۡلَاصِ",
         "englishName": "Al-Ikhlaas",
         "nameUz": "Ixlos",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/112.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/112.mp3",
         "playing": false,
         "numberOfAyahs": 4,
-
     },
     {
         "number": 113,
         "name": "سُورَةُ الفَلَقِ",
         "englishName": "Al-Falaq",
         "nameUz": "Falaq",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/113.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/113.mp3",
         "playing": false,
         "numberOfAyahs": 5,
-
     },
     {
         "number": 114,
         "name": "سُورَةُ النَّاسِ",
         "englishName": "An-Naas",
         "nameUz": "Nos",
-        "audio": `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/114.mp3`,
+        "audio": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/114.mp3",
         "playing": false,
         "numberOfAyahs": 6,
-
     }
- ]
+]

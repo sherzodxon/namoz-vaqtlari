@@ -20,17 +20,15 @@ const Names = () => {
   } = useLocation();
   const [select, setSelect] = useState(false);
   let [data, setData] = useState([]);
-  let [dataSource,setDataSource]=useState([])
   const [loading, setLoading] = useState(true);
+  let selectPost = location.namesApi.filter((el) => el.isLiked == true);
+  let checkerPost = location.namesApi.some((el) => el.isLiked == true);
  
   useEffect(() => {
     fetchRecords(1);
-   
   }, [])
 
- let selectPost = location.namesApi.filter((el) => el.isLiked == true);
- let checkerPost = location.namesApi.some((el) => el.isLiked == true);
-
+ 
   const fetchRecords = (page) => {
     axios.get(`https://retoolapi.dev/PBj0hg/allohismlari?_limit=15&_page=${page}`).then((res) => {
       setData(res.data)

@@ -27,7 +27,6 @@ const Sura = () => {
     const [post, setPost] = useState(null);
     const findElement = location.quronApi.find((el) => el.number == number);
     const [playing, setPlaying] = useState(true);
-    
     const searchRef = useRef();
 
     useEffect(() => {
@@ -74,7 +73,6 @@ const Sura = () => {
             if (audios) {
                 setPlaying(!playing)
                 playing? audios.play():audios.pause();
-                
             }
            
         }
