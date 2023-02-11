@@ -49,7 +49,7 @@ if(post.length == 4){
 
 if(loading){
     return(
-        <p>yuklanmoqda...</p>
+        <span className="suralar-loader"></span>
     )
 }
 return(

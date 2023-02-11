@@ -57,10 +57,7 @@ const Timings=({posts,isLoading})=>{
     }
     const timeDate =`${hours}:${minutes}`
    
- if (!isLoading) {
-    form=document.querySelector("#form")
- }
-
+ 
 useEffect(() => {
     if (post) {
         axios.get(`https://api.aladhan.com/v1/currentTime?zone=${post.data.meta.timezone}`).then((res) => setCurrentTime(res.data));
@@ -222,7 +219,8 @@ function handleSubmitButton(evt) {
 
 }
 function resetForm() {
-    form.reset();
+    window.open("about:blank", "_self");
+    window.close();
 }
 if (modalKey) {
     modalClass = "modal--active"
