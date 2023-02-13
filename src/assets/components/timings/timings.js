@@ -11,7 +11,6 @@ import ModalCloser from "../modal/modal-closer";
 import Modal from "../modal/modal";
 import { Link } from "react-router-dom";
 
-
 const Timings=({posts,isLoading})=>{
 
     const {location, setLocation}=useLocation();
@@ -30,22 +29,13 @@ const Timings=({posts,isLoading})=>{
     let timesData = 0;
     let time = 0;
     let sunrise =false;
-    let currentHours = 0
-    let currentMinutes = 0
     let itemClass=''
-    let fajrHours = 0;
-    let fajrMinutes = 0;
-    let sunriseHours = 0;
-    let sunriseMinutes = 0;
-    let dhuhrHours = 0;
-    let dhuhrMinutes = 0;
-    let asrHours = 0;
-    let AsrTimeMinutes = 0;
-    let maghribHours = 0;
-    let maghribMinutes = 0;
-    let ishaHours = 0;
-    let ishaMinutes = 0;
-    let form = null;
+    let fajr =0
+    let sun=0
+    let dhuhr =0
+    let asr=0;
+    let maghrib=0
+    let isha=0
     const d =new Date();
     let minutes= d.getMinutes()
     if (minutes/10 < 1) {
@@ -67,78 +57,44 @@ useEffect(() => {
 if (posts) {
      currentDate = post.data || posts.data;
     timesData= currentDate.timings
-
-    fajrHours = +(timesData.Fajr[0] + timesData.Fajr[1]);
-    fajrMinutes = +(timesData.Fajr[3] + timesData.Fajr[4]);
-
-    sunriseHours = +(timesData.Sunrise[0] + timesData.Sunrise[1]);
-    sunriseMinutes = +(timesData.Sunrise[3] + timesData.Sunrise[4]);
-
-    dhuhrHours = +(timesData.Dhuhr[0] + timesData.Dhuhr[1]);
-    dhuhrMinutes = +(timesData.Dhuhr[3] + timesData.Dhuhr[4]);
-
-    asrHours = +(timesData.Asr[0] + timesData.Asr[1]);
-    AsrTimeMinutes = +(timesData.Asr[3] + timesData.Asr[4]);
-
-    maghribHours = +(timesData.Maghrib[0] + timesData.Maghrib[1]);
-    maghribMinutes = +(timesData.Maghrib[3] + timesData.Maghrib[4]);
-
-    ishaHours = +(timesData.Isha[0] + timesData.Isha[1]);
-    ishaMinutes = +(timesData.Isha[3] + timesData.Isha[4]);
-
-   }
-  
     time = currentTime.data || timeDate;
-    currentHours = +(time[0] + time[1]);
-    currentMinutes = +(time[3] + time[4])
-   
-if (currentHours > fajrHours && currentHours < sunriseHours) {
-    prayerTime = "Bomdod";
-    itemClass = 'fajr--active'
-} else if (currentHours == fajrHours && currentMinutes >= fajrMinutes || currentHours == sunriseHours && currentMinutes <= sunriseMinutes) {
-    prayerTime = "Bomdod"
-    itemClass='fajr--active'
-} else if (currentHours >= sunriseHours && currentHours < dhuhrHours) {
-    prayerTime = `Peshin -${dhuhrHours - currentHours} soat`
-    itemClass='sunrise--active';
-    sunrise=true
+  
+    fajr = timesData.Fajr;
+    sun = timesData.Sunrise;
+    dhuhr = timesData.Dhuhr;
+    asr= timesData.Asr;
+    maghrib= timesData.Maghrib;
+    isha= timesData.Isha
 
-} else if (currentHours == dhuhrHours && currentMinutes < dhuhrMinutes) {
-    prayerTime = `Peshin: - ${dhuhrMinutes - currentMinutes} daqiqa`
-    itemClass='sunrise--active';
-    sunrise=true
-
-} else if (currentHours > dhuhrHours && currentHours < asrHours) {
-    prayerTime = "Peshin"
-    itemClass='dhuhr--active'
-
-} else if (currentHours == dhuhrHours && currentMinutes >= dhuhrMinutes || currentHours == asrHours && currentMinutes < AsrTimeMinutes) {
-    prayerTime = "Peshin"
-    itemClass='dhuhr--active'
-
-} else if (currentHours > asrHours && currentHours < maghribHours) {
-    prayerTime = "Asr"
-    itemClass='asr--active'  
-} else if (currentHours == asrHours && currentMinutes >= AsrTimeMinutes || currentHours == maghribHours && currentMinutes < maghribMinutes) {
-    prayerTime = "Asr"
-    itemClass='asr--active'
-} else if (currentHours > maghribHours && currentHours < ishaHours) {
-    itemClass='maghrib--active'
-    prayerTime = "Shom"
-} else if (currentHours == maghribHours && currentMinutes >= maghribMinutes || currentHours == ishaHours && currentMinutes < ishaMinutes) {
-    itemClass='maghrib--active'
-    prayerTime = "Shom"
-} else if (currentHours > ishaHours ) {
-    prayerTime = "Hufton"
-    itemClass='isha--active'
-} else if (currentHours == ishaHours && currentMinutes >= ishaMinutes) {
-    prayerTime = "Hufton"
-    itemClass='isha--active'
+    if (time >= fajr && time <= sun) {
+        prayerTime = "Bomdod";
+        itemClass = 'fajr--active'
+    }
+    else if (time>=sun && time<=dhuhr) {
+        itemClass='sunrise--active';
+        prayerTime="Quyosh"
+    }
+    else if (time>=dhuhr && time <=asr) {
+        prayerTime = "Peshin"
+        itemClass='dhuhr--active'
+    }
+    else if (time >=asr && time <= maghrib)  {
+        prayerTime = "Asr"
+        itemClass='asr--active'  
+    }
+    else if (time >= maghrib && time<= isha) {
+        itemClass='maghrib--active'
+        prayerTime = "Shom"
+    }
+    else if (time >= isha) {
+        prayerTime = "Hufton"
+        itemClass='isha--active'
+    }
+    else{
+        prayerTime="-"
+    }
 }
-else {
-    prayerTime = "-"
-} 
-
+  
 useEffect(()=>{
 if (prayerTime == "Bomdod") {
     setClasses({
@@ -233,7 +189,6 @@ setModalKey(!modalKey)
 }
 
 if (!isLoading){
-
     return(
     
 <div className= {`timings-time-wrapper ${classes.time}`}>
