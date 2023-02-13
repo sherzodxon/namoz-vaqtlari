@@ -1,6 +1,15 @@
 .names {
     position: relative;
 }
+@keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
 
 .names-button-wrapper {
     position: fixed;
@@ -90,6 +99,33 @@
     font-size: 24px;
     line-height: 33px;
 }
+.names-loader {
+    position: absolute;
+    left: calc(50% - 24px);
+    top:  calc(50% - 24px);
+    width: 48px;
+    height: 48px;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    &::after{
+        content: '';  
+        box-sizing: border-box;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 3px solid;
+        border-color: #31c30d transparent;
+    }
+  }
+  
+  
 
 .ant-pagination {
     width: 80%;

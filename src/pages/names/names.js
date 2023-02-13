@@ -43,7 +43,12 @@ const Names = () => {
   function handleSelected() {
     setSelect(true)
   }
-if(!loading){
+  if (loading) {
+    return(
+      <span className="names-loader"></span>
+    )
+  }
+
   return(
     <div className="names">
 
@@ -79,7 +84,7 @@ if(!loading){
 
     </div>
 )
-}
+
   
 }
 export default Names

@@ -65,9 +65,6 @@ const Sura = () => {
                 })
                 setData(finded)
              }
-             else{
-                console.log(1);
-             }
               
             if (searchValue == "") {
                 setData(post)
