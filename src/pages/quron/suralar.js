@@ -24,19 +24,19 @@ function handleSearch(evt) {
     evt.preventDefault();
     const searchValue= searchRef.current.value;
    
-    const finded= post.filter((el)=>{
+    const finded = location.quronApi.filter((el)=>{
     const searchRegExp = new RegExp(searchValue, "gi");
     const searchText = `${el.nameUz}`;
     return searchText.match(searchRegExp);
     
    })
-   setPost(finded)
+  
    if (searchValue == "") {
    setPost(post)
 }
+setPost(finded)
 }
 
- 
 location.quronApi.forEach((el,ind)=>{
     if(ind>=100){
        leftOverArr.push(el)
@@ -55,10 +55,9 @@ if(loading){
 return(
     <div className="suralar">
         <div className="suralar-header">
-            <form onSubmit={handleSearch} className="search-form">
-                <h2 className="form-title">Suralar</h2>
-            <input ref={searchRef} placeholder="Izlash" type='search' pattern="[A-z]*" title="Suralar" className="search-input" />
-            <button className="search-button"></button>
+            <form className="search-form">
+            <h2 className="form-title">Suralar</h2>
+            <input onChange={handleSearch} ref={searchRef} placeholder="Izlash" type='search' pattern="[A-z]*" title="Suralar" className="search-input" />
             </form>
         </div>
         <div className="suralar-container container">

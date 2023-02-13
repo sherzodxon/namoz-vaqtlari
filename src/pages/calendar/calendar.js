@@ -26,10 +26,12 @@ const Calendar = () => {
    const year = date.getFullYear();
    const monthNames = monthName(month);
    const searchRef = useRef();
-   
+    
+
    const handleForm = (evt) => {
       evt.preventDefault();
       const searchValue = searchRef.current.value
+    
       let year = "";
       let months = ""
 
@@ -74,9 +76,8 @@ const Calendar = () => {
      return(
       <div className="calendar">
          <div className="calendar-header">
-            <form onSubmit={handleForm} className="calendar-form">
-               <input required  ref={searchRef} type="month" className="calendar-input" />
-               <button className="calendar-button"></button>
+            <form  className="calendar-form">
+            <input required id="input" onChange={handleForm} ref={searchRef} type="month" className="calendar-input" />
             </form>
          </div>
          <div className="calendar-container container">

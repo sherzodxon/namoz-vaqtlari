@@ -25,6 +25,7 @@ const Sura = () => {
         setLocation
     } = useLocation();
     const [post, setPost] = useState(null);
+    const [searchData,setSData]=useState(null)
     const findElement = location.quronApi.find((el) => el.number == number);
     const [playing, setPlaying] = useState(true);
     const searchRef = useRef();
@@ -34,7 +35,7 @@ const Sura = () => {
             setTrdata(res.data.quran.filter((el) => el.chapter == number))
         })
         axios.get(`https://api.alquran.cloud/v1/surah/${number}`).then((res) => {
-            setData(res.data.data.ayahs)
+            setData(res.data.data.ayahs);
             setPost(res.data.data.ayahs)
             setLoading(false)
         })
@@ -51,20 +52,27 @@ const Sura = () => {
         data.forEach(element => {
             maxNumber = element.numberInSurah
         });
-
+ 
         function handleSearch(evt) {
             evt.preventDefault();
-            const searchValue = searchRef.current.value;
+            const searchValue = +searchRef.current.value;
+           
              if (searchValue <= maxNumber) {
-                const finded = data.find((el) => el.numberInSurah == searchValue)
-                setData([finded])
+                const finded = data.filter((el)=>{
+                    const searchRegExp = new RegExp(searchValue, "gi");
+                    const searchText = `${el.numberInSurah}`;
+                    return searchText.match(searchRegExp);
+                })
+                setData(finded)
+             }
+             else{
+                console.log(1);
              }
               
-
             if (searchValue == "") {
                 setData(post)
             }
-        
+            
         }
        
         const toggle = () => {
@@ -80,11 +88,10 @@ const Sura = () => {
         return(
             <div className="sura">
                  <div className="suralar-header">
-                <form onSubmit={handleSearch} className="search-form">
+                <form  className="search-form">
                     <p className="sura-number">{findElement.number}</p>
                     <h2 className="form-title">{findElement.nameUz}</h2>
-                <input ref={searchRef} placeholder="00"  type="number" className="search-input oyat-input" />
-                <button className="search-button"></button>
+                <input onChange={handleSearch} ref={searchRef} placeholder="00"  type="number"  className="search-input oyat-input" />
                 </form>
             </div>
                 <div className="suralar-container container">
