@@ -58,7 +58,6 @@ if (posts) {
      currentDate = post.data || posts.data;
     timesData= currentDate.timings
     time = currentTime.data || timeDate;
-  
     fajr = timesData.Fajr;
     sun = timesData.Sunrise;
     dhuhr = timesData.Dhuhr;
@@ -72,7 +71,7 @@ if (posts) {
     }
     else if (time>=sun && time<=dhuhr) {
         itemClass='sunrise--active';
-        prayerTime="Quyosh"
+        sunrise = true
     }
     else if (time>=dhuhr && time <=asr) {
         prayerTime = "Peshin"

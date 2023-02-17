@@ -8,6 +8,7 @@ import { useLocation } from "../../contexts/context"
 const Suralar =()=>{
 let {location ,setLocation} =useLocation()
 const [post ,setPost]=useState([]);
+const [data , setData]=useState([])
 const [loading ,setLoading]=useState(true)
 const searchRef =useRef();
 let leftOverArr=[]
@@ -17,24 +18,25 @@ useEffect(()=>{
 function fetcherData(page) {
     axios.get(`https://retoolapi.dev/OS6065/quronsuralar?_limit=16&_page=${page}`).then((res)=>{
         setPost(res.data);
+        setData(res.data)
         setLoading(false)
     })
 }
+
 function handleSearch(evt) {
     evt.preventDefault();
     const searchValue= searchRef.current.value;
-   
+    if (searchValue == "") {
+       setPost(data)
+    }
+    else{
     const finded = location.quronApi.filter((el)=>{
     const searchRegExp = new RegExp(searchValue, "gi");
     const searchText = `${el.nameUz}`;
     return searchText.match(searchRegExp);
-    
    })
-  
-   if (searchValue == "") {
-   setPost(post)
+  setPost(finded)
 }
-setPost(finded)
 }
 
 location.quronApi.forEach((el,ind)=>{
