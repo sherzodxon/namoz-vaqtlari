@@ -1,12 +1,13 @@
 import axios from "axios";
 import {
-    useRef,
     useState,
     useEffect
 } from "react";
+import Header from "../../assets/components/header/header";
+import LinkBox from "../../assets/components/link-box/link-box";
 import Loader from "../../assets/components/loader/loader";
 import Timings from "../../assets/components/timings/timings";
-
+import "../home/home.scss"
 
 import '../../assets/scss/main.scss';
 import { useLocation } from "../../contexts/context";
@@ -32,11 +33,15 @@ if (!posts) {
     )
 }
     return(
-        <>
-        <p className="visually-hidden">Prayer Time</p>
-        <Timings posts={posts} isLoading={isLoading} />
-      
-        </>
+        <div className="home">
+            <div className="background"></div>
+            <p className="visually-hidden">Prayer Time</p>
+        <Header/>
+        <div className="home-container container">
+            <LinkBox />
+            <Timings posts={posts} isLoading={isLoading} />
+        </div>
+        </div>
     )
 
 }

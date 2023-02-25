@@ -1,10 +1,10 @@
 import Bottom from '../../assets/components/bottom/bottom';
-import Header from '../../assets/components/header/header';
+import ZikrHeader from '../../assets/components/zikr-header/zikr-header';
 import '../zikr/zikr.scss'
 const Evening=()=>{
     return(
         <div className="kechki-zikrlar">
-            <Header title="Kechki Zikrlar" className="evening-header"  />
+            <ZikrHeader title="Kechki Zikrlar" className="evening-header"  />
             <div className="duolar-container container">
             <ul className="duolar-list">
             <li className="duolar-item">

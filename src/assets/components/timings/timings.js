@@ -143,6 +143,7 @@ function handleSubmitButton(evt) {
     evt.preventDefault();
     const countryValue = countryRef.current.value;
     const cityValue = cityRef.current.value;
+    
     setInLocation(cityValue)
     axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => {
         setPost(res.data);
@@ -189,53 +190,52 @@ setModalKey(!modalKey)
 
 if (!isLoading){
     return(
-    
 <div className= {`timings-time-wrapper ${classes.time}`}>
 <ModalCloser onClick={handleModal} className={modalClass} />
 <Modal className={modalClass}/>
 <div className={`timings ${classes.timings}`}>
-    <div className=" timings-container container">
+    <div className="timings-body">
       <form id="form" onSubmit={handleSubmitButton} className='timings-form' >
-        <div onClick={resetForm} className="form-button timings-x-button"></div>
+        <div onClick={resetForm} className="timings-form-button timings-x-button"></div>
             <input className="timigs-input input country-input"  ref={countryRef} type="search" pattern="[A-z]*" title="Davlat"required placeholder="Davlat" />
             <input className="timigs-input input city-input" type="search" pattern="[A-z]*" title="Shahar" ref={cityRef} required placeholder="Shahar" />
-            <button className=" timings-search-button form-button"></button>
+            <button className=" timings-search-button timings-form-button"></button>
        </form>
-
-        <p className="timings-location">{inLocation || location.locality}</p>
+       <div className="timings-today-wrapper">
+                 <p className="timings-today">Bugun</p>
+            <p className="timings-current-date">Vaqt: {currentDate.date.gregorian.date} yil</p>
+            <p className="timings-current-date">Hijriy: {currentDate.date.hijri.date} yil</p>
+    </div>
+            <p className="timings-location">{inLocation || location.locality}</p>
             <p className="timings-time">{time}</p>
             <p className="timings-pray-time">{prayerTime}</p>
            
     </div>
-    <div className="timings-today-wrapper">
-                 <p className="timings-today">Bugun</p>
-            <p className="timings-current-date">Vaqt: {currentDate.date.gregorian.date} yil</p>
-            <p className="timings-current-date">Hijriy: {currentDate.date.hijri.date} yil</p>
-            </div>
-    <div className={`timings-container container list-container  ${classes.container}`}>
+    
+    <div className={`timings-container list-container  ${classes.container}`}>
         <div className="timigs-line"></div>
             <ol className="timings-list">
-                <li className={`timings-item ${itemClass}`}>
+                <li className={`timings-item fajr-item ${itemClass}`}>
                    <p className="timings-item-name">Bomdod</p>
                    <p className="timings-item-time">{timesData.Fajr}</p> 
                 </li>
-                <li className={`timings-item ${itemClass}`}>
+                <li className={`timings-item sunrise-item ${itemClass}`}>
                    <p className="timings-item-name">Quyosh</p>
                    <p className="timings-item-time">{timesData.Sunrise}</p>
                 </li>
-                <li className={`timings-item ${itemClass}`}>
+                <li className={`timings-item dhuhr-item ${itemClass}`}>
                    <p className="timings-item-name">Peshin</p>
                    <p className="timings-item-time">{timesData.Dhuhr}</p>
                 </li>
-                <li className={`timings-item ${itemClass}`}>
+                <li className={`timings-item asr-item ${itemClass}`}>
                    <p className="timings-item-name">Asr</p>
                    <p className="timings-item-time">{timesData.Asr}</p>
                 </li>
-                <li className={`timings-item ${itemClass}`}>
+                <li className={`timings-item maghrib-item ${itemClass}`}>
                    <p className="timings-item-name">Shom</p>
                    <p className="timings-item-time">{timesData.Maghrib}</p>
                 </li>
-                <li className={`timings-item ${itemClass}`}>
+                <li className={`timings-item isha-item ${itemClass}`}>
                    <p className="timings-item-name">Hufton</p>
                    <p className="timings-item-time">{timesData.Isha}</p>
                 </li>

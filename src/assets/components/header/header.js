@@ -1,8 +1,9 @@
-import "../header/header.scss"
-const Header =({className,title})=>{
+import '../header/header.scss'
+const Header=()=>{
+   
     return(
-        <div className={`header ${className}`}>
-            <h3 className="header-title">{title}</h3>
+        <div className="header">
+          <a href="/" className="header-logo-link"><img src={require("../../img/header-logo.png")} alt="logo" width="67" height="80" className="header-logo" /></a>
         </div>
     )
 }

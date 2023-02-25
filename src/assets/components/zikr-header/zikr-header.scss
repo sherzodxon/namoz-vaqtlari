@@ -1,0 +1,52 @@
+.zikr-header {
+    position: fixed;
+    text-align: center;
+    width: calc(100% - 64px);
+    max-width: 436px;
+    top: 0;
+    padding: 32px;
+    z-index: 1;
+    &::after{
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        content: '';
+        top: calc(50% - 32px);
+        
+        left: 32px;
+    }
+   
+}
+
+.zikr-header-title{
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+.mornings-header{
+    background: rgba(6, 163, 156, 1);
+    &::after{
+        background: url(../../img/zikr1.svg) no-repeat center center;
+    }
+}
+.duolar-header{
+    background: rgba(116, 50, 156, 1);
+    &::after{
+        background: url(../../img/zikr2.svg) no-repeat center center;
+    }
+}
+.evening-header{
+    background: rgba(54, 52, 162, 1);
+    &::after{
+        background: url(../../img/zikr3.svg) no-repeat center center;
+    }
+}
+.zikrlar-header{
+    background: rgba(20, 61, 59, 1);
+    &::after{
+        background: url(../../img/zikr4.svg) no-repeat center center;
+    }
+}

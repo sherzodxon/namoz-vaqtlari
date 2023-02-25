@@ -1,6 +1,6 @@
 import axios from "axios"
 import Bottom from "../../assets/components/bottom/bottom"
-import Header from "../../assets/components/header/header"
+import ZikrHeader from "../../assets/components/zikr-header/zikr-header"
 import {useState ,useEffect} from "react"
 
 const Zikrlar =()=>{
@@ -8,7 +8,7 @@ const Zikrlar =()=>{
      
     return(
         <div className="zikrlar">
-            <Header title={"Barcha Zikrlar"} className="zikrlar-header" />
+            <ZikrHeader title={"Barcha Zikrlar"} className="zikrlar-header" />
             <div className="zikrlar-container container">
                 <ul className="zikrlar-list">
                 <li className="zikrlar-item">

@@ -1,27 +1,34 @@
 .timings {
     margin: 0;
     position: relative;
-    height: 100vh;
-    max-height: 1010px;
-    width: 100%;
-    color: #FFFFFF;
+    color: rgba(2, 2, 2, 1);
+    margin-top: 25px;
 }
-.timings-time-wrapper{
+
+.timings-time-wrapper {
     position: relative;
     overflow: hidden;
 }
 
 .timings-form {
+    max-width: 600px;
+    width: 60%;
+    top: 0px;
+    background-color: #FFFFFF;
+    z-index: 3;
+    position: fixed;
     display: flex;
     justify-content: space-between;
-    padding-top: 10px;
+    padding: 20px 0px;
+    padding-top: 30px;
+    left: 45%;
 }
 
-.form-button {
+.timings-form-button {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: #d9d9d933;
+    background: rgba(0, 153, 89, 1);
     position: relative;
 
     &::after {
@@ -46,37 +53,16 @@
     }
 }
 
-.input {
-    background-color: #d9d9d933;
-    font-family: "Jost";
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 15px;
-    letter-spacing: -0.04em;
-    color: #FFFFFF;
-    width: 30%;
-    border-radius: 5px;
-    padding: 10px;
 
-    &::placeholder {
-        color: #FFFFFF;
-        opacity: 0.7;
-    }
-
-    &:focus {
-        outline: none;
-
-    }
-}
 
 .timings-location {
-    text-align: center;
-    margin-top: 8%;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    position: fixed;
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 48px;
     letter-spacing: -0.04em;
-    opacity: 0.8;
+    top: 25px;
+    z-index: 10;
 }
 
 .timings-time {
@@ -86,6 +72,7 @@
     font-size: 46px;
     line-height: 49px;
     letter-spacing: 0.04em;
+    margin-top: 20px;
 }
 
 .timings-pray-time {
@@ -98,36 +85,37 @@
 }
 
 .timings-today-wrapper {
- position:absolute;
- top: calc(50% + 40px);
- padding-left: 25px;
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
 }
-@media only screen and (max-height:890px){
-    .timings-today-wrapper{
-        top: calc(50% - 50px);
-    }
-}
+
 .timings-today {
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
     letter-spacing: -0.04em;
+    display: none;
 }
+
 .timigs-line {
     position: relative;
     margin-bottom: 15px;
-  
+    display: none;
+
     &::after {
-      width: 46px;
-      height: 3px;
-      background: #D9D9D9;
-      opacity: 0.89;
-      border-radius: 5px;
-      content: '';
-      position: absolute;
-      left: calc(50% - 23px);
+        width: 46px;
+        height: 3px;
+        background: #D9D9D9;
+        opacity: 0.89;
+        border-radius: 5px;
+        content: '';
+        position: absolute;
+        left: calc(50% - 23px);
     }
-  }
+}
+
 .timings-current-date {
     font-weight: 400;
     font-size: 16px;
@@ -137,64 +125,62 @@
 }
 
 .timings-list {
-    height: 155px;
-    overflow-y: scroll;
-  padding: 0px 6px;
-padding-right: 0;
-}
-
-.timings-item-time {
-    padding-right: 50px;
-    position: relative;
-
-    &::after {
-        width: 16px;
-        height: 18px;
-        position: absolute;
-        content: '';
-        right: 0;
-        background: url(../../img/time-item-after.svg) no-repeat center center;
-        top: 5px;
-    }
-}
-
-.timings-list::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px transparent;
-    border-radius: 10px;
-    background-color: transparent;
-}
-
-.timings-list::-webkit-scrollbar {
-    width: 6px;
-    background-color: transparent;
-}
-
-.timings-list::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    background-color: transparent;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-top: 60px;
 }
 
 .timings-item {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 26px;
-    letter-spacing: -0.04em;
-    display: flex;
-    justify-content: space-between;
+    width: 253px;
+    height: 309px;
+    border-radius: 30px;
+    color: #FFFFFF;
     text-align: center;
-    padding: 15px 27px 15px 13px;
-    border-radius: 8px;
-    opacity: 0.7;
+    margin-bottom: 25px;
+    padding-top: 20px;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-size: contain;
+        top: 0;
+        left: 0;
+        border-radius: 30px;
+    }
+
+    &::before {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        content: '';
+    }
+}
+
+
+
+.timings-item-name {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 43px;
+    letter-spacing: -0.04em;
+}
+
+.timings-item-time {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 43px;
+    letter-spacing: -0.04em;
+
 }
 
 .timings-bottom-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-    padding-top: 15px;
-    
+    display: none;
 }
 
 .timings-compass {
@@ -210,45 +196,166 @@ padding-right: 0;
     height: 26px;
     background: url(../../img/hamburger.svg) no-repeat center center;
 }
+@media only screen and (max-width:1150px){
+.timings-location{
+    left: 20%;
+    font-size: 25px;
+}
+.timings-form{
+    left: 40%;
+}
+}
+@media only screen and (max-width:1020px){
+.timings-form{
+    left: 35%;
+}
+.timings-location{
+    left: 18%;
+}
+}
 
-.fajr--active{
-    &:nth-child(1){
-        opacity: 1;
-        background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
+@media only screen and (max-width:800px) {
+    .timings {
+        height: 100vh;
+        max-height: 1010px;
+        color: #FFFFFF;
+        margin: 0;
+    }
+
+    .timings-bottom-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        padding-top: 15px;
+    }
+
+    .timings-line {
+        display: block;
+    }
+
+    .timings-location {
+        position: static;
+        text-align: center;
+        margin-top: 8%;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.04em;
+        opacity: 0.8;
+        margin-top: 0;
+    }
+
+    .timings-form {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .timings-today {
+        display: block;
+    }
+
+    .timings-form-button {
+        background: #d9d9d933;
+    }
+
+    .timings-today-wrapper {
+        display: block;
+        position: absolute;
+        top: calc(50% + 40px);
+        padding-left: 25px;
+    }
+
+    .timings-list {
+        display: block;
+        width: 100%;
+        margin-top: 0;
+        height: 155px;
+        overflow-y: scroll;
+        padding: 0px 6px;
+        padding-right: 0;
+
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px transparent;
+            border-radius: 10px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: transparent;
+        }
+    }
+
+    .timings-item-name {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: -0.04em;
+    }
+
+    .timings-item-time {
+        padding-right: 50px;
+        position: relative;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: -0.04em;
+
+        &::after {
+            width: 16px;
+            height: 18px;
+            position: absolute;
+            content: '';
+            right: 0;
+            background: url(../../img/time-item-after.svg) no-repeat center center;
+            top: 5px;
+        }
+    }
+
+    .timings-item {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        padding: 15px 27px 15px 13px;
+        border-radius: 8px;
+        width: 85%;
+        opacity: 0.7;
+        height: auto;
+
+        &::after,
+        &::before {
+            display: none;
+        }
+    }
+
+    .timings-form {
+        position: static;
+        background-color: transparent;
+        width: 90%;
+        padding: 0;
+        margin: 10px auto;
+    }
+ .timigs-line{
+    display: block;
+ }
+
+}
+
+@media only screen and (max-height:890px) {
+    .timings-today-wrapper {
+        top: calc(50% - 50px);
     }
 }
-.sunrise--active{
-    &:nth-child(2){
-        opacity: 1;
-        background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
-    }
-}
-.dhuhr--active{
-    &:nth-child(3){
-        opacity: 1;
-        background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
-    }
-}
-.asr--active{
-    &:nth-child(4){
-        opacity: 1;
-        background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
-    }
-}
-.maghrib--active{
-    &:nth-child(5){
-        opacity: 1;
-        background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
-    }
-}
-.isha--active{
-    &:nth-child(6){
-        opacity: 1;
-        background: linear-gradient(180deg, rgba(180, 180, 180, 0.15) 0%, rgba(220, 220, 220, 0.04) 48.21%, rgba(233, 233, 233, 0.06) 100%);
-    }
-}
-@media only screen and (max-height:590px){
-    .timings-today-wrapper{
-        display:  none;
+
+@media only screen and (max-height:590px) {
+    .timings-today-wrapper {
+        display: none;
     }
 }

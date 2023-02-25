@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 import Bottom from "../../../assets/components/bottom/bottom"
-import Header from "../../../assets/components/header/header"
+import ZikrHeader from "../../../assets/components/zikr-header/zikr-header"
 import { useLocation } from "../../../contexts/context"
 
 const TonggiZikrlar =()=>{
@@ -9,7 +9,7 @@ const TonggiZikrlar =()=>{
 const post = location.mentionApi.morningMention.find((el)=>el.id==id);
     return(
         <div className="zikr-item">
-            <Header title={"Tonggi Zikrlar"} className="mornings-header" />
+            <ZikrHeader title={"Tonggi Zikrlar"} className="mornings-header" />
             <div className="zikr-item-container container">
                 <div className="zikr-item-text-wrapper">
                 <h3 className="zikr-item-title" children={post.name}></h3>

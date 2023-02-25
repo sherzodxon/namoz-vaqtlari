@@ -1,12 +1,12 @@
 import '../zikr/zikr.scss'
 import { Link } from "react-router-dom"
-import Header from '../../assets/components/header/header'
+import ZikrHeader from '../../assets/components/zikr-header/zikr-header'
 import Bottom from '../../assets/components/bottom/bottom'
 
 const Duolar =()=>{
     return(
         <div className="duolar">
-            <Header title={"Namozdagi Duolar"} className="duolar-header" />
+            <ZikrHeader title={"Namozdagi Duolar"} className="duolar-header" />
             <div className="duolar-container container">
             <ul className="duolar-list">
             <li className="duolar-item">
