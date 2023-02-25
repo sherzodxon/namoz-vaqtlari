@@ -217,7 +217,7 @@
 @media only screen and (max-width:800px) {
     .timings {
         height: 100vh;
-        max-height: 1010px;
+        max-height: 1000px;
         color: #FFFFFF;
         margin: 0;
     }
@@ -270,7 +270,7 @@
         display: block;
         width: 100%;
         margin-top: 0;
-        height: 155px;
+        height: 190px;
         overflow-y: scroll;
         padding: 0px 6px;
         padding-right: 0;
@@ -344,6 +344,10 @@
     }
  .timigs-line{
     display: block;
+ }
+ .timings-bottom-wrapper{
+    position: fixed;
+    width: 85%;
  }
 
 }
