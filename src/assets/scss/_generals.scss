@@ -123,11 +123,9 @@ ol {
   .list-container {
     max-width: 460px;
     width: calc(100% - 40px);
-    position: absolute;
+    position: fixed;
     padding: 20px;
-    padding-bottom: 80px;
     border-radius: 44px 44px 0px 0px;
-    padding-top: 20px;
     bottom: 0;
   }
   .background{
