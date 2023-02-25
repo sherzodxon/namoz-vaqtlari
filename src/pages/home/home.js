@@ -36,8 +36,8 @@ if (!posts) {
         <div className="home">
             <div className="background"></div>
             <p className="visually-hidden">Prayer Time</p>
-        <Header/>
-        <div className="home-container container">
+        <Header className={"home-location"}/>
+        <div className="home-container">
             <LinkBox />
             <Timings posts={posts} isLoading={isLoading} />
         </div>

@@ -206,7 +206,7 @@ if (!isLoading){
             <p className="timings-current-date">Vaqt: {currentDate.date.gregorian.date} yil</p>
             <p className="timings-current-date">Hijriy: {currentDate.date.hijri.date} yil</p>
     </div>
-            <p className="timings-location">{inLocation || location.locality}</p>
+            <p className="timings-location">{location.locality}</p>
             <p className="timings-time">{time}</p>
             <p className="timings-pray-time">{prayerTime}</p>
            

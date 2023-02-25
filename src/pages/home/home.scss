@@ -4,8 +4,26 @@
    display: grid;
    grid-template-columns: 270px auto;
 }
-@media only screen and (max-width:800px){
-   .home-container{
+.home-location{
+   position: absolute;
+   left: 25%;
+}
+@media only screen and (max-width:1150px) {
+   .home-location {
+      left: 20%;
+      font-size: 25px;
+   }
+
+}
+
+@media only screen and (max-width:1020px) {
+   .home-location {
+      left: 18%;
+   }
+}
+
+@media only screen and (max-width:800px) {
+   .home-container {
       display: block;
       padding: 0;
    }

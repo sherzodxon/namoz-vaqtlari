@@ -53,16 +53,8 @@
     }
 }
 
-
-
 .timings-location {
-    position: fixed;
-    font-weight: 500;
-    font-size: 33px;
-    line-height: 48px;
-    letter-spacing: -0.04em;
-    top: 25px;
-    z-index: 10;
+    display: none;
 }
 
 .timings-time {
@@ -162,8 +154,6 @@
     }
 }
 
-
-
 .timings-item-name {
     font-weight: 600;
     font-size: 25px;
@@ -176,7 +166,6 @@
     font-size: 25px;
     line-height: 43px;
     letter-spacing: -0.04em;
-
 }
 
 .timings-bottom-wrapper {
@@ -196,22 +185,26 @@
     height: 26px;
     background: url(../../img/hamburger.svg) no-repeat center center;
 }
-@media only screen and (max-width:1150px){
-.timings-location{
-    left: 20%;
-    font-size: 25px;
+
+@media only screen and (max-width:1150px) {
+    .timings-location {
+        left: 20%;
+        font-size: 25px;
+    }
+
+    .timings-form {
+        left: 40%;
+    }
 }
-.timings-form{
-    left: 40%;
-}
-}
-@media only screen and (max-width:1020px){
-.timings-form{
-    left: 35%;
-}
-.timings-location{
-    left: 18%;
-}
+
+@media only screen and (max-width:1020px) {
+    .timings-form {
+        left: 35%;
+    }
+
+    .timings-location {
+        left: 18%;
+    }
 }
 
 @media only screen and (max-width:800px) {
@@ -342,10 +335,11 @@
         padding: 0;
         margin: 10px auto;
     }
- .timigs-line{
-    display: block;
- }
- 
+
+    .timigs-line {
+        display: block;
+    }
+
 }
 
 @media only screen and (max-height:890px) {
