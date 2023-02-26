@@ -202,7 +202,6 @@ if (!isLoading){
             <button className=" timings-search-button timings-form-button"></button>
        </form>
        <div className="timings-today-wrapper">
-                 <p className="timings-today">Bugun</p>
             <p className="timings-current-date">Vaqt: {currentDate.date.gregorian.date} yil</p>
             <p className="timings-current-date">Hijriy: {currentDate.date.hijri.date} yil</p>
     </div>

@@ -35,7 +35,6 @@ if (!posts) {
     return(
         <div className="home">
             <div className="background"></div>
-            <p className="visually-hidden">Prayer Time</p>
         <Header className={"home-location"}/>
         <div className="home-container">
             <LinkBox />

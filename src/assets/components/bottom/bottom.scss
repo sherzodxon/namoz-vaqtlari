@@ -7,11 +7,10 @@
     padding-top: 10px;
     padding-bottom: 20px;
     z-index: 3;
-    
+    display: none;
 }
 
 .bottom-button-wrapper {
-
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -41,4 +40,9 @@
     background: url(../../img/back.svg) no-repeat center center;
     background-color: #020202;
 
+}
+@media only screen and (max-width:800px){
+.bottom{
+    display: block;
+}
 }

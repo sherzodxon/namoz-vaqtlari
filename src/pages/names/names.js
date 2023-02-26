@@ -12,6 +12,9 @@ import {
   useLocation
 } from "../../contexts/context"
 import '../../pages/names/names.scss'
+import LinkBox from "../../assets/components/link-box/link-box"
+import Header from "../../assets/components/header/header"
+import Control from "../../assets/components/control/control"
 
 const Names = () => {
   const {
@@ -30,7 +33,7 @@ const Names = () => {
 
  
   const fetchRecords = (page) => {
-    axios.get(`https://retoolapi.dev/PBj0hg/allohismlari?_limit=15&_page=${page}`).then((res) => {
+    axios.get(`https://retoolapi.dev/PBj0hg/allohismlari?_limit=10&_page=${page}`).then((res) => {
       setData(res.data)
       setLoading(false)
     })
@@ -51,26 +54,24 @@ const Names = () => {
 
   return(
     <div className="names">
-
- <div className="container">
- <div className="names-button-wrapper">
-
+      <div className="background"></div>
+      <Header/>
+ <div className="names-container container">
+  <LinkBox />
+  <div className="names-main main">
+    <Control/>
+  <div className="names-button-wrapper">
             <div className="names-header">
-
             <button onClick={handleSelect} className={select?"names-button":"names-button names-button--active"}>99 ISM</button>
             <button onClick={handleSelected} className={select?"names-button names-button--active":"names-button"}>Tanlanganlar</button>
-            </div>
-            <hr className="names-hr" />
-        </div>
-        <div className={select? "unselected-none":"names-container"}>
+            </div> 
+  </div>
+  <div className={select? "unselected-none":"names-body"}>
+  <hr className="names-hr" />
         {data.map((post)=><NameCard comment={post.comment} key={post.id} isLiked={post.isLiked} name={post.name} id={post.id}  />)}
-        <Pagination 
-      total={70} 
-      responsive 
-      onChange={(page)=>fetchRecords(page)} />
-      </div>
-
-      <div className={select? "names-container":"unselected-none"}>
+        <Pagination total={99} responsive onChange={(page)=>fetchRecords(page)} />
+  </div>
+  <div className={select? "names-body":"unselected-none"}>
       { 
        checkerPost?selectPost.map((post)=><NameCard key={post.id} isLiked={post.isLiked} name={post.name} id={post.id} comment={post.comment} />):
         <div className={select?"names-unselected":"unselected-none"}>
@@ -78,10 +79,10 @@ const Names = () => {
             <p className="names-unselected-text">Ismlar hozircha tanlanmagan</p>
         </div>
       }
-      </div>
+  </div>
       <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/'}/>
-        </div>
-
+  </div>
+</div>
     </div>
 )
 

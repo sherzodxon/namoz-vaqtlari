@@ -8,7 +8,7 @@ const Name =()=>{
     const findedPost = location.namesApi.find((el)=>el.id == id)
     return(
        <div className="name">
-        <div className="name-container container">
+        <div className="name-container">
         <h3 className="name-title">{findedPost.name}</h3>
        <p className="name-text">{findedPost.comment}</p>
        <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/names'}/>
