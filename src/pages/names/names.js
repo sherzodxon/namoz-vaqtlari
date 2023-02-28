@@ -59,7 +59,7 @@ const Names = () => {
  <div className="names-container container">
   <LinkBox />
   <div className="names-main main">
-    <Control/>
+  <Control/>
   <div className="names-button-wrapper">
             <div className="names-header">
             <button onClick={handleSelect} className={select?"names-button":"names-button names-button--active"}>99 ISM</button>
@@ -67,6 +67,7 @@ const Names = () => {
             </div> 
   </div>
   <div className={select? "unselected-none":"names-body"}>
+  
   <hr className="names-hr" />
         {data.map((post)=><NameCard comment={post.comment} key={post.id} isLiked={post.isLiked} name={post.name} id={post.id}  />)}
         <Pagination total={99} responsive onChange={(page)=>fetchRecords(page)} />

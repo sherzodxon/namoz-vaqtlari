@@ -2,8 +2,9 @@
     display: flex;
     width: 80px;
     justify-content: space-between;
-    margin-left: 30px;
+    margin-left: 0px;
     margin-top: 20px;
+    position: absolute;
 }
 
 .control-button {
@@ -13,7 +14,7 @@
     position: relative;
     background-image: url(../../img/control-buttton.svg);
     background-repeat: no-repeat;
-    background-position: 10px center;
+    background-position: 12px center;
     background-size:auto;
 }
 .control-next-button{

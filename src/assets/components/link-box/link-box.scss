@@ -34,8 +34,52 @@
     background: #020202;
     border-radius: 32px;
     text-decoration: none;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        content: '';
+        top: 8px;
+    }
 }
 
+.link-box-name {
+    padding-right: 5px;
+    &::after {
+        background: url(../../img/99name-white.svg) no-repeat center center;
+        left: 30px;
+    }
+}
+.link-box-zikr {
+    padding-right: 25px;
+    &::after {
+        background: url(../../img/zikr-white.svg) no-repeat center center;
+        left: 60px;
+    }
+}
+.link-box-calendar {
+    padding-right: 5px;
+    &::after {
+        background: url(../../img/calendar-white.svg) no-repeat center center;
+        left: 40px;
+    }
+}
+.link-box-map {
+    padding-right:25px;
+    &::after {
+        background: url(../../img/calendar-map.svg) no-repeat center center;
+        left: 60px;
+    }
+}
+.link-box-live {
+    padding-right: 25px;
+    &::after {
+        background: url(../../img/live-play.png) no-repeat center center;
+        left: 60px;
+    }
+}
 .link-box-info {
     font-size: 16px;
     font-weight: 500;
@@ -54,8 +98,9 @@
     width: 217px;
 
 }
-@media only screen and (max-width:800px){
-    .link-box-body{
+
+@media only screen and (max-width:800px) {
+    .link-box-body {
         display: none;
     }
 }

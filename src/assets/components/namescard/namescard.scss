@@ -2,11 +2,11 @@
     color: black;
     margin: 0 auto;
     margin-bottom: 10px;
-    width: 86%;
+    width: 90%;
     padding: 20px;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.305);
     border-radius: 8px;
-   
+   margin-left: 0;
    
 }
 
@@ -61,4 +61,12 @@
 
 .names-liked {
     background: url(../../img/liked.svg) no-repeat center center;
+}
+@media only screen and (max-width:800px){
+    .names-card{
+        width: 86%;
+        margin:  0 auto;
+        margin-bottom: 10px;
+        
+    }
 }

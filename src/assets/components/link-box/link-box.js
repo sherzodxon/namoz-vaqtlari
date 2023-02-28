@@ -6,22 +6,22 @@ const LinkBox=()=>{
             <div className="link-box-body">
             <ul className="link-box-list">
             <li className="link-box-item">
-                <Link to={"/names"} className="link-box-link" children="Asmo-al-Husna" />
+                <Link to={"/names"} className="link-box-link link-box-name" children="Asmo-al-Husna" />
             </li>
             <li className="link-box-item">
                 <Link to={"/quron-bosh-sahifa"} className="link-box-link" children="Qur'on" />
             </li>
-            <li className="link-box-item">
-                <Link to={"/zikrlar"} className="link-box-link" children="Zikr" />
+            <li className="link-box-item ">
+                <Link to={"/zikr"} className="link-box-link link-box-zikr" children="Zikr" />
             </li>
-            <li className="link-box-item">
-                <Link to={"/calendar"} className="link-box-link" children="Oylik taqvim" />
+            <li className="link-box-item ">
+                <Link to={"/calendar"} className="link-box-link link-box-calendar" children="Oylik taqvim" />
             </li>
-            <li className="link-box-item">
-                <Link to={"/map"} className="link-box-link" children="Xarita" />
+            <li className="link-box-item ">
+                <Link to={"/map"} className="link-box-link link-box-map" children="Xarita" />
             </li>
-            <li className="link-box-item">
-                <Link to={"/live"} className="link-box-link" children="Live" />
+            <li className="link-box-item ">
+                <Link to={"/live"} className="link-box-link link-box-live" children="Live" />
             </li>
         
          </ul>

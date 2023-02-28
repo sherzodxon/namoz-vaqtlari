@@ -1,11 +1,13 @@
 @keyframes rotation {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  } 
+}
+
 .book-home {
     color: black;
     position: relative;
@@ -79,10 +81,13 @@
     background-color: #fff;
     z-index: 3;
 }
-.book-bottom{
+
+.book-bottom {
     position: fixed;
     bottom: 40px;
+    display: none;
 }
+
 .book-home-back-button {
     display: block;
     position: absolute;
@@ -103,10 +108,11 @@
     background: url(../../assets/img/quron-loader.png) no-repeat center center;
     background-size: cover;
 }
+
 .suralar-loader {
     position: absolute;
     left: calc(50% - 24px);
-    top:  calc(50% - 24px);
+    top: calc(50% - 24px);
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -115,8 +121,9 @@
     border-right: 4px solid transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-    &::after{
-        content: '';  
+
+    &::after {
+        content: '';
         box-sizing: border-box;
         position: absolute;
         left: 0;
@@ -128,28 +135,27 @@
         border-bottom: 4px solid transparent;
         animation: rotation 0.5s linear infinite reverse;
     }
-  }
- 
- 
-.suralar-header {
-    position: fixed;
-    width: 100%;
-    max-width: 500px;
-   padding: 10px 0px;
-    z-index: 2;
-    background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-
 }
-.suralar-bottom-button{
+
+.suralar-header {
+    width: 70%;
+    margin-left: auto;
+    padding: 10px 0px;
+    background-color: #fff;
+    //  right: 0;
+}
+
+.suralar-bottom-button {
     margin-left: auto;
 }
+
 .search-form {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     position: relative;
     display: flex;
     align-items: center;
+    margin-top: 3px;
 }
 
 
@@ -166,9 +172,11 @@
     line-height: 23px;
     letter-spacing: -0.04em;
     margin-left: auto;
-    &::-webkit-inner-spin-button{
+
+    &::-webkit-inner-spin-button {
         -webkit-appearance: none;
     }
+
     &::placeholder {
         font-family: 'Jost';
         font-style: normal;
@@ -178,15 +186,17 @@
         color: #000000;
         opacity: 0.5;
     }
-   &:focus{
-    outline:2px solid rgb(5, 231, 136);
-    background-color: transparent;
-   }
-    
+
+    &:focus {
+        outline: 2px solid rgb(5, 231, 136);
+        background-color: transparent;
+    }
+
 }
-.oyat-input{
+
+.oyat-input {
     padding-right: 35px;
-    width: calc(30% - 70px);
+    width: calc(40% - 70px);
     padding-bottom: 10px;
 }
 
@@ -201,15 +211,22 @@
 }
 
 .suralar-container {
-    padding: 70px 0; 
+    padding: 70px 0;
     position: relative;
- 
+    height: 100%;
 }
 
-.form-title{
+.suralar-body {
+    margin: 0 auto;
+    width: 95%;
+
+}
+
+.form-title {
     font-size: 25px;
 }
-.book-bottom{
+
+.book-bottom {
     position: fixed;
     width: 90%;
     max-width: 450px;
@@ -217,26 +234,37 @@
     background-color: #fff;
     padding-bottom: 20px;
     padding-top: 5px;
- 
+
 }
-.suralar-bottom{
-    position:fixed;
+
+.suralar-main {
+    margin-top: 40px;
+    padding-left: 0;
+    width: 99%;
+}
+
+
+.suralar-bottom {
+    position: fixed;
     width: 90%;
     max-width: 450px;
     bottom: 0;
- 
+    display: none;
     background-color: #fff;
     padding-bottom: 20px;
     padding-top: 5px;
     overflow: hidden;
 }
-.suralar-button{
+
+.suralar-button {
     margin-left: auto;
 }
-.sura{
+
+.sura {
     color: #000000;
 }
-.sura-number{
+
+.sura-number {
     margin-right: 15px;
     background: url(../../assets/img/number.png) no-repeat center center;
     font-weight: 600;
@@ -248,7 +276,8 @@
     text-align: center;
     color: #fff;
 }
-.sura-bottom-wrapper{
+
+.sura-bottom-wrapper {
     position: fixed;
     width: 90%;
     max-width: 450px;
@@ -259,25 +288,58 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    display: none;
 }
-.hamburger-button{
+
+.hamburger-button {
     background: url(../../assets/img/menu.svg) no-repeat center center;
 }
-.sura-button{
+
+.sura-button {
     display: block;
     padding: 18px 33px;
     background-color: #020202;
     border-radius: 23px;
 }
-.play-button{
+
+.play-button {
     background: url(../../assets/img/play-white.svg) no-repeat center center;
     background-color: #020202;
 }
-.pause-button{
+
+.pause-button {
     background: url(../../assets/img/paus-white.svg) no-repeat center center;
     background-color: #020202;
 }
-.text-button{
+
+.play-white {
+    background-color: rgba(244, 244, 244, 1);
+    background-image: url(../../assets/img/pause.svg);
+
+}
+
+.pause-white {
+    background-color: rgba(244, 244, 244, 1);
+    background-image: url(../../assets/img/play.svg);
+}
+
+.hamburger-white {
+    background-color: rgba(244, 244, 244, 1);
+    background-image: url(../../assets/img/menu-black.svg);
+    width: 2px;
+}
+
+.suralar-buttons {
+    width: 140px;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+.text-button {
     font-family: 'Jost';
     font-style: normal;
     font-weight: 300;
@@ -287,9 +349,75 @@
     padding: 0px 20px;
     color: #FFFFFF;
 }
-.menu-button{
+
+.menu-button {
     background: url(../../assets/img/nuqta.svg) no-repeat center center;
     background-color: #020202;
-    
+
 }
 
+.sura-header {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.sura-text-wrapper {
+    margin-top: 20px;
+}
+.book-home{
+    width: 90%;
+    margin:  0 auto;
+}
+
+@media only screen and (max-width:880px) {
+    .search-form {
+        width: 85%;
+
+
+    }
+
+    .sura-header {
+        margin-left: 90px;
+
+    }
+
+    .form-title {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .book-bottom {
+        display: block;
+    }
+
+    .sura-header {
+        margin-left: 0;
+    }
+
+    .suralar-bottom {
+        display: block;
+    }
+
+    .suralar-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        position: fixed;
+        z-index: 2;
+        max-width: 450px;
+        width: 100%;
+        top: 0;
+
+    }
+
+    .suralar-main {
+        margin-top: 0;
+    }
+
+    .sura-bottom-wrapper {
+        display: flex;
+    }
+
+    .suralar-buttons {
+        display: none;
+    }
+}

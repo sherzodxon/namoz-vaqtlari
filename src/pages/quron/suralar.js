@@ -2,7 +2,10 @@ import { Pagination } from "antd"
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
+import Header from "../../assets/components/header/header"
+import LinkBox from "../../assets/components/link-box/link-box"
 import SuraCard from "../../assets/components/sura-card/sura-card"
+import Control from "../../assets/components/control/control"
 import { useLocation } from "../../contexts/context"
 
 const Suralar =()=>{
@@ -56,20 +59,31 @@ if(loading){
 }
 return(
     <div className="suralar">
-        <div className="suralar-header">
+        <div className="background"></div>
+        <Header />
+        <div className="suralar-container container">
+            <LinkBox />
+           <div className="suralar-main names-main main">
+           
+            <div className="suralar-body">
+            <Control/>
+           <div className="suralar-header">
             <form className="search-form">
             <h2 className="form-title">Suralar</h2>
             <input onChange={handleSearch} ref={searchRef} placeholder="Izlash" type='search' pattern="[A-z]*" title="Suralar" className="search-input" />
             </form>
-        </div>
-        <div className="suralar-container container">
-        {post.map((el,key)=>
+           </div>
+         
+            {post.map((el,key)=>
             <SuraCard key={key} number={el.number || el.id} name={el.nameUz} enName={el.englishName} nameArab={el.name} audio={el.audio} playing={el.playing} />
-        )}
-        <Pagination total={70} onChange={(page)=>fetcherData(page)} responsive />
-      <div className="suralar-bottom">
-            <Link to={"/"} className="bottom-button back-button suralar-button"/>
-        </div>
+            )}
+            <Pagination total={70} onChange={(page)=>fetcherData(page)} responsive />
+            <div className="suralar-bottom">
+             <Link to={"/"} className="bottom-button back-button suralar-button"/>
+            </div>
+            </div>
+         </div>
+       
         </div>
        
     </div>

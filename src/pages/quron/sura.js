@@ -12,7 +12,9 @@ import OyatCard from "../../assets/components/oyat-card/oyat-card"
 import {
     useLocation
 } from "../../contexts/context";
-
+import LinkBox from "../../assets/components/link-box/link-box"
+import Control from "../../assets/components/control/control"
+import Header from "../../assets/components/header/header"
 const Sura = () => {
     const {
         number
@@ -84,26 +86,39 @@ const Sura = () => {
      
         return(
             <div className="sura">
-                 <div className="suralar-header">
-                <form  className="search-form">
+                <div className="background"></div>
+                <Header />
+                <div className="suralar-container container">
+                    <LinkBox/>
+                <div className="suralar-main names-main main">
+                    <div className="suralar-body">
+                    <Control />
+                <div className="suralar-header sura-header">
+                   <form  className="search-form">
                     <p className="sura-number">{findElement.number}</p>
                     <h2 className="form-title">{findElement.nameUz}</h2>
-                <input onChange={handleSearch} ref={searchRef} placeholder="00"  type="number"  className="search-input oyat-input" />
-                </form>
-            </div>
-                <div className="suralar-container container">
+                    <input onChange={handleSearch} ref={searchRef} placeholder="00"  type="number"  className="search-input oyat-input" />
+                    </form>
+                 </div>
+                 <div className="suralar-buttons">
+                 <button onClick={toggle} className={playing? "play-button sura-button play-white": "pause-button sura-button pause-white"}></button>
+                 <Link to={"/suralar"} className="hamburger-button sura-button hamburger-white"/>
+                  </div>
                     <audio preload="auto" id="audio" src={findElement.audio}></audio>
                     <div className="sura-text-wrapper">
                     {data.map((el)=><OyatCard number={el.numberInSurah} key={el.numberInSurah} arabtext={el.text} text={trData[el.numberInSurah -1].text} />)}
                     </div>
               <div className="sura-bottom-wrapper">
                 <Link to={"/suralar"} className="back-button bottom-button" />
-                <button className="hamburger-button sura-button"></button>
+                <Link to={"/suralar"} className="hamburger-button sura-button"/>
                 <button onClick={toggle} className={playing? "play-button sura-button": "pause-button sura-button"}></button>
                 <button className="text-button sura-button">Aa</button>
                 <button className="menu-button sura-button"></button>
               </div>
+                    </div>
                 </div>
+                </div>
+                
             </div>
 
         )

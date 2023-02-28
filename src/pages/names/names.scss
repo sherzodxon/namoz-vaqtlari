@@ -29,8 +29,10 @@
 
 .names-body {
     padding: 15px 0px;
-
+    margin-top: 50px;
+    width: 100%;
 }
+
 
 .names-header {
     display: flex;
@@ -44,7 +46,7 @@
     color: transparent;
     border: 1px solid rgba(181, 168, 168, 0.15);
     background-color: transparent;
-    width: 92%;
+    display: none;
 }
 
 .names-button {
@@ -129,6 +131,8 @@
 
 .names-main {
     position: relative;
+    padding-left: 30px;
+    width: calc(99% - 30px);
 }
 
 .ant-pagination {
@@ -180,6 +184,14 @@
     }
     .names-body{
         padding-top: 0;
+        margin:  0 auto;
+       margin-top: 3    0px;
+       margin-bottom: 40px;
+    }
+    .names-main{
+        padding-left: 0;
+        width: 99%;
+        margin:  0 auto;
     }
 
 }
