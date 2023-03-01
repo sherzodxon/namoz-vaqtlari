@@ -1,22 +1,22 @@
 .live-iframe {
     width: 100%;
     border: none;
-
+    
 }
 
 .live-video-list {
-    padding: 50px 0px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+    
 }
 .live-video{
     margin-bottom: 10px;
 }
 .live-header {
-    position: fixed;
     width: 100%;
-    max-width: 500px;
     z-index: 3;
     background-color: #fff;
-
 }
 
 .live-title {
@@ -25,7 +25,7 @@
     font-size: 18px;
     line-height: 26px;
     letter-spacing: -0.04em;
-    padding: 10px;
+    padding: 15px;
     position: relative;
    
     &::after{
@@ -37,4 +37,28 @@
         top: calc(50% - 7px);
         right: calc(50% - 34px);
     }
+}
+.live-control{
+    margin-left: 22px;
+    margin-top: 10px;
+}
+@media only screen and (max-width : 800px){
+    .live-header {
+        position: fixed;
+        max-width: 500px; 
+        top: 0;
+    }
+    .live-video-list{
+        padding: 50px 0px;
+    }
+    .live-video-list{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+@media only screen and (max-width : 500px){
+.live-header{
+    left: 0;
+}
 }

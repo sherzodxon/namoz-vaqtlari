@@ -1,7 +1,3 @@
-.map-container {
-    width: 100%;
-    max-width: 450px;
-}
 
 .map-header {
     text-align: center;
@@ -25,7 +21,9 @@
     line-height: 26px;
     letter-spacing: -0.04em;
 }
-
+.map-control{
+  margin-top: 10px;
+}
 .map-city {
     font-weight: 400;
     font-size: 16px;
@@ -35,7 +33,8 @@
 
 .map-iframe {
     width: 100%;
-    height: 80vh;
+    height: 70vh;
+    
 }
 .map-bottom{
     position: fixed;
@@ -43,7 +42,21 @@
     padding-bottom: 20px;
     width: 100%;
     max-width: 450px;
+    display: none;
 }
 .map-back-button{
     margin-right: 10px;
+}
+@media only screen and (max-width : 800px){
+    .map-container {
+        width: 100%;
+        max-width: 450px;
+    }
+    .map-iframe {
+        height: 80vh;
+    }
+    .map-bottom{
+        display: block;
+    }
+    
 }
