@@ -16,9 +16,11 @@
     line-height: 132%;
     letter-spacing: 0.012em;
 }
-
-.zikr-main-wrapper {
-    padding-bottom: 100px;
+.zikr-main{
+    position: relative;
+    margin-top: 10px;
+   top: 100px;
+  
 }
 
 .zikr-title {
@@ -37,25 +39,23 @@
 }
 
 .mornings-container {
-    margin-top: 115px;
     padding-bottom: 115px;
+    position: relative;
 }
 
 .zikr-list {
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: calc(50% - 8px) calc(50% - 8px);
-    row-gap: 16px;
-    column-gap: 16px;
+    display: flex;
+    justify-content: space-between;
+   
 }
 
 .zikr-link {
     display: block;
     text-align: center;
-    padding: 117px 21px 11px 21px;
-
+    padding: 117px 21px 11px;
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
@@ -129,7 +129,6 @@
     line-height: 43px;
     letter-spacing: -0.04em;
     text-align: center;
-
 }
 
 .zikr-item-text-wrapper {
@@ -184,7 +183,9 @@
     font-family: "Roboto Slab";
     margin-top: 100px;
     padding-bottom: 100px;
+    
 }
+
 .zikrlar-item-title{
     color: rgb(34, 127, 123);
     font-weight:600 ;
@@ -199,6 +200,64 @@
     font-weight: 400;
     margin-bottom: 20px;
 }
+.zikr-body{
+    width: 95%;
+    margin:  0 auto;
+}
+.zikr-item{
+    width: 23%;
+}
+.mornings-control{
+    z-index: 3;
+    margin-left: 22px;
+    margin-top: 30px;
+}
+@media only screen and (max-width:1100px){
+.zikr-link{
+    font-size: 15px;
+    padding: 117px 15px 11px;
+}
+.zikr-item{
+    width: 24%;
+    
+}
+}
+@media only screen and (max-width:910px){
+.zikr-link{
+    font-size: 13px;
+    padding: 117px 13px 11px;
+}
+}
+@media only screen and (max-width:830px){
+    .zikr-link{
+        font-size: 11px;
+        padding: 117px 13px 11px;
+    }
+    }
+@media only screen and (max-width:800px){
+.zikr-list{
+    display: grid;
+    grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+    row-gap: 16px;
+    column-gap: 16px;
+}
+.zikr-item-text-wrapper{
+    margin-top: 100px;
+}
+.zikr-main{
+    top: 0;
+}
+.zikr-item{
+    width: auto;
+}
+.zikr-link{
+    padding: 117px 21px 11px;
+    font-size: 17px;
+}
+.mornings-container {
+    margin-top: 115px;
+}
+}
 @media only screen and (max-width:420px){
     .zikr-link{
         font-weight: 500;
@@ -207,12 +266,12 @@
     letter-spacing: -0.04em;
     }
 }
-@media only screen and (max-width:370px){
+@media only screen and (max-width:390px){
     .zikr-link{
         padding: 117px 15px 11px 15px;
     }
 }
-@media only screen and (max-width:340px){
+@media only screen and (max-width:360px){
     .zikr-link{
         padding: 117px 11px 11px 11px;
         font-size: 13px;

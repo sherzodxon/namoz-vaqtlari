@@ -1,12 +1,21 @@
 import Bottom from '../../assets/components/bottom/bottom';
 import ZikrHeader from '../../assets/components/zikr-header/zikr-header';
+import LinkBox from "../../assets/components/link-box/link-box"
+import Control from "../../assets/components/control/control"
+import Header from "../../assets/components/header/header"
 import '../zikr/zikr.scss'
 const Evening=()=>{
     return(
         <div className="kechki-zikrlar">
-            <ZikrHeader title="Kechki Zikrlar" className="evening-header"  />
+          <div className="background"></div>
+          <Header />
             <div className="duolar-container container">
-            <ul className="duolar-list">
+           <LinkBox />
+            <div className="duolar-main zikr-main main">
+                <Control className={"mornings-control"} />
+            <ZikrHeader title="Kechki Zikrlar" className="evening-header"  />
+                <div className="duolar-body zikr-body">
+                <ul className="duolar-list">
             <li className="duolar-item">
             <h3 className="zikr-item-title" >Кечки зикр</h3>
             <p className="zikr-item-arab-text">أمْسَينَا وَأَمْسَى الْمُلْكُ للهِ رَبِّ العَالَمِينَ. اللهُمَّ أَسْأَلُكَ خَيْرَ هَذِهِ اللَّيلَةِ، فَتْحَهَا وَنَصْرَهَا وَنُورَهَا وَبَرَكَتَهَا وَهُدَاهَا وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهَا، وَشَرِّ مَا بَعْدَهَا</p>
@@ -74,6 +83,8 @@ const Evening=()=>{
                 <p className="zikr-item-text-translate  italic-text">Абу Довуд, Термизий ва Ибн Можалар ривояти.</p>
             </li>
             </ul>
+                </div>
+            </div>
             <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/zikr'}/>
             </div>
             

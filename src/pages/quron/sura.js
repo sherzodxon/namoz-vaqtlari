@@ -108,15 +108,16 @@ const Sura = () => {
                     <div className="sura-text-wrapper">
                     {data.map((el)=><OyatCard number={el.numberInSurah} key={el.numberInSurah} arabtext={el.text} text={trData[el.numberInSurah -1].text} />)}
                     </div>
-              <div className="sura-bottom-wrapper">
+             
+                    </div>
+                </div>
+                <div className="sura-bottom-wrapper">
                 <Link to={"/suralar"} className="back-button bottom-button" />
                 <Link to={"/suralar"} className="hamburger-button sura-button"/>
                 <button onClick={toggle} className={playing? "play-button sura-button": "pause-button sura-button"}></button>
                 <button className="text-button sura-button">Aa</button>
                 <button className="menu-button sura-button"></button>
               </div>
-                    </div>
-                </div>
                 </div>
                 
             </div>

@@ -2,11 +2,14 @@
     display: flex;
     width: 80px;
     justify-content: space-between;
-    margin-left: 0px;
+   
     margin-top: 20px;
     position: absolute;
 }
-
+.zikr-control{
+    margin-top: 0;
+    margin-left: 8px;
+}
 .control-button {
     width: 32px;
     height: 32px;

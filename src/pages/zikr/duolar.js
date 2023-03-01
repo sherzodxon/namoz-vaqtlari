@@ -1,14 +1,21 @@
 import '../zikr/zikr.scss'
-import { Link } from "react-router-dom"
 import ZikrHeader from '../../assets/components/zikr-header/zikr-header'
 import Bottom from '../../assets/components/bottom/bottom'
-
+import LinkBox from "../../assets/components/link-box/link-box"
+import Control from "../../assets/components/control/control"
+import Header from "../../assets/components/header/header"
 const Duolar =()=>{
     return(
         <div className="duolar">
-            <ZikrHeader title={"Namozdagi Duolar"} className="duolar-header" />
+           <Header />
+           <div className="background"></div>x
             <div className="duolar-container container">
-            <ul className="duolar-list">
+             <LinkBox />
+             <div className="duolar-main zikr-main main">
+                <Control className={"mornings-control"} />
+                 <ZikrHeader title={"Namozdagi Duolar"} className="duolar-header" />
+                <div className="duolar-body zikr-body">
+                <ul className="duolar-list">
             <li className="duolar-item">
             <h3 className="zikr-item-title" >Самиъаллоҳу лиман ҳамидаҳ</h3>
             <p className="zikr-item-arab-text">سَمِعَ اللهُ لِمَنْ حَمِدَهُ رَبَّنَا لَكَ الْحَمْدُ</p>
@@ -80,6 +87,8 @@ const Duolar =()=>{
                 <p className="zikr-item-text-translate italic-text">Ибн Сунний ривоятлари.</p>
             </li>
             </ul>
+                </div>
+             </div>
             <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/zikr'}/>
             </div>
             

@@ -1,15 +1,19 @@
-import axios from "axios"
 import Bottom from "../../assets/components/bottom/bottom"
 import ZikrHeader from "../../assets/components/zikr-header/zikr-header"
-import {useState ,useEffect} from "react"
-
+import LinkBox from "../../assets/components/link-box/link-box"
+import Control from "../../assets/components/control/control"
+import Header from "../../assets/components/header/header"
 const Zikrlar =()=>{
-   
-     
     return(
         <div className="zikrlar">
-            <ZikrHeader title={"Barcha Zikrlar"} className="zikrlar-header" />
+             <div className="background"></div>
+             <Header />
             <div className="zikrlar-container container">
+                <LinkBox />
+               <div className="zikrlar-main zikr-main main">
+                <Control className={"mornings-control"}/>
+                <ZikrHeader title={"Barcha Zikrlar"} className="zikrlar-header" />
+                <div className="zikrlar-body zikr-body">
                 <ul className="zikrlar-list">
                 <li className="zikrlar-item">
                     <h3 className="zikrlar-item-title">Кириш</h3>
@@ -102,6 +106,8 @@ const Zikrlar =()=>{
                     <hr className="names-hr" />
                 </li>
                 </ul>
+                </div>
+               </div>
             <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/zikr'}/>
             </div>
         </div>

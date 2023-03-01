@@ -1,5 +1,5 @@
 import "./control.scss"
-const Control =()=>{
+const Control =({className})=>{
     function handleBack() {
         window.history.back()
     }
@@ -7,7 +7,7 @@ const Control =()=>{
         window.history.forward()
     }
     return(
-        <div className="control">
+        <div className={`control ${className}`}>
             <button onClick={handleBack} className="control-button"></button>
             <button onClick={handleGo} className="control-button control-next-button"></button>
         </div>

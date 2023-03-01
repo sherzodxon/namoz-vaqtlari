@@ -1,16 +1,25 @@
 import { Link } from "react-router-dom"
-import Bottom from "../../assets/components/bottom/bottom"
+import Bottom from "../../assets/components/bottom/bottom";
+import LinkBox from "../../assets/components/link-box/link-box"
+import Control from "../../assets/components/control/control"
+import Header from "../../assets/components/header/header"
 import '../zikr/zikr.scss'
-//import {GetLatLngByAddress} from '@geocoder-free/google'
+
 const Zikr=()=>{
   
 
-//GetLatLngByAddress('tokyo tower').then(console.log);
+
     return(
         <div className="zikr">
-            <h3 className="zikr-title">Zikr va Duolar</h3>
-            <hr className="zikr-hr names-hr" />
+            <div className="background"></div>
+           <Header />
             <div className="zikr-container container">
+                <LinkBox />
+            <div className="zikr-main main">
+          
+            <div className="zikr-body">
+            <Control className="zikr-control"/>
+            <h3 className="zikr-title">Zikr va Duolar</h3>
                 <div className="zikr-main-wrapper">
                 <ul className="zikr-list">
                 <li className="zikr-item">
@@ -37,7 +46,10 @@ const Zikr=()=>{
            <strong>«Эй иймон келтирганлар! Аллоҳни кўп зикр қилинглар! Ва эртаю кеч Уни поклаб ёд этинглар»</strong>, деган («Аҳзоб» сураси, 41-42-оятлар).
             </p>
                 </div>
-                <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/'} />
+               
+            </div>
+            </div>
+            <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/'} />
             </div>
            
             

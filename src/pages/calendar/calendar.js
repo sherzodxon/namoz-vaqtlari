@@ -13,12 +13,13 @@ import "../calendar/calendar.scss"
 import {
    monthName
 } from "./monthName";
-
+import LinkBox from "../../assets/components/link-box/link-box"
+import Control from "../../assets/components/control/control"
+import Header from "../../assets/components/header/header"
 const Calendar = () => {
    const {
       location,
-      setLocation
-   } = useLocation()
+      } = useLocation()
    const [data, setData] = useState(null);
    const [isLoading, setLoading] = useState(true);
    const date = new Date();
@@ -70,20 +71,28 @@ const Calendar = () => {
             <div className="calendar-roller lds-roller">
             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
+           
          </div>
       )
    }
      return(
       <div className="calendar">
-         <div className="calendar-header">
+         <Header />
+         <div className="background"></div>
+         <div className="calendar-container container">
+           <LinkBox/>
+           <div className="calendar-main zikr-main main">
+            <Control className={"calendar-control"}/>
+           <div className="calendar-header">
             <form  className="calendar-form">
             <input required id="input" onChange={handleForm} ref={searchRef} type="month" className="calendar-input" />
             </form>
          </div>
-         <div className="calendar-container container">
-            
+            <div className="calendar-body zikr-body">
             {data.map((data)=><Card readable={data.date.gregorian.date} weekday={data.date.gregorian.weekday.en} fajr={data.timings.Fajr} sunrise={data.timings.Sunrise} dhuhr={data.timings.Dhuhr} asr={data.timings.Asr} maghrib={data.timings.Maghrib} isha={data.timings.Isha} key={data.date.timestamp} />)}
             
+            </div>
+           </div>
          <div className="calendar-bottom">
             <div className="calendar-buttons-left">
             <Link to="/map" className="calendar-buttons calendar-map-button" />

@@ -112,18 +112,23 @@
 }
 
 .calendar-header {
-  position: fixed;
+  margin:  10px auto;
+  margin-bottom: 30px;
   width: 100%;
   max-width: 500px;
   background-color: #fff;
   padding: 5px 0px;
   z-index: 3;
 }
-
-.calendar-container {
-  padding: 60px 0px;
+.calendar-control{
+  margin-left: 32px;
 }
-
+.calendar-body{
+  margin-top: 60px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
 .calendar-form {
   width: 40%;
   margin-left: 30%;
@@ -161,9 +166,9 @@
 }
 
 .calendar-bottom {
+  display: none;
   position: fixed;
   bottom: 0;
-  display: flex;
   justify-content: space-between;
   width: 90%;
   max-width: 450px;
@@ -198,6 +203,24 @@
   line-height: 32px;
   letter-spacing: -0.04em;
   text-align: center;
+}
+.calendar-main{
+  position: relative;
+  top: 50px;
+}
+@media only screen and (max-width:800px){
+.calendar-bottom{
+  display: flex;
+  
+}
+.calendar-header{
+  position: fixed;
+  margin: 0;
+  top: 0;
+}
+.calendar-container{
+  padding: 60px 0;
+}
 }
 @media only screen and (max-width:440px){
   .calendar-input{

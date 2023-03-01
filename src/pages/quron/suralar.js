@@ -64,7 +64,6 @@ return(
         <div className="suralar-container container">
             <LinkBox />
            <div className="suralar-main names-main main">
-           
             <div className="suralar-body">
             <Control/>
            <div className="suralar-header">
@@ -78,12 +77,12 @@ return(
             <SuraCard key={key} number={el.number || el.id} name={el.nameUz} enName={el.englishName} nameArab={el.name} audio={el.audio} playing={el.playing} />
             )}
             <Pagination total={70} onChange={(page)=>fetcherData(page)} responsive />
-            <div className="suralar-bottom">
-             <Link to={"/"} className="bottom-button back-button suralar-button"/>
-            </div>
+          
             </div>
          </div>
-       
+         <div className="suralar-bottom">
+             <Link to={"/"} className="bottom-button back-button suralar-button"/>
+            </div>
         </div>
        
     </div>

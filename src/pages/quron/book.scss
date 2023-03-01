@@ -390,7 +390,7 @@
     .book-bottom {
         display: block;
     }
-
+    
     .sura-header {
         margin-left: 0;
     }
@@ -406,7 +406,6 @@
         max-width: 450px;
         width: 100%;
         top: 0;
-
     }
 
     .suralar-main {
@@ -420,4 +419,10 @@
     .suralar-buttons {
         display: none;
     }
+}
+@media only screen and (max-width:460px){
+    .suralar-header{
+        left: 0;
+    }
+
 }
