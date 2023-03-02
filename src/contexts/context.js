@@ -88,7 +88,7 @@ const DataProvider = ({
                 });
              return(
                 <>
-                <div className="location-continer container">
+                <div className="location-container">
                 <h2 className="location-title">Joylashuvingizni tanlang</h2>
             <form className="location-form " onSubmit={handleSubmit}>
                 <input className="location-input location-city-input" ref={countryRef} type="search" pattern="[A-z]*" title="Davlat" placeholder="Davlat" required/>

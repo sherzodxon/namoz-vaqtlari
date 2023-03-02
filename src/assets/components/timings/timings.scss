@@ -42,6 +42,7 @@
 }
 
 .timings-x-button {
+    display: none;
     &::after {
         background: url(../../img/x.svg) no-repeat center center;
     }
@@ -70,7 +71,7 @@
 .timings-pray-time {
     text-align: center;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 24px;
     letter-spacing: -0.04em;
     opacity: 0.8;
@@ -213,6 +214,9 @@
         max-height: 1000px;
         color: #FFFFFF;
         margin: 0;
+    }
+    .timings-x-button{
+        display: block;
     }
 
     .timings-bottom-wrapper {
