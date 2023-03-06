@@ -39,11 +39,19 @@ const DataProvider = ({
         useEffect(() => {
             if (latitude) {
                 axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${(latitude)}&longitude=${longitude}`).then(res => {
-
+                    const string =res.data.locality.replace(" ","/")
+               
+                    let newLocality = ""
+                    for (let index = 0; index < string.length; index++) {
+                     newLocality += string[index];
+                     if (string[index + 1] == "/") {
+                         break
+                      }
+                    }
                     setLocation({
                         continent: res.data.continent,
                         country: res.data.countryName,
-                        locality: res.data.locality,
+                        locality: newLocality,
                         city: res.data.city || "Tashkent",
                         latitude: latitude,
                         longitude: longitude,
@@ -107,6 +115,14 @@ const DataProvider = ({
             }
 
             if (location) {
+                // location.locality.forEach(element => {
+                //     if (element ="") {
+                //         console.log("ok");
+                //     }
+                // });
+               // const arr =JSON.parse("[" + location.locality.split(',') + "]")
+               
+              //console.log(newLocality);
                 return(
                     <DataLocation.Provider value={{location,setLocation}}>
                         {children}
