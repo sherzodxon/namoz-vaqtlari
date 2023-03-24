@@ -136,7 +136,8 @@
 }
 
 .ant-pagination {
-    width: 40%;
+    position: absolute;
+    left: 20%;
     margin: 0 auto;
     margin-top: 20px;
     padding-bottom: 20px;
@@ -146,17 +147,7 @@
     display: none;
 }
 
-@media only screen and (max-width:1150px) {
-    .ant-pagination {
-        width: 50%;
-    }
-}
 
-@media only screen and (max-width:910px) {
-    .ant-pagination {
-        width: 60%;
-    }
-}
 
 @media only screen and (max-width:800px) {
     .names-button-wrapper {
@@ -164,8 +155,8 @@
         padding-top: 10px;
         display: block;
         max-width: 450px;
-        width: 90%;
-        left: 5%;
+        width: 95%;
+        left: 3%;
         top: 0;
     }
 
@@ -177,12 +168,10 @@
 
     .names-container {
         padding: 30px 0px;
+        padding-bottom: 50px;
     }
 
-    .ant-pagination {
-        width: 72%;
-
-    }
+    
     .names-body{
         padding-top: 0;
         margin:  0 auto;
@@ -198,21 +187,3 @@
 
 }
 
-@media only screen and (max-width:520px) {
-    .ant-pagination {
-        width: 47%;
-
-    }
-}
-
-@media only screen and (max-width:400px) {
-    .ant-pagination {
-        width: 65%;
-    }
-}
-
-@media only screen and (max-width:370px) {
-    .ant-pagination {
-        width: 70%;
-    }
-}

@@ -26,7 +26,7 @@ const LinkBox=()=>{
         
          </ul>
          <p className="link-box-info">©Muslim Taqvim 2023</p>
-         <p className="link-box-author">Barcha huquqlar himoyalangan.Ilovadan ma'lumot olinganda manba ko'rsatilishi shart.</p>
+         <p className="link-box-author">Barcha huquqlar himoyalangan.</p>
             </div>
          
         </div>

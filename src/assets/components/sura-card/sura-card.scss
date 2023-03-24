@@ -5,13 +5,8 @@
     align-items: center;
     margin-bottom: 10px;
     border-radius: 8px;
-    padding: 15px;
+    padding: 15px 0px;
     color: #000000;
-
-    &:hover {
-        background: #EEEEEE;
-
-    }
 }
 
 .sura-card-text-wrapper {
@@ -40,7 +35,9 @@
     letter-spacing: -0.04em;
     text-decoration: none;
     color: #020202;
-
+    &:hover{
+        color: #1ce161;
+    }
 }
 
 .sura-card-enname {
@@ -57,4 +54,7 @@
     text-decoration: none;
     color: #000000;
     margin-right: 20px;
+    &:hover{
+        color: #1ce161;
+    }
 }

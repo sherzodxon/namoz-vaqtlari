@@ -25,7 +25,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgb(28, 225, 97);
+  background: #1ce161;
   margin: -4px 0 0 -4px;
 }
 
@@ -136,7 +136,8 @@
 }
 
 .calendar-input {
-  width: calc(100% - 52px);
+  width: 120px;
+  margin:  0 auto;
   border: 1px solid rgba(244, 244, 244, 1);
   font-family: 'Jost';
   font-style: normal;
@@ -170,7 +171,7 @@
   position: fixed;
   bottom: 0;
   justify-content: space-between;
-  width: 90%;
+  width: 95%;
   max-width: 450px;
   background: #fff;
   padding: 5px 0px;
@@ -224,8 +225,9 @@
 }
 @media only screen and (max-width:440px){
   .calendar-input{
-    font-weight: 400;
-    font-size: 10px;
     padding-left: 30px;
+  }
+  .calendar-header{
+    left: 0;
   }
 }
