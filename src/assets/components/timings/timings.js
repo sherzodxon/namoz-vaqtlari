@@ -16,7 +16,6 @@ const Timings=({posts,isLoading})=>{
     const {location, setLocation}=useLocation();
     const [post, setPost] = useState(0);                                 
     const [currentTime, setCurrentTime] = useState(0);
-    let [inLocation,setInLocation]=useState("");
     let [modalKey,setModalKey]=useState(false);
     let arrClass={container:"container", time:"time", timings:"timings"}
     let [classes,setClasses]=useState(arrClass);
@@ -61,10 +60,14 @@ if (posts) {
     fajr = timesData.Fajr;
     sun = timesData.Sunrise;
     dhuhr = timesData.Dhuhr;
-    asr= timesData.Asr;
+    asr= timesData.Asr ;
+    let asrHour =+timesData.Asr.split("")[1]
+    let as=asr.split("")
+    let sd = as.splice(1,1,`${asrHour +1}`)
+    asr = as
     maghrib= timesData.Maghrib;
     isha= timesData.Isha
-
+    console.log(asr);
     if (time >= fajr && time <= sun) {
         prayerTime = "Bomdod";
         itemClass = 'fajr--active'
@@ -95,35 +98,35 @@ if (posts) {
 }
   
 useEffect(()=>{
-if (prayerTime == "Bomdod") {
+if (prayerTime === "Bomdod") {
     setClasses({
         container:"fajr-container",
         time:"fajr-time",
         timings:"fajr-timings"
     })
 }
-else if(prayerTime =="Peshin" || sunrise){
+else if(prayerTime === "Peshin" || sunrise){
     setClasses({
         container:"dhuhr-container",
         time:"dhuhr-time",
         timings:"dhuhr-timings"
     })
 }
-else if(prayerTime =="Asr"){
+else if(prayerTime ==="Asr"){
     setClasses({
         container:"asr-container",
         time:"asr-time",
         timings:"asr-timings"
     })
 }
-else if(prayerTime =="Shom"){
+else if(prayerTime ==="Shom"){
     setClasses({
         container:"maghrib-container",
         time:"maghrib-time",
         timings:"maghrib-timings"
     })
 }
-else if(prayerTime =="Hufton"){
+else if(prayerTime ==="Hufton"){
     setClasses({
         container:"isha-container",
         time:"isha-time",
@@ -144,7 +147,7 @@ function handleSubmitButton(evt) {
     const countryValue = countryRef.current.value;
     const cityValue = cityRef.current.value;
     
-    setInLocation(cityValue)
+ 
     axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${cityValue},%20${countryValue}`).then((res) => {
         setPost(res.data);
        
@@ -156,7 +159,7 @@ function handleSubmitButton(evt) {
             for(let i=0; i<=timezone.length;i++){
                 postContinent+=timezone[i];
                 sum++
-                if (timezone[i+1]=="/") {
+                if (timezone[i+1]==="/") {
                     break
                 }
             }
@@ -216,7 +219,7 @@ if (!isLoading){
             <ol className="timings-list">
                 <li className={`timings-item fajr-item ${itemClass}`}>
                    <p className="timings-item-name">Bomdod</p>
-                   <p className="timings-item-time">{timesData.Fajr}</p> 
+                   <p className="timings-item-time">{fajr}</p> 
                 </li>
                 <li className={`timings-item sunrise-item ${itemClass}`}>
                    <p className="timings-item-name">Quyosh</p>
@@ -224,19 +227,19 @@ if (!isLoading){
                 </li>
                 <li className={`timings-item dhuhr-item ${itemClass}`}>
                    <p className="timings-item-name">Peshin</p>
-                   <p className="timings-item-time">{timesData.Dhuhr}</p>
+                   <p className="timings-item-time">{dhuhr}</p>
                 </li>
                 <li className={`timings-item asr-item ${itemClass}`}>
                    <p className="timings-item-name">Asr</p>
-                   <p className="timings-item-time">{timesData.Asr}</p>
+                   <p className="timings-item-time">{asr}</p>
                 </li>
                 <li className={`timings-item maghrib-item ${itemClass}`}>
                    <p className="timings-item-name">Shom</p>
-                   <p className="timings-item-time">{timesData.Maghrib}</p>
+                   <p className="timings-item-time">{maghrib}</p>
                 </li>
                 <li className={`timings-item isha-item ${itemClass}`}>
                    <p className="timings-item-name">Hufton</p>
-                   <p className="timings-item-time">{timesData.Isha}</p>
+                   <p className="timings-item-time">{isha}</p>
                 </li>
             </ol>
             <div className="timings-bottom-wrapper">
