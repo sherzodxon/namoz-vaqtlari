@@ -3,7 +3,7 @@ import { useLocation } from "../../contexts/context";
 import Bottom from "../../assets/components/bottom/bottom"
 import "./name.scss"
 const Name =()=>{
-    const {location,setLocation}=useLocation();
+    const {location}=useLocation();
     const {id} =useParams();
     const findedPost = location.namesApi.find((el)=>el.id == id)
     return(
