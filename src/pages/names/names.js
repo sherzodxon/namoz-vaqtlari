@@ -30,7 +30,19 @@ const Names = () => {
   useEffect(() => {
     fetchRecords(1);
   }, [])
-
+ 
+  function dele(element) {
+    axios.delete(`https://retoolapi.dev/PBj0hg/allohismlari/${element}`).then((res)=>{
+  console.log(res.data);
+ })
+  }
+  const element={
+    "id": 1,
+    "name": "Alloh",
+    "comment": "Alloh lafzi «alaha» fe'lidan olingan «iloh» masdariga mansub bo'lib ma'bud - ibodat qilingan zot - ma'nosini anglatadi. Arablarda «iloh»ning avvaliga alif va lom harflari kiritilgan va «al-ilohu» hosil bo'lgan. So'ngra hamzaning harakatini lomi ta'rifga naql qilingan va bir jinsdagi ikki harfni idg'om qilingandan keyin «Alloh» lafzi hosil bo'lgan.Alloh lafzi yakkayu yagona ma'budi haqqa ism bo'lib qolgan. U zotdan boshqaga bu ism ishlatilmagan.Ba'zi ulamolar, Alloh ismi a'zamdir, deganlar. Bu lafzi jalola haqida Ibn Atoulloh Sakandariy kabi zotlar alohida kitoblar ham yozganlar.",
+    "isLiked": "false"
+  }
+  dele(100)
  
   const fetchRecords = (page) => {
     axios.get(`https://retoolapi.dev/PBj0hg/allohismlari?_limit=10&_page=${page}`).then((res) => {

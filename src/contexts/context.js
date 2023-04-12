@@ -44,7 +44,7 @@ const DataProvider = ({
                     let newLocality = ""
                     for (let index = 0; index < string.length; index++) {
                      newLocality += string[index];
-                     if (string[index + 1] == "/") {
+                     if (string[index + 1] === "/") {
                          break
                       }
                     }
@@ -54,7 +54,7 @@ const DataProvider = ({
                         const str =res.data.city.replace(" ","/")
                     for (let index = 0; index < str.length; index++) {
                      newCity += str[index];
-                     if (str[index + 1] == "/") {
+                     if (str[index + 1] === "/") {
                          break
                       }
                     }
@@ -64,6 +64,7 @@ const DataProvider = ({
                         continent: res.data.continent,
                         country: res.data.countryName,
                         locality: newLocality,
+                        uilocality:res.data.locality,
                         city: newCity || "Tashkent",
                         latitude: latitude,
                         longitude: longitude,

@@ -64,10 +64,10 @@ if (posts) {
     let asrHour =+timesData.Asr.split("")[1]
     let as=asr.split("")
     let sd = as.splice(1,1,`${asrHour +1}`)
-    asr = as
+    asr = as.join("")
+    console.log(asr);
     maghrib= timesData.Maghrib;
     isha= timesData.Isha
-    console.log(asr);
     if (time >= fajr && time <= sun) {
         prayerTime = "Bomdod";
         itemClass = 'fajr--active'
@@ -208,7 +208,7 @@ if (!isLoading){
             <p className="timings-current-date">Vaqt: {currentDate.date.gregorian.date} yil</p>
             <p className="timings-current-date">Hijriy: {currentDate.date.hijri.date} yil</p>
     </div>
-            <p className="timings-location">{location.locality}</p>
+            <p className="timings-location">{location.uilocality}</p>
             <p className="timings-time">{time}</p>
             <p className="timings-pray-time">{prayerTime}</p>
            
