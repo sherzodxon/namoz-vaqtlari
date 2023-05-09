@@ -1,0 +1,31 @@
+.name {
+  color: rgb(0, 0, 0);
+  margin: 0 auto;
+  margin-top: 30px;
+  position: relative;
+}
+
+.name-container {
+  height: 100vh;
+  margin-top: 100px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.name-title {
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 43px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-bottom: 37px;
+  margin-top: 20px;
+}
+
+.name-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.012em;
+  text-align: center;
+}
