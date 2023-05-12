@@ -19,7 +19,7 @@ const Timings=({posts,isLoading})=>{
     let [modalKey,setModalKey]=useState(false);
     let arrClass={container:"container", time:"time", timings:"timings"}
     let [classes,setClasses]=useState(arrClass);
-    let [prayerTime,setPrayerTime]=useState("react")
+    let [prayerTime,setPrayerTime]=useState("")
     const countryRef = useRef();
     const cityRef = useRef();
 
@@ -65,8 +65,7 @@ if (posts) {
     let asrHour =+timesData.Asr.split("")[1]
     let as=asr.split("")
     as.splice(1,1,`${asrHour +1}`)
-    asr = as.join("")
-    console.log(asr);
+    asr = as.join("");
     maghrib= timesData.Maghrib;
     isha= timesData.Isha
     if (time >= fajr && time <= sun) {
@@ -75,7 +74,8 @@ if (posts) {
     }
     else if (time>=sun && time<=dhuhr) {
         itemClass='sunrise--active';
-        sunrise = true
+        sunrise = true;
+        prayerTime="Quyosh"
     }
     else if (time>=dhuhr && time <=asr) {
         prayerTime = "Peshin"

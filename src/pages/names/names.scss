@@ -137,7 +137,7 @@
 
 .ant-pagination {
     position: absolute;
-    left: 20%;
+    left: 30%;
     margin: 0 auto;
     margin-top: 20px;
     padding-bottom: 20px;
@@ -171,19 +171,21 @@
         padding-bottom: 50px;
     }
 
-    
-    .names-body{
+
+    .names-body {
         padding-top: 0;
-        margin:  0 auto;
-       margin-top: 30px;
-       margin-bottom: 40px;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 40px;
     }
-    .names-main{
+
+    .names-main {
         padding-left: 0;
         width: 99%;
-        margin:  0 auto;
+        margin: 0 auto;
     }
-    
 
+    .ant-pagination {
+        left: 20%;
+    }
 }
-
