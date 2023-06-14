@@ -27,14 +27,14 @@ const Sura = () => {
         setLocation
     } = useLocation();
     const [post, setPost] = useState(null);
-    const [searchData,setSData]=useState(null)
     const findElement = location.quronApi.find((el) => el.number == number);
     const [playing, setPlaying] = useState(true);
     const searchRef = useRef();
-
+     console.log(loading);
     useEffect(() => {
         axios.get("https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/uzb-muhammadsodikmu.json").then((res) => {
-            setTrdata(res.data.quran.filter((el) => el.chapter == number))
+            setTrdata(res.data.quran.filter((el) => el.chapter == number));
+           
         })
         axios.get(`https://api.alquran.cloud/v1/surah/${number}`).then((res) => {
             setData(res.data.data.ayahs);

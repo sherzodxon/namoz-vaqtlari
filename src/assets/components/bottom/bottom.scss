@@ -41,6 +41,12 @@
     background-color: #020202;
 
 }
+.to-home-button{
+    background-image: url(../../img/house-door-fill.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 18px 35px;
+}
 @media only screen and (max-width:800px){
 .bottom{
     display: block;

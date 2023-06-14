@@ -6,7 +6,7 @@ return(
    <div className="bottom">
     <div className="bottom-button-wrapper">
       <Link className="bottom-button live-button" to={"/live"} children="Live" />
-      <Link className="bottom-button" to={"/quron-bosh-sahifa"} children="Qur'on" />
+      <Link className="bottom-button to-home-button" to={"/"}  />
       <Link className="bottom-button back-button" to={thirdTo} />
     </div>
    </div> 
