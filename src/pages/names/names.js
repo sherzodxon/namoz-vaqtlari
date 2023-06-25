@@ -30,14 +30,11 @@ const Names = () => {
   useEffect(() => {
     fetchRecords(1);
   }, [])
- 
   
-  
-  
- 
   const fetchRecords = (page) => {
     axios.get(`https://retoolapi.dev/lncqOG/names?_limit=10&_page=${page}`).then((res) => {
       setData(res.data)
+      console.log(data);
       setLoading(false)
     })
   }
@@ -85,6 +82,7 @@ const Names = () => {
         </div>
       }
   </div>
+     
       <Bottom firstTo={'/hadislar'} secondTo={'/qoran'} thirdTo={'/'}/>
   </div>
 </div>
