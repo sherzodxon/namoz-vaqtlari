@@ -8,7 +8,7 @@ import Header from "../../../assets/components/header/header"
 const TonggiZikrlar =()=>{
     const {id}=useParams()
     const {location} =useLocation()
-const post = location.mentionApi.morningMention.find((el)=>el.id==id);
+const post = location.mentionApi.morningMention.find((el)=>el.id===id);
     return(
         <div className="zikr">
             <div className="background"></div>

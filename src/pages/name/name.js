@@ -8,7 +8,7 @@ import "./name.scss"
 const Name =()=>{
     const {location}=useLocation();
     const {id} =useParams();
-    const findedPost = location.namesApi.find((el)=>el.id == id)
+    const findedPost = location.namesApi.find((el)=>el.id === id)
     return(
        <div className="names">
         <div className="background"></div>

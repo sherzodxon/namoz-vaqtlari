@@ -7,7 +7,7 @@ import Control from "../../assets/components/control/control"
 import Header from "../../assets/components/header/header"
 import '../zikr/zikr.scss'
 const Mornings =()=>{
-    const {location ,setLocation}= useLocation();
+    const {location}= useLocation();
     
     return(
         <div className="mornings">

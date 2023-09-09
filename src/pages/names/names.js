@@ -18,8 +18,7 @@ import Control from "../../assets/components/control/control"
 
 const Names = () => {
   const {
-    location,
-    setLocation
+    location
   } = useLocation();
   const [select, setSelect] = useState(false);
   let [data, setData] = useState([]);
@@ -34,7 +33,6 @@ const Names = () => {
   const fetchRecords = (page) => {
     axios.get(`https://retoolapi.dev/lncqOG/names?_limit=10&_page=${page}`).then((res) => {
       setData(res.data)
-      console.log(data);
       setLoading(false)
     })
   }

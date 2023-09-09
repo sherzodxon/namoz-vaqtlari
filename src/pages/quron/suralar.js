@@ -69,7 +69,7 @@ return(
            <div className="suralar-header">
             <form className="search-form">
             <h2 className="form-title">Suralar</h2>
-            <input onChange={handleSearch} ref={searchRef} placeholder="Izlash" type='search' pattern="[A-z]*" title="Suralar" className="search-input" />
+            <input onChange={handleSearch} ref={searchRef} placeholder="Qidirish" type='search' pattern="[A-z]*" title="Suralar" className="search-input" />
             </form>
            </div>
          

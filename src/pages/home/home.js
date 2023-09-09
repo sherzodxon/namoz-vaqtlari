@@ -16,7 +16,6 @@ const Home = () => {
     const {location}=useLocation();
     const [posts, setPosts] = useState(0);
     const [isLoading, setLoading] = useState(false);
-console.log(location);
     useEffect(() => {
         if (location) {
             axios.get(`https://api.aladhan.com/v1/timingsByAddress?address=${location.locality},%20${location.country}`).then((res) => {
