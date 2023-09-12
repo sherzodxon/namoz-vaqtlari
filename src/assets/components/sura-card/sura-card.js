@@ -6,12 +6,15 @@ const SuraCard =({enName,number,name,playing,nameArab,audio})=>{
 return(
     <div className="sura-card">
          <p className="sura-card-number">{number}</p>
+         <Link className="morning-links"  to={`/sura/${number}`}/>
         <div className="sura-card-text-wrapper">
+       
         <div className="sura-card-name-wrapper">
-            <Link  to={`/sura/${number}`} className="sura-card-name" children={name}/>
+           
+            <h3 className="sura-card-name" children={name}></h3>
             <p className="sura-card-enname">{enName}</p>
         </div>
-        <Link  to={`/sura/${number}`} className="sura-card-name-arab" children={nameArab}/>
+        <h3 className="sura-card-name-arab" children={nameArab}></h3>
         </div>      
          
     </div>

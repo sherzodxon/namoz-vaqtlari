@@ -42,8 +42,8 @@ const Player = ({url,control,to}) => {
     const [playing, toggle] = Audios(url, control, to);
 
     return (
-      <div>
-        <button onClick={toggle} className={playing  ? "audio-button-play" : "audio-button-pause"}></button>
+      <div className='audio'>
+        <input type='button' onClick={toggle} className={playing  ? "audio-button-play" : "audio-button-pause"}></input>
       </div>
     )   
 }

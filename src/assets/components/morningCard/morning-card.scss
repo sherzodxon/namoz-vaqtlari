@@ -7,6 +7,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    text-decoration: none;
     &:hover{
         background: rgba(241, 241, 241, 1);
 
@@ -21,6 +23,19 @@
     font-size: 22px;
     line-height: 32px;
     letter-spacing: -0.04em;
-    text-decoration: none;
-
+    
+}
+.morning-links{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.morning-play-controller{
+    position: absolute;
+    z-index: 99;
+    right: 32px;
 }

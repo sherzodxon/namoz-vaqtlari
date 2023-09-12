@@ -20,6 +20,7 @@
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "sass": "^1.57.1",
+    "use-sound": "^4.0.1",
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },

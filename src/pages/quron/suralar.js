@@ -5,14 +5,17 @@ import { Link } from "react-router-dom"
 import Header from "../../assets/components/header/header"
 import LinkBox from "../../assets/components/link-box/link-box"
 import SuraCard from "../../assets/components/sura-card/sura-card"
+
 import Control from "../../assets/components/control/control"
 import { useLocation } from "../../contexts/context"
 
 const Suralar =()=>{
-let {location ,setLocation} =useLocation()
+let {location} =useLocation()
 const [post ,setPost]=useState([]);
 const [data , setData]=useState([])
+
 const [loading ,setLoading]=useState(true)
+
 const searchRef =useRef();
 let leftOverArr=[]
 useEffect(()=>{

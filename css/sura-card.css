@@ -8,6 +8,10 @@
   padding: 15px 5px;
   color: #000000;
   border-bottom: 1px solid rgba(28, 225, 97, 0.3);
+  position: relative;
+}
+.sura-card:hover {
+  border-bottom: 1px solid #000000;
 }
 
 .sura-card-text-wrapper {
@@ -36,9 +40,7 @@
   letter-spacing: -0.04em;
   text-decoration: none;
   color: #020202;
-}
-.sura-card-name:hover {
-  color: #1ce161;
+  margin-bottom: 8px;
 }
 
 .sura-card-enname {

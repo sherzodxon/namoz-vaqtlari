@@ -104,7 +104,7 @@ const Sura = () => {
                   </div>
                     <audio preload="auto" id="audio" src={findElement.audio}></audio>
                     <div className="sura-text-wrapper">
-                    {data.map((el)=><OyatCard number={el.numberInSurah} key={el.numberInSurah} arabtext={el.text} text={trData[el.numberInSurah -1].text} />)}
+                    {data.map((el)=><OyatCard audioNumber={el.number} number={el.numberInSurah} key={el.numberInSurah} arabtext={el.text} text={trData[el.numberInSurah -1].text} />)}
                     </div>
              
                     </div>

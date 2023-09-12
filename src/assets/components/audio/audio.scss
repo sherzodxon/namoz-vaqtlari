@@ -1,5 +1,8 @@
 audio {
     width: 100%;
+    z-index: 9;
+   
+ 
 }
 
 audio::-webkit-media-controls-panel {
@@ -54,6 +57,8 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
     background-color: transparent;
     background: url(../../img/play.svg) no-repeat center center;
     margin-right: 10px;
+    z-index: 99;
+  
 }
 .audio-button-pause{
     width: 16px;
@@ -61,5 +66,6 @@ audio::-webkit-media-controls-toggle-closed-captions-button {
     background-color: transparent;
     background: url(../../img/pause.svg) no-repeat center center;
     margin-right: 10px;
+    z-index: 99;
     
 }
