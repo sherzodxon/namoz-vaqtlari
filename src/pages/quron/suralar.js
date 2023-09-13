@@ -13,6 +13,7 @@ const Suralar =()=>{
 let {location} =useLocation()
 const [post ,setPost]=useState([]);
 const [data , setData]=useState([])
+const [srch,setSrch]=useState(true)
 
 const [loading ,setLoading]=useState(true)
 
@@ -34,12 +35,16 @@ function handleSearch(evt) {
     const searchValue= searchRef.current.value;
     if (searchValue == "") {
        setPost(data)
+       setSrch(true)
     }
     else{
+  
     const finded = location.quronApi.filter((el)=>{
     const searchRegExp = new RegExp(searchValue, "gi");
     const searchText = `${el.nameUz}`;
+    setSrch(false)
     return searchText.match(searchRegExp);
+   
    })
   setPost(finded)
 }
@@ -50,7 +55,7 @@ location.quronApi.forEach((el,ind)=>{
        leftOverArr.push(el)
     }
 })
-if(post.length == 4){
+if(post.length == 4 && !srch){
     const newPost = post.concat(leftOverArr)
   setPost(newPost)
   }
@@ -60,7 +65,10 @@ if(loading){
         <span className="suralar-loader"></span>
     )
 }
+console.log(location.quronApi);
 return(
+
+
     <div className="suralar">
         <div className="background"></div>
         <Header />
@@ -79,7 +87,7 @@ return(
             {post.map((el,key)=>
             <SuraCard key={key} number={el.number || el.id} name={el.nameUz} enName={el.englishName} nameArab={el.name} audio={el.audio} playing={el.playing} />
             )}
-            <Pagination total={70} onChange={(page)=>fetcherData(page)} responsive />
+           {srch? <Pagination  total={70} onChange={(page)=>fetcherData(page)} responsive />:<div></div>}
           
             </div>
          </div>
