@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import "../oyat-card/oyat-card.scss"
 import axios from "axios"
-import useSound from "use-sound"
 
 
 const OyatCard=({number,arabtext,text,audioNumber})=>{
@@ -19,15 +18,13 @@ useEffect(()=>{
     evt.preventDefault();
     const song =new Audio(data)
     play?setPlay(false):setPlay(true)
-   
     play?song.play():song.pause()
-   console.log(data);
    
 }
 
 return(
     <div className="oyat-card">
-        <button onClick={getdata} children={play?"play":"pause"}></button>
+        <button onClick={getdata} className={play?"audio-button-pause" : "audio-button-play"}></button>
 
         <p className="sura-card-name-arab oyat-arab-text">{arabtext}</p>
         <p className="oyat-uzb-text">{number} . {text}</p>

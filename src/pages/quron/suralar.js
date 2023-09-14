@@ -55,7 +55,7 @@ location.quronApi.forEach((el,ind)=>{
        leftOverArr.push(el)
     }
 })
-if(post.length == 4 && !srch){
+if(post.length == 4){
     const newPost = post.concat(leftOverArr)
   setPost(newPost)
   }
@@ -65,7 +65,6 @@ if(loading){
         <span className="suralar-loader"></span>
     )
 }
-console.log(location.quronApi);
 return(
 
 
